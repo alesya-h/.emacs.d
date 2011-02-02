@@ -1,14 +1,14 @@
 ;; UI stuff goes here
 
-;; disable splash screen
-(setq inhibit-splash-screen t)
 
-;; use gloabally selected fonts for comments, strings etc.
-(global-font-lock-mode t)
+(setq inhibit-splash-screen t) ;; disable splash screen
+(setq tool-bar-mode nil) ;; disable toolbar
+(global-font-lock-mode t) ;; use gloabally selected fonts for comments, strings etc.
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
 
 ;; set default font
-;;(set-default-font "M+_2m-18")
-(set-default-font "Anka/Coder_Narrow-18")
+(set-frame-font "Anka/Coder_Narrow-18")
 
 ;; set width and height
 (if (and window-system (window-system))
@@ -33,6 +33,18 @@
 (require 'ido)
 (ido-mode)
 
+;; window-numbering
+(require 'window-numbering)
+(window-numbering-mode 1)
+
+;; resize windows with C-M-<arrows>
+(require 'winresize)
+
+;; git support
+(add-to-list 'load-path "~/.emacs.d/plugins/git")
+  (require 'git)
+  (require 'git-blame)
+
 ;; mode-compile
 (autoload 'mode-compile "mode-compile"
   "Command to compile current buffer file based on the major mode" t)
@@ -40,6 +52,28 @@
 (autoload 'mode-compile-kill "mode-compile"
   "Command to kill a compilation launched by `mode-compile'" t)
 (global-set-key "\C-ck" 'mode-compile-kill)
+
+;; auto complete
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete-1.3.1")
+(setq ac-dictionary-directories '())
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-1.3.1/dict")
+    (require 'auto-complete-config)
+    (ac-config-default)
+
+;; textmate.el
+(add-to-list 'load-path "~/.emacs.d/plugins/textmate")
+(require 'textmate)
+(textmate-mode)
+
+;; rvm.el
+(require 'rvm)
+(rvm-use-default)
+
+;; erlang-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/erlang")
+(setq erlang-root-dir "/usr/local/Cellar/erlang/R14B01/")
+(add-to-list 'exec-path "/usr/local/Cellar/erlang/R14B01/bin")
+(require 'erlang-start)
 
 ;; yaml-mode
 (require 'yaml-mode)
@@ -53,31 +87,18 @@
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 
 ;; acutex
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
-(add-hook 'TeX-mode-hook
- '(lambda ()
-   (local-set-key "\\" 'TeX-electric-macro)
-   (auto-fill-mode)
-   ))
-
-;; zencoding
-(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+;; (add-to-list 'load-path "~/.emacs.d/plugins/auctex-11.86")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/auctex-11.86/preview")
+;; (load "auctex.el" nil t t)
+;; (load "preview-latex.el" nil t t)
+;; (add-hook 'TeX-mode-hook
+;;  '(lambda ()
+;;    (local-set-key "\\" 'TeX-electric-macro)
+;;    (auto-fill-mode)
+;;    ))
 
 ;; quack (racket/scheme for emacs)
 (require 'quack)
-
-;; window-numbering
-(require 'window-numbering)
-(window-numbering-mode 1)
-
-;; resize windows with C-M-<arrows>
-(require 'winresize)
-
-;; twittering mode
-(add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode")
-(require 'twittering-mode)
 
 ;; asy-mode, lasy-mode, 
 (add-to-list 'load-path "/usr/local/texlive/2010/texmf/asymptote/")
@@ -86,17 +107,55 @@
 (autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
 (add-to-list 'auto-mode-alist '("\\.asy$" . asy-mode))
 
+;; ruby-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/ruby")
+  (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby files" t)
+  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
+  (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+;; inferior ruby mode
+(autoload 'run-ruby "inf-ruby"
+  "Run an inferior Ruby process")
+  (autoload 'inf-ruby-keys "inf-ruby"
+    "Set local key defs for inf-ruby in ruby-mode")
+  (add-hook 'ruby-mode-hook
+	    '(lambda ()
+	       (inf-ruby-keys)
+	       ))
+;; ruby electric
+(require 'ruby-electric)
+;; ruby C/C++ style
+(require 'ruby-style)
+(add-hook 'c-mode-hook 'ruby-style-c-mode)
+(add-hook 'c++-mode-hook 'ruby-style-c-mode)
+
+;; rails-reloaded
+(add-to-list 'load-path "~/.emacs.d/plugins/rails-reloaded")
+(require 'rails-autoload)
+
+;; zencoding
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
 
-;; ruby-mode
-(add-to-list 'load-path "~/.rvm/src/ruby-1.9.2-p136/misc")
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-(autoload 'ruby-mode "ruby-mode" "Major mode for editing Ruby code" t)
-;; Русские буквы, специально для Хабрахабра
+;; rsense
+(setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense-0.3"))
+(add-to-list 'load-path (concat rsense-home "/etc"))
+(require 'rsense)
+
+;; twittering mode
+(add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode")
+(require 'twittering-mode)
+
 ;; color-theme
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
 (require 'color-theme)
@@ -105,26 +164,21 @@
      (color-theme-initialize)
      (color-theme-hober)))
 
-;; erlang-mode
-(add-to-list 'load-path "/usr/local/Cellar/erlang/R14B/lib/erlang/lib/tools-2.6.6.1/emacs")
-(setq erlang-root-dir "/usr/local/Cellar/erlang/R14B/")
-(add-to-list 'exec-path "/usr/local/Cellar/erlang/R14B/bin")
-(require 'erlang-start)
-
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
  '(default-input-method "russian-computer")
  '(ido-enable-flex-matching t)
  '(quack-default-program "racket")
  '(quack-global-menu-p nil)
- '(quack-pretty-lambda-p t))
+ '(quack-pretty-lambda-p t)
+ '(tool-bar-mode nil))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
