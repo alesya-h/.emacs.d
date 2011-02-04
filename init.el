@@ -45,6 +45,12 @@
   (require 'git)
   (require 'git-blame)
 
+;; Collection of Emacs Development Environment Tools
+(load-file "~/.emacs.d/plugins/cedet-1.0/common/cedet.el")
+(global-ede-mode 1)
+(semantic-load-enable-code-helpers)
+(global-srecode-minor-mode 1)
+
 ;; mode-compile
 (autoload 'mode-compile "mode-compile"
   "Command to compile current buffer file based on the major mode" t)
@@ -151,6 +157,10 @@
 (setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense-0.3"))
 (add-to-list 'load-path (concat rsense-home "/etc"))
 (require 'rsense)
+
+;; Emacs Code Browser
+(add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
+(require 'ecb)
 
 ;; twittering mode
 (add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode")
