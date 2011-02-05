@@ -6,8 +6,16 @@
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 
+(defun font-existsp (font)
+    (if (null (x-list-fonts font))
+        nil t))
+
 ;; set default font
-(set-frame-font "Anka/Coder_Narrow-18")
+(cond ((font-existsp "Anka/Coder_Narrow")
+       (set-face-attribute 'default nil :font "Anka/Coder_Narrow"))
+      ((font-existsp "Anka/Coder Narrow")
+       (set-face-attribute 'default nil :font "Anka/Coder Narrow")))
+(set-face-attribute 'default nil :height 140)
 
 ;; set width and height
 (if (and window-system (window-system))
@@ -66,7 +74,7 @@
     (ac-config-default)
 
 ;; textmate.el
-(add-to-list 'load-path "~/.emacs.d/plugins/textmate")
+(add-to-list 'load-path "~/.emacs.d/plugins/textmate.el")
 (require 'textmate)
 (textmate-mode)
 
@@ -139,7 +147,7 @@
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
 ;; rails-reloaded
-(add-to-list 'load-path "~/.emacs.d/plugins/rails-reloaded")
+(add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
 (require 'rails-autoload)
 
 ;; zencoding
