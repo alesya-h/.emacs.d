@@ -1,6 +1,5 @@
 ;; UI stuff goes here
 
-
 (setq inhibit-splash-screen t) ;; disable splash screen
 (setq tool-bar-mode nil) ;; disable toolbar
 (global-font-lock-mode t) ;; use gloabally selected fonts for comments, strings etc.
@@ -173,6 +172,9 @@
   '(progn
      (color-theme-initialize)
      (color-theme-hober)))
+
+;; emacs server
+(server-start)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
