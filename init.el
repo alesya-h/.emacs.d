@@ -2,7 +2,6 @@
 
 (setq inhibit-splash-screen t) ;; disable splash screen
 (setq tool-bar-mode nil) ;; disable toolbar
-(setq scroll-bar-mode 'right)
 (global-font-lock-mode t) ;; use gloabally selected fonts for comments, strings etc.
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
@@ -16,7 +15,7 @@
        (set-face-attribute 'default nil :font "Anka/Coder_Narrow"))
       ((font-existsp "Anka/Coder Narrow")
        (set-face-attribute 'default nil :font "Anka/Coder Narrow")))
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 140) ;; pt*10
 
 ;; set width and height
 (if (and window-system (window-system))
@@ -166,7 +165,7 @@
 (add-to-list 'load-path (concat rsense-home "/etc"))
 (require 'rsense)
 
-;; Emacs Code Browser
+;; Load Emacs Code Browser
 (add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
 (require 'ecb)
 
@@ -182,6 +181,9 @@
      (color-theme-initialize)
      (color-theme-hober)))
 
+;; Start ECB
+(ecb-activate)
+
 ;; emacs server
 (server-start)
 
@@ -192,12 +194,14 @@
   ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
  '(default-input-method "russian-computer")
+ '(ecb-layout-window-sizes (quote (("left8" (0.215311004784689 . 0.23809523809523808) (0.215311004784689 . 0.23809523809523808) (0.215311004784689 . 0.2619047619047619) (0.215311004784689 . 0.23809523809523808)))))
  '(ecb-options-version "2.40")
- '(ecb-source-path (quote ("~/adbank4rewriter/" "~/jobandtalent/")))
+ '(ecb-source-path (quote ("~/jobandtalent/")))
  '(ido-enable-flex-matching t)
  '(quack-default-program "racket")
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
+ '(scroll-bar-mode (quote right))
  '(tool-bar-mode nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
