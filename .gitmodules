@@ -1,0 +1,9 @@
+[submodule "plugins/emacs-rails-reloaded"]
+	path = plugins/emacs-rails-reloaded
+	url = https://github.com/dima-exe/emacs-rails-reloaded.git
+[submodule "plugins/rinari"]
+	path = plugins/rinari
+	url = https://github.com/eschulte/rinari.git
+[submodule "plugins/rhtml"]
+	path = plugins/rhtml
+	url = https://github.com/eschulte/rhtml.git
