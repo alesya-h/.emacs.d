@@ -7,3 +7,9 @@
 [submodule "plugins/rhtml"]
 	path = plugins/rhtml
 	url = https://github.com/eschulte/rhtml.git
+[submodule "plugins/textmate.el"]
+	path = plugins/textmate.el
+	url = https://github.com/defunkt/textmate.el.git
+[submodule "plugins/twittering-mode"]
+	path = plugins/twittering-mode
+	url = https://github.com/hayamiz/twittering-mode.git

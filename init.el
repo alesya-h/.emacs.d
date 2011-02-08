@@ -140,19 +140,30 @@
 	       (inf-ruby-keys)
 	       ))
 ;; ruby electric
-(require 'ruby-electric)
+;; (require 'ruby-electric)
 ;; ruby C/C++ style
 (require 'ruby-style)
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
+
+;; rsense
+(setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense-0.3"))
+(add-to-list 'load-path (concat rsense-home "/etc"))
+(require 'rsense)
+
+
+;; Rinari
+(add-to-list 'load-path "~/.emacs.d/plugins/rinari")
+(require 'rinari)
 
 ;;; rhtml mode
 (add-to-list 'load-path "~/.emacs.d/plugins/rhtml")
 (require 'rhtml-mode)
 
 ;; rails-reloaded
-(add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
-(require 'rails-autoload)
+;;(add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
+;;(require 'rails-autoload)
+
 
 ;; zencoding
 (require 'zencoding-mode)
@@ -163,11 +174,6 @@
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
-
-;; rsense
-(setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense-0.3"))
-(add-to-list 'load-path (concat rsense-home "/etc"))
-(require 'rsense)
 
 ;; Load Emacs Code Browser
 (add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
@@ -186,7 +192,7 @@
      (color-theme-hober)))
 
 ;; Start ECB
-(ecb-activate)
+;; (ecb-activate)
 
 ;; emacs server
 (server-start)
