@@ -5,6 +5,7 @@
 (global-font-lock-mode t) ;; use gloabally selected fonts for comments, strings etc.
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
+(setq ecb-tip-of-the-day nil)
 
 (defun font-existsp (font)
     (if (null (x-list-fonts font))
@@ -67,9 +68,9 @@
 (global-set-key "\C-ck" 'mode-compile-kill)
 
 ;; auto complete
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete-1.3.1")
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
 (setq ac-dictionary-directories '())
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-1.3.1/dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
     (require 'auto-complete-config)
     (ac-config-default)
 
@@ -120,6 +121,10 @@
 (autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
 (add-to-list 'auto-mode-alist '("\\.asy$" . asy-mode))
 
+;; zencoding
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+
 ;; ruby-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/ruby")
   (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby files" t)
@@ -146,30 +151,33 @@
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
-;; rsense
-(setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense-0.3"))
-(add-to-list 'load-path (concat rsense-home "/etc"))
-(require 'rsense)
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (add-to-list 'ac-sources 'ac-source-rsense-method)
+            (add-to-list 'ac-sources 'ac-source-rsense-constant)))
 
+;; rails-reloaded
+(add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
+(require 'rails-autoload)
 
 ;; Rinari
-(add-to-list 'load-path "~/.emacs.d/plugins/rinari")
-(require 'rinari)
+;;(add-to-list 'load-path "~/.emacs.d/plugins/rinari")
+;;(require 'rinari)
 
 ;;; rhtml mode
 (add-to-list 'load-path "~/.emacs.d/plugins/rhtml")
-     (require 'rhtml-mode)
-     (add-hook 'rhtml-mode-hook
-     	  (lambda () (rinari-launch)))
+(require 'rhtml-mode)
+;;(add-hook 'rhtml-mode-hook
+;;          (lambda () (rinari-launch)))
 
-;; rails-reloaded
-;;(add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
-;;(require 'rails-autoload)
+;; rsense
+(setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense"))
+(add-to-list 'load-path (concat rsense-home "/etc"))
+(require 'rsense)
 
-
-;; zencoding
-(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+;; YARI
+(add-to-list 'load-path "~/.emacs.d/plugins/yari.el")
+(require 'yari)
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
@@ -193,12 +201,6 @@
      (color-theme-initialize)
      (color-theme-hober)))
 
-;; Start ECB
-;; (ecb-activate)
-
-;; emacs server
-(server-start)
-
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -206,7 +208,6 @@
   ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
  '(default-input-method "russian-computer")
- '(ecb-layout-window-sizes (quote (("left8" (0.215311004784689 . 0.23809523809523808) (0.215311004784689 . 0.23809523809523808) (0.215311004784689 . 0.2619047619047619) (0.215311004784689 . 0.23809523809523808)))))
  '(ecb-options-version "2.40")
  '(ecb-source-path (quote ("~/jobandtalent/")))
  '(ido-enable-flex-matching t)
@@ -221,3 +222,9 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
+;; Start ECB
+(ecb-activate)
+
+;; emacs server
+(server-start)

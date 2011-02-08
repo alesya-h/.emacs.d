@@ -13,3 +13,12 @@
 [submodule "plugins/twittering-mode"]
 	path = plugins/twittering-mode
 	url = https://github.com/hayamiz/twittering-mode.git
+[submodule "plugins/yari.el"]
+	path = plugins/yari.el
+	url = https://github.com/hron/yari.el.git
+[submodule "plugins/auto-complete"]
+	path = plugins/auto-complete
+	url = https://github.com/m2ym/auto-complete.git
+[submodule "plugins/rsense"]
+	path = plugins/rsense
+	url = https://github.com/m2ym/rsense.git
