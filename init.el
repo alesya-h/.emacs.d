@@ -146,6 +146,10 @@
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
+;;; rhtml mode
+(add-to-list 'load-path "~/.emacs.d/plugins/rhtml")
+(require 'rhtml-mode)
+
 ;; rails-reloaded
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
 (require 'rails-autoload)
