@@ -7,7 +7,6 @@
  '(default-input-method "russian-computer")
  '(ecb-options-version "2.40")
  '(ecb-source-path (quote ("~/jobandtalent/")))
- '(ecb-tip-of-the-day nil)
  '(global-font-lock-mode t)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
@@ -24,9 +23,11 @@
  )
 
 ;; UI stuff goes here
-(setq-default tab-width 2
-              indent-tabs-mode nil)
 
+(global-font-lock-mode t) ;; use gloabally selected fonts for comments, strings etc.
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+(setq ecb-tip-of-the-day nil)
 
 (defun font-existsp (font)
     (if (null (x-list-fonts font))
