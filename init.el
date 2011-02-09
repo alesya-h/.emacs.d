@@ -228,7 +228,7 @@
   (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen) 
                                            nil 
                                            'fullboth)))
-(global-set-key [(meta return)] 'toggle-fullscreen) 
+(global-set-key [(f11)] 'toggle-fullscreen)
 
 ;; Start ECB
 (ecb-activate)
