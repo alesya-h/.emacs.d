@@ -66,9 +66,6 @@
 (require 'window-numbering)
 (window-numbering-mode 1)
 
-;; show/hide menubar
-(global-set-key "f12" 'toggle-menu-bar-mode-from-frame)
-
 ;; resize windows with C-M-<arrows>
 (require 'winresize)
 
@@ -225,13 +222,16 @@
      (color-theme-initialize)
      (color-theme-gtk-ide)))
 
-;; full screen toggle using command+[RET]
+;; full screen toggle using f11
 (defun toggle-fullscreen () 
   (interactive) 
   (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen) 
                                            nil 
                                            'fullboth)))
 (global-set-key [(f11)] 'toggle-fullscreen)
+
+;; show/hide menubar by f12
+(global-set-key [(f12)] 'toggle-menu-bar-mode-from-frame)
 
 ;; Start ECB
 (ecb-activate)
