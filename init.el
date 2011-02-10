@@ -66,6 +66,9 @@
 (require 'window-numbering)
 (window-numbering-mode 1)
 
+;; show/hide menubar
+(global-set-key "f12" 'toggle-menu-bar-mode-from-frame)
+
 ;; resize windows with C-M-<arrows>
 (require 'winresize)
 
@@ -220,7 +223,7 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-hober)))
+     (color-theme-gtk-ide)))
 
 ;; full screen toggle using command+[RET]
 (defun toggle-fullscreen () 
