@@ -33,11 +33,13 @@
         nil t))
 
 ;; set default font
-(cond ((font-existsp "Anka/Coder_Narrow")
-       (set-face-attribute 'default nil :font "Anka/Coder_Narrow"))
-      ((font-existsp "Anka/Coder Narrow")
-       (set-face-attribute 'default nil :font "Anka/Coder Narrow")))
-(set-face-attribute 'default nil :height 140) ;; pt*10
+(cond ;((font-existsp "Anka/Coder_Narrow")
+       ;(set-face-attribute 'default nil :font "Anka/Coder_Narrow"))
+      ;((font-existsp "Anka/Coder Narrow")
+       ;(set-face-attribute 'default nil :font "Anka/Coder Narrow")))
+      ((font-existsp "Inconsolata")
+       (set-face-attribute 'default nil :font "Inconsolata")))
+(set-face-attribute 'default nil :height 120) ;; pt*10
 
 ;; set width and height
 (if (and window-system (window-system))
@@ -174,8 +176,10 @@
 
 (add-hook 'ruby-mode-hook
           (lambda ()
-            (add-to-list 'ac-sources 'ac-source-rsense-method)
-            (add-to-list 'ac-sources 'ac-source-rsense-constant)))
+            ;; (add-to-list 'ac-sources 'ac-source-rsense-method)
+            ;; (add-to-list 'ac-sources 'ac-source-rsense-constant)
+            (outline-minor-mode)
+            (setq outline-regexp " *\\(def \\|class\\|module\\)")))
 
 ;; rails-reloaded
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
