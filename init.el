@@ -184,6 +184,7 @@
             ;; (add-to-list 'ac-sources 'ac-source-rsense-method)
             ;; (add-to-list 'ac-sources 'ac-source-rsense-constant)
             (hs-minor-mode)))
+(global-set-key (kbd "s-<spc>") 'hs-toggle-hiding)
 
 ;; rails-reloaded
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
