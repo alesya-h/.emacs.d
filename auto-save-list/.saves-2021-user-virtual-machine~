@@ -1,8 +1,6 @@
-/home/user/.emacs.d/init.el
-/home/user/.emacs.d/#init.el#
-/home/user/jobandtalent/app/controllers/payments_controller.rb
-/home/user/jobandtalent/app/controllers/#payments_controller.rb#
 /home/user/jobandtalent/config/payments.yml
 /home/user/jobandtalent/config/#payments.yml#
-/home/user/jobandtalent/app/views/payments/select_gateway.html.erb
-/home/user/jobandtalent/app/views/payments/#select_gateway.html.erb#
+/home/user/jobandtalent/app/controllers/payments_controller.rb
+/home/user/jobandtalent/app/controllers/#payments_controller.rb#
+/home/user/jobandtalent/app/models/payment.rb
+/home/user/jobandtalent/app/models/#payment.rb#
