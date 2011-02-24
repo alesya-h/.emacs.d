@@ -6,7 +6,7 @@
  '(TeX-engine (quote xetex))
  '(default-input-method "russian-computer")
  '(ecb-options-version "2.40")
- '(ecb-source-path (quote ("~/jobandtalent/")))
+ '(ecb-source-path (quote (("~/jobandtalent/" "JobAndTalent") ("~/.rvm/gems/ruby-1.8.7-p330/gems/" "gems 1.8.7") ("~/itransition/" "itransition"))))
  '(ecb-tip-of-the-day nil)
  '(global-font-lock-mode t)
  '(ido-enable-flex-matching t)
@@ -174,12 +174,16 @@
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
+(add-to-list 'hs-special-modes-alist
+	     '(ruby-mode
+	       "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
+	       (lambda (arg) (ruby-end-of-block)) nil))
+
 (add-hook 'ruby-mode-hook
           (lambda ()
             ;; (add-to-list 'ac-sources 'ac-source-rsense-method)
             ;; (add-to-list 'ac-sources 'ac-source-rsense-constant)
-            (outline-minor-mode)
-            (setq outline-regexp " *\\(def \\|class\\|module\\)")))
+            (hs-minor-mode)))
 
 ;; rails-reloaded
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
