@@ -39,7 +39,7 @@
        ;(set-face-attribute 'default nil :font "Anka/Coder Narrow")))
       ((font-existsp "Inconsolata")
        (set-face-attribute 'default nil :font "Inconsolata")))
-(set-face-attribute 'default nil :height 120) ;; pt*10
+(set-face-attribute 'default nil :height 140) ;; pt*10
 
 ;; set width and height
 (if (and window-system (window-system))
@@ -76,6 +76,12 @@
   (require 'git)
   (require 'git-blame)
 
+;; yasnippet
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
+
 ;; Collection of Emacs Development Environment Tools
 (load-file "~/.emacs.d/plugins/cedet-1.0/common/cedet.el")
 (global-ede-mode 1)
@@ -94,8 +100,8 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
 (setq ac-dictionary-directories '())
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
-    (require 'auto-complete-config)
-    (ac-config-default)
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;; textmate.el
 (add-to-list 'load-path "~/.emacs.d/plugins/textmate.el")
@@ -105,6 +111,9 @@
 ;; rvm.el
 (require 'rvm)
 (rvm-use-default)
+
+;; nxhtml, MuMaMo
+(load "~/.emacs.d/plugins/nxhtml/autostart.el")
 
 ;; erlang-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/erlang")
@@ -174,12 +183,12 @@
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
-
-
-
-
-
-
+;; MuMaMo-Mode for rhtml files
+(add-to-list 'load-path "~/.emacs.d/plugins/nxhtml/util")
+(require 'mumamo-fun)
+(setq mumamo-chunk-coloring 'submode-colored)
+(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
+(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
 
 (defun display-code-line-counts (ov)
   (when (eq 'code (overlay-get ov 'hs))
@@ -215,7 +224,6 @@
   (hs-minor-mode arg))
 
 
-
 (global-set-key (kbd "s-<SPC>") 'hs-toggle-hiding)
 (add-hook 'ruby-mode-hook
           (lambda ()
@@ -228,16 +236,6 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
 (require 'rails-autoload)
 
-;; Rinari
-;;(add-to-list 'load-path "~/.emacs.d/plugins/rinari")
-;;(require 'rinari)
-
-;;; rhtml mode
-(add-to-list 'load-path "~/.emacs.d/plugins/rhtml")
-(require 'rhtml-mode)
-;;(add-hook 'rhtml-mode-hook
-;;          (lambda () (rinari-launch)))
-
 ;; rsense
 (setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense"))
 (add-to-list 'load-path (concat rsense-home "/etc"))
@@ -247,11 +245,46 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/yari.el")
 (require 'yari)
 
-;; yasnippet
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (local-set-key [f1] 'yari-anything)))
+
+;; cperl mode by default
+(defalias 'perl-mode 'cperl-mode)
+
+  ;;; integrate ido with artist-mode
+(defun artist-ido-select-operation (type)
+  "Use ido to select a drawing operation in artist-mode"
+  (interactive (list (ido-completing-read "Drawing operation: " 
+                                          (list "Pen" "Pen Line" "line" "straight line" "rectangle" 
+                                                "square" "poly-line" "straight poly-line" "ellipse" 
+                                                "circle" "text see-thru" "text-overwrite" "spray-can" 
+                                                "erase char" "erase rectangle" "vaporize line" "vaporize lines" 
+                                                "cut rectangle" "cut square" "copy rectangle" "copy square" 
+                                                "paste" "flood-fill"))))
+  (artist-select-operation type))
+(defun artist-ido-select-settings (type)
+  "Use ido to select a setting to change in artist-mode"
+  (interactive (list (ido-completing-read "Setting: " 
+                                          (list "Set Fill" "Set Line" "Set Erase" "Spray-size" "Spray-chars" 
+                                                "Rubber-banding" "Trimming" "Borders"))))
+  (if (equal type "Spray-size") 
+      (artist-select-operation "spray set size")
+    (call-interactively (artist-fc-get-fn-from-symbol 
+                         (cdr (assoc type '(("Set Fill" . set-fill)
+                                            ("Set Line" . set-line)
+                                            ("Set Erase" . set-erase)
+                                            ("Rubber-banding" . rubber-band)
+                                            ("Trimming" . trimming)
+                                            ("Borders" . borders)
+                                            ("Spray-chars" . spray-chars))))))))
+(add-hook 'artist-mode-init-hook 
+          (lambda ()
+            (define-key artist-mode-map (kbd "C-c C-a C-o") 'artist-ido-select-operation)
+            (define-key artist-mode-map (kbd "C-c C-a C-c") 'artist-ido-select-settings)
+            (define-key artist-mode-map [down-mouse-3] 'artist-mouse-choose-operation)
+            (define-key artist-mode-map [S-down-mouse-3] 'artist-down-mouse-3)))
+
 
 ;; Load Emacs Code Browser
 (add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
@@ -304,3 +337,4 @@
 
 ;; emacs server
 (server-start)
+(put 'dired-find-alternate-file 'disabled nil)
