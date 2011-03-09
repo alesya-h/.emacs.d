@@ -5,6 +5,7 @@
   ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
  '(default-input-method "russian-computer")
+ '(ecb-layout-window-sizes (quote (("left8" (0.1694915254237288 . 0.24074074074074073) (0.1694915254237288 . 0.25925925925925924) (0.1694915254237288 . 0.2962962962962963) (0.1694915254237288 . 0.18518518518518517)))))
  '(ecb-options-version "2.40")
  '(ecb-source-path (quote (("~/jobandtalent/" "JobAndTalent") ("~/.rvm/gems/ruby-1.8.7-p330/gems/" "gems 1.8.7") ("~/itransition/" "itransition"))))
  '(ecb-tip-of-the-day nil)
@@ -23,9 +24,10 @@
   ;; If there is more than one, they won't work right.
  )
 
+(setq warning-suppress-types nil)
+
 ;; UI stuff goes here
-(setq-default tab-width 2
-              indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 
 
 (defun font-existsp (font)
@@ -39,12 +41,12 @@
        ;(set-face-attribute 'default nil :font "Anka/Coder Narrow")))
       ((font-existsp "Inconsolata")
        (set-face-attribute 'default nil :font "Inconsolata")))
-(set-face-attribute 'default nil :height 140) ;; pt*10
+(set-face-attribute 'default nil :height 120) ;; pt*10
 
 ;; set width and height
 (if (and window-system (window-system))
-    (progn (set-frame-width (selected-frame) 164)
-     (set-frame-height (selected-frame) 35)))
+    (progn (set-frame-width (selected-frame) 236)
+     (set-frame-height (selected-frame) 56)))
 
 ;; replace "yes-or-no" with "y-or-n"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -111,9 +113,6 @@
 ;; rvm.el
 (require 'rvm)
 (rvm-use-default)
-
-;; nxhtml, MuMaMo
-(load "~/.emacs.d/plugins/nxhtml/autostart.el")
 
 ;; erlang-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/erlang")
@@ -183,12 +182,7 @@
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
-;; MuMaMo-Mode for rhtml files
-(add-to-list 'load-path "~/.emacs.d/plugins/nxhtml/util")
-(require 'mumamo-fun)
-(setq mumamo-chunk-coloring 'submode-colored)
-(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
-(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
+(setq-mode-local ruby-mode tab-width 2)
 
 (defun display-code-line-counts (ov)
   (when (eq 'code (overlay-get ov 'hs))
@@ -231,10 +225,21 @@
             ;; (add-to-list 'ac-sources 'ac-source-rsense-constant)
             (ruby-hs-minor-mode)))
 
+;; nxhtml, MuMaMo
+(setq mumamo-survive nil)
+(load "~/.emacs.d/plugins/nxhtml/autostart.el")
 
 ;; rails-reloaded
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
 (require 'rails-autoload)
+
+;; MuMaMo-Mode for rhtml files
+(add-to-list 'load-path "~/.emacs.d/plugins/nxhtml/util")
+(require 'mumamo-fun)
+(setq mumamo-chunk-coloring 'submode-colored)
+(add-to-list 'auto-mode-alist '("\\.rhtml$" . eruby-nxhtml-mumamo-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\.erb$" . eruby-nxhtml-mumamo-mode))
+(add-to-list 'auto-mode-alist '("\\.fbml\\.erb$" . eruby-nxhtml-mumamo-mode))
 
 ;; rsense
 (setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense"))

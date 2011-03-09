@@ -1,4 +1,14 @@
-((("current-local-map" .
+((("warning-suppress-types" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("warning-suppress-p" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("nil" .
+   [2 0 0])
+  ("mumamo-survive-hooks" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("eruby-html-mumamo-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0])
+  ("current-local-map" .
    [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
   ("artist-mouse-choose-operation" .
    [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
@@ -47,7 +57,7 @@
   ("expand-file-name" .
    [1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
   ("setq" .
-   [1 1 0 0])
+   [3 1 0 0])
   ("children" .
    [7 0 0 0 0 0 3 1])
   ("worst" .
@@ -129,4 +139,8 @@
   ("last" .
    [1 0 0 0])
   ("artist-down-mouse-3" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])))
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("setq-mode-local" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("ruby-mode" .
+   [1 0 0 0 0 0 0 0 0])))
