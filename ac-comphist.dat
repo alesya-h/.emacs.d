@@ -1,4 +1,10 @@
-((("warning-suppress-types" .
+((("/usr/bin/xmonad" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("/usr/bin/" .
+   [0 0 0 0 0 1 0 0 0])
+  ("/usr/" .
+   [0 0 1 0 0])
+  ("warning-suppress-types" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
   ("warning-suppress-p" .
    [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
@@ -143,4 +149,6 @@
   ("setq-mode-local" .
    [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
   ("ruby-mode" .
-   [1 0 0 0 0 0 0 0 0])))
+   [1 0 0 0 0 0 0 0 0])
+  ("export" .
+   [1 0 0 0 0 0])))

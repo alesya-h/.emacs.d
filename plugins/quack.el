@@ -5,7 +5,7 @@
 ;; Emacs-style font-lock specs adapted from GNU Emacs 21.2 scheme.el.
 ;; Scheme Mode menu adapted from GNU Emacs 21.2 cmuscheme.el.
 
-(defconst quack-version      "0.39")
+(defconst quack-version      "0.40")
 (defconst quack-author-name  "Neil Van Dyke")
 (defconst quack-author-email "neil@neilvandyke.org")
 (defconst quack-web-page     "http://www.neilvandyke.org/quack/")
@@ -20,7 +20,7 @@ particular purpose.  See the GNU General Public License for more details.  See
 http://www.gnu.org/licenses/ for details.  For other licenses and consulting,
 please contact Neil Van Dyke.")
 
-(defconst quack-cvsid "$Id: quack.el,v 1.467 2010/10/18 09:59:15 neilpair Exp $")
+(defconst quack-cvsid "$Id: quack.el,v 1.469 2010/12/23 00:01:33 neilpair Exp $")
 
 ;;; Commentary:
 
@@ -113,6 +113,10 @@ please contact Neil Van Dyke.")
 ;;     neil@neilvandyke.org to add you to the moderated `scheme-announce' list.
 
 ;; HISTORY:
+;;
+;;     Version 0.40 (2010-12-22)
+;;         * Added indent rules for Racket `let:', `let*:', and `match'.  And
+;;           a provisional rule for `define:'.
 ;;
 ;;     Version 0.39 (2010-10-18)
 ;;         * Renamed "typed/scheme" to "typed/racket".
@@ -750,8 +754,8 @@ This only has effect when `quack-fontify-style' is `plt'."
   :initialize 'custom-initialize-default)
 
 (defcustom quack-pltish-fontify-keywords-p t
-  ;; TODO: !!! Rename this from "keywords" to "syntax-keywords", here, and in
-  ;; for face names.
+  ;; TODO: Rename this from "keywords" to "syntax-keywords", here, and in for
+  ;; face names.
   "*If non-nil, fontify keywords in PLT-style fontification.
 
 This only has effect when `quack-fontify-style' is `plt'."
@@ -763,8 +767,8 @@ This only has effect when `quack-fontify-style' is `plt'."
 (defcustom quack-pltish-keywords-to-fontify
   ;; TODO: These are currently R5RS and some SRFI special syntax plus a bunch
   ;; of PLT, especially PLT 200 class.ss, and some "define-"* variants from
-  ;; various dialects.  The dumbness of this kind of highlighting without
-  ;; regard to context is not really satisfactory.
+  ;; various dialects, plus some Racket 5.0.2...  The dumbness of this kind of
+  ;; highlighting without regard to context is not really satisfactory.
   '(
 
     "and" "begin" "begin0" "c-declare" "c-lambda" "case" "case-lambda" "class"
@@ -3176,21 +3180,25 @@ Can be used in your `~/.emacs' file something like this:
 (put 'class              'scheme-indent-function 'defun)
 (put 'class*             'scheme-indent-function 'defun)
 (put 'compound-unit/sig  'scheme-indent-function 0)
+(put 'define:            'scheme-indent-function 3)
 (put 'dynamic-wind       'scheme-indent-function 0)
 (put 'for/fold           'scheme-indent-function 2)
 (put 'instantiate        'scheme-indent-function 2)
 (put 'interface          'scheme-indent-function 1)
 (put 'lambda/kw          'scheme-indent-function 1)
 (put 'let*-values        'scheme-indent-function 1)
+(put 'let*:              'scheme-indent-function 'quack-let-colon-indent)
 (put 'let+               'scheme-indent-function 1)
 (put 'let-values         'scheme-indent-function 1)
 (put 'let/ec             'scheme-indent-function 1)
+(put 'let:               'scheme-indent-function 'quack-let-colon-indent)
+(put 'match              'scheme-indent-function 1)
 (put 'mixin              'scheme-indent-function 2)
 (put 'module             'scheme-indent-function 'defun)
 (put 'opt-lambda         'scheme-indent-function 1)
 (put 'parameterize       'scheme-indent-function 1)
-(put 'parameterize-break 'scheme-indent-function 1)
 (put 'parameterize*      'scheme-indent-function 1)
+(put 'parameterize-break 'scheme-indent-function 1)
 (put 'quasisyntax/loc    'scheme-indent-function 1)
 (put 'receive            'scheme-indent-function 2)
 (put 'send*              'scheme-indent-function 1)
@@ -3205,6 +3213,13 @@ Can be used in your `~/.emacs' file something like this:
 (put 'with-handlers      'scheme-indent-function 1)
 (put 'with-method        'scheme-indent-function 1)
 (put 'with-syntax        'scheme-indent-function 1)
+
+(defun quack-let-colon-indent (state indent-point normal-indent)
+  ;; Note: This was adapted from "scheme.el" "scheme-let-indent".
+  (skip-chars-forward " \t")
+  (if (looking-at "[-a-zA-Z0-9+*/?!@$%^&_:~]")
+      (lisp-indent-specform 4 state indent-point normal-indent)
+    (lisp-indent-specform 1 state indent-point normal-indent)))
 
 ;; Keymaps:
 
