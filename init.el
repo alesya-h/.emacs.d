@@ -7,18 +7,17 @@
  '(default-input-method "russian-computer")
  '(ecb-layout-window-sizes (quote (("left8" (0.1694915254237288 . 0.24074074074074073) (0.1694915254237288 . 0.25925925925925924) (0.1694915254237288 . 0.2962962962962963) (0.1694915254237288 . 0.18518518518518517)))))
  '(ecb-options-version "2.40")
- '(ecb-source-path (quote (("~/projects/work/" "Work Projects") ("~/.rvm/gems/ruby-1.8.7-p330/gems/" "gems 1.8.7") ("~/projects/my" "My Projects") ("~/projects/forks" "My Forks"))))
+ '(ecb-source-path (quote (("~/projects/work/PM-fixed-ods" "Fixed odds"))))
  '(ecb-tip-of-the-day nil)
  '(global-font-lock-mode t)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
+ '(menu-bar-mode nil)
  '(quack-default-program "racket")
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
  '(scroll-bar-mode (quote right))
- '(tool-bar-mode nil)
- '(menu-bar-mode nil)
-)
+ '(tool-bar-mode nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -68,6 +67,11 @@
 (require 'ido)
 (ido-mode)
 
+;;icicles
+;; (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
+;; (require 'icicles)
+;; (icy-mode 1)
+
 ;; window-numbering
 (require 'window-numbering)
 (window-numbering-mode 1)
@@ -96,9 +100,6 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
 (require 'ecb)
 
-;; project support
-(require 'proel)
-
 ;; mode-compile
 (autoload 'mode-compile "mode-compile"
   "Command to compile current buffer file based on the major mode" t)
@@ -122,6 +123,13 @@
 ;; rvm.el
 (require 'rvm)
 (rvm-use-default)
+
+;; lua-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/lua-mode")
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+
 
 ;; erlang-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/erlang")
@@ -346,5 +354,11 @@
 (ecb-activate)
 
 ;; emacs server
+(add-hook 'server-switch-hook
+            (lambda ()
+              (when (current-local-map)
+                (use-local-map (copy-keymap (current-local-map))))
+	      (when server-buffer-clients
+		(local-set-key (kbd "C-x k") 'server-edit))))
 (server-start)
 (put 'dired-find-alternate-file 'disabled nil)
