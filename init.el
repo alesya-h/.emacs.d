@@ -235,7 +235,7 @@
   (hs-minor-mode arg))
 
 
-(global-set-key (kbd "s-<SPC>") 'hs-toggle-hiding)
+(global-set-key (kbd "M-s-<SPC>") 'hs-toggle-hiding)
 (add-hook 'ruby-mode-hook
           (lambda ()
             ;; (add-to-list 'ac-sources 'ac-source-rsense-method)
