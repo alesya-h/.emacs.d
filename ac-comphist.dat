@@ -1,206 +1,216 @@
-((("popup" .
+((("title" .
    [1 0 0 0 0])
-  ("prepare" .
-   [1 0 0 0 0 0 0])
-  ("complete" .
+  ("url" .
+   [1 0 0])
+  ("gem" .
+   [2 0 0])
+  ("debugger" .
    [1 0 0 0 0 0 0 0])
-  ("delete" .
+  ("rtags" .
+   [1 0 0 0 0])
+  ("GTAGSLABEL" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("export" .
+   [2 0 0 0 0 0])
+  ("ruby-mode" .
+   [1 0 0 0 0 0 0 0 0])
+  ("setq-mode-local" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("artist-down-mouse-3" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("last" .
+   [1 0 0 0])
+  ("value" .
+   [1 0 0 0 0])
+  ("params" .
    [1 0 0 0 0 0])
-  ("put" .
-   [1 0 0])
-  ("get" .
-   [1 0 0])
-  ("end" .
-   [1 0 0])
-  ("partial" .
+  ("form_packages" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("map" .
+   [4 0 0])
+  ("find_all" .
+   [0 0 1 0 0 0 0 0])
+  ("Package" .
+   [0 0 0 0 0 1 0])
+  ("company" .
    [1 0 0 0 0 0 0])
-  ("should" .
+  ("checkout_sum" .
+   [0 0 0 0 1 0 0 0 0 0 0 0])
+  ("Checkout" .
+   [0 0 0 1 0 0 0 0])
+  ("ENV" .
+   [2 0 0])
+  ("auto" .
+   [1 0 0 0])
+  ("yari" .
+   [1 0 0 0])
+  ("Socket" .
+   [1 0 0 0 0 0])
+  ("load-path" .
+   [1 0 0 0 0 0 0 0 0])
+  ("add-to-list" .
+   [0 0 0 0 0 1 0 0 0 0 0])
+  ("semantic-mode" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("global-ede-mode" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("load-file" .
+   [0 0 0 0 0 0 0 0 1])
+  ("rvm" .
+   [1 0 0])
+  ("first" .
+   [1 0 0 0 0])
+  ("draw" .
+   [2 0 0 0])
+  ("drawing" .
+   [2 0 0 0 0 0 0])
+  ("rectangle" .
+   [0 0 0 1 0 0 0 0 1])
+  ("canvas" .
+   [2 0 0 0 0 0])
+  ("Rectangle" .
+   [0 0 0 0 0 0 2 0 0])
+  ("return" .
+   [0 0 0 1 0 0])
+  ("def" .
+   [2 0 0])
+  ("attr_accessor" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("width" .
+   [0 0 1 0 0])
+  ("initialize" .
+   [0 0 1 0 0 0 0 0 0 0])
+  ("class" .
+   [2 0 0 0 0])
+  ("push" .
+   [1 0 0 0])
+  ("File" .
+   [1 0 0 0])
+  ("select" .
+   [1 0 1 0 0 0])
+  ("else" .
+   [4 0 0 0])
+  ("row" .
+   [2 0 0])
+  ("squarify" .
+   [1 0 1 1 0 0 0 0])
+  ("worst" .
+   [2 0 0 0 0])
+  ("children" .
+   [7 0 0 0 0 0 3 1])
+  ("setq" .
+   [3 1 0 0])
+  ("expand-file-name" .
+   [1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("concat" .
+   [0 0 1 0 0 0])
+  ("rsense-home" .
+   [0 0 1 0 0 0 0 0 0 0 0])
+  ("require" .
+   [4 0 0 1 0 0 0])
+  ("rsense" .
+   [1 0 0 0 0 0])
+  ("node" .
+   [2 0 0 0])
+  ("child" .
+   [5 0 2 0 0])
+  ("size" .
+   [2 0 1 0])
+  ("to_s" .
+   [0 0 2 0])
+  ("server-start" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("color-theme-clarity" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("color-theme-gtk-ide" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("string" .
+   [2 0 0 0 0 0])
+  ("add-hook" .
+   [0 0 0 1 0 0 0 0])
+  ("artist-mode" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("lambda" .
+   [1 0 0 1 0 0])
+  ("define-key*" .
+   [0 0 0 1 1 0 0 0 0 0 0])
+  ("define-key" .
+   [3 0 0 0 0 0 0 0 0 0])
+  ("local-set-key" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("S-mouse-3" .
+   [0 0 1 0 0 0 0 0 0])
+  ("a" .
+   [1])
+  ("artist" .
+   [0 0 0 1 0 0])
+  ("artist-mouse-choose-operation" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("current-local-map" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("eruby-html-mumamo-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0])
+  ("mumamo-survive-hooks" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("nil" .
+   [2 0 0])
+  ("warning-suppress-p" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("warning-suppress-types" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("/usr/" .
+   [0 0 1 0 0])
+  ("/usr/bin/" .
+   [0 0 0 0 0 1 0 0 0])
+  ("/usr/bin/xmonad" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("exec" .
+   [1 0 0 0])
+  ("awesome" .
+   [1 0 0 0 0 0 0])
+  ("PopupKind" .
+   [1 0 0 0 0 0 0 0 0])
+  ("names" .
+   [1 0 0 1 0])
+  ("Popup" .
+   [1 0 0 0 0])
+  ("daily_bonuses" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("hide_table_banner" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("ElectracadeEvent" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("name" .
+   [2 0 0 0])
+  ("include?" .
+   [1 0 0 0 0 0 0 0])
+  ("table_name" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("helper" .
    [1 0 0 0 0 0])
   ("true" .
    [1 0 0 0])
-  ("helper" .
+  ("should" .
    [1 0 0 0 0 0])
-  ("table_name" .
-   [1 0 0 0 0 0 0 0 0 0])
-  ("include?" .
-   [1 0 0 0 0 0 0 0])
-  ("name" .
-   [2 0 0 0])
-  ("ElectracadeEvent" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("hide_table_banner" .
-   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("daily_bonuses" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("Popup" .
-   [1 0 0 0 0])
-  ("names" .
-   [1 0 0 1 0])
-  ("PopupKind" .
-   [1 0 0 0 0 0 0 0 0])
-  ("awesome" .
+  ("partial" .
    [1 0 0 0 0 0 0])
-  ("exec" .
-   [1 0 0 0])
-  ("/usr/bin/xmonad" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("/usr/bin/" .
-   [0 0 0 0 0 1 0 0 0])
-  ("/usr/" .
-   [0 0 1 0 0])
-  ("warning-suppress-types" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("warning-suppress-p" .
-   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("nil" .
-   [2 0 0])
-  ("mumamo-survive-hooks" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
-  ("eruby-html-mumamo-mode" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0])
-  ("current-local-map" .
-   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("artist-mouse-choose-operation" .
-   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("artist" .
-   [0 0 0 1 0 0])
-  ("a" .
-   [1])
-  ("S-mouse-3" .
-   [0 0 1 0 0 0 0 0 0])
-  ("local-set-key" .
-   [0 0 0 1 0 0 0 0 0 0 0 0 0])
-  ("define-key" .
-   [3 0 0 0 0 0 0 0 0 0])
-  ("define-key*" .
-   [0 0 0 1 1 0 0 0 0 0 0])
-  ("lambda" .
-   [1 0 0 1 0 0])
-  ("artist-mode" .
-   [0 0 0 1 0 0 0 0 0 0 0])
-  ("add-hook" .
-   [0 0 0 1 0 0 0 0])
-  ("string" .
-   [2 0 0 0 0 0])
-  ("color-theme-gtk-ide" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("color-theme-clarity" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("server-start" .
-   [1 0 0 0 0 0 0 0 0 0 0 0])
-  ("to_s" .
-   [0 0 2 0])
-  ("size" .
-   [2 0 1 0])
-  ("child" .
-   [5 0 2 0 0])
-  ("node" .
-   [2 0 0 0])
-  ("rsense" .
-   [1 0 0 0 0 0])
-  ("require" .
-   [4 0 0 1 0 0 0])
-  ("rsense-home" .
-   [0 0 1 0 0 0 0 0 0 0 0])
-  ("concat" .
-   [0 0 1 0 0 0])
-  ("expand-file-name" .
-   [1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
-  ("setq" .
-   [3 1 0 0])
-  ("children" .
-   [7 0 0 0 0 0 3 1])
-  ("worst" .
-   [2 0 0 0 0])
-  ("squarify" .
-   [1 0 1 1 0 0 0 0])
-  ("row" .
-   [2 0 0])
-  ("else" .
-   [3 0 0 0])
-  ("select" .
-   [1 0 1 0 0 0])
-  ("File" .
-   [1 0 0 0])
-  ("push" .
-   [1 0 0 0])
-  ("class" .
-   [2 0 0 0 0])
-  ("initialize" .
-   [0 0 1 0 0 0 0 0 0 0])
-  ("width" .
-   [0 0 1 0 0])
-  ("attr_accessor" .
-   [0 0 0 0 0 1 0 0 0 0 0 0 0])
-  ("def" .
-   [2 0 0])
-  ("return" .
-   [0 0 0 1 0 0])
-  ("Rectangle" .
-   [0 0 0 0 0 0 2 0 0])
-  ("canvas" .
-   [2 0 0 0 0 0])
-  ("rectangle" .
-   [0 0 0 1 0 0 0 0 1])
-  ("drawing" .
-   [2 0 0 0 0 0 0])
-  ("draw" .
-   [2 0 0 0])
-  ("first" .
-   [1 0 0 0 0])
-  ("rvm" .
+  ("end" .
    [1 0 0])
-  ("load-file" .
-   [0 0 0 0 0 0 0 0 1])
-  ("global-ede-mode" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("semantic-mode" .
-   [0 0 0 0 1 0 0 0 0 0 0 0 0])
-  ("add-to-list" .
-   [0 0 0 0 0 1 0 0 0 0 0])
-  ("load-path" .
-   [1 0 0 0 0 0 0 0 0])
-  ("Socket" .
+  ("get" .
+   [1 0 0])
+  ("put" .
+   [1 0 0])
+  ("delete" .
    [1 0 0 0 0 0])
-  ("yari" .
-   [1 0 0 0])
-  ("auto" .
-   [1 0 0 0])
-  ("ENV" .
-   [2 0 0])
-  ("Checkout" .
-   [0 0 0 1 0 0 0 0])
-  ("checkout_sum" .
-   [0 0 0 0 1 0 0 0 0 0 0 0])
-  ("company" .
-   [1 0 0 0 0 0 0])
-  ("Package" .
-   [0 0 0 0 0 1 0])
-  ("find_all" .
-   [0 0 1 0 0 0 0 0])
-  ("map" .
-   [4 0 0])
-  ("form_packages" .
-   [0 0 0 0 0 1 0 0 0 0 0 0 0])
-  ("params" .
-   [1 0 0 0 0 0])
-  ("value" .
-   [1 0 0 0 0])
-  ("last" .
-   [1 0 0 0])
-  ("artist-down-mouse-3" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
-  ("setq-mode-local" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
-  ("ruby-mode" .
-   [1 0 0 0 0 0 0 0 0])
-  ("export" .
-   [2 0 0 0 0 0])
-  ("GTAGSLABEL" .
-   [1 0 0 0 0 0 0 0 0 0])
-  ("rtags" .
-   [1 0 0 0 0])
-  ("debugger" .
+  ("complete" .
    [1 0 0 0 0 0 0 0])
-  ("gem" .
-   [2 0 0])))
+  ("prepare" .
+   [1 0 0 0 0 0 0])
+  ("popup" .
+   [1 0 0 0 0])
+  ("HOME/.config/awesome/wallpapers/" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("CMD" .
+   [2 0 0])
+  ("changefile" .
+   [1 0 0 0 0 0 0 1 0 0])))
