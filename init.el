@@ -326,6 +326,9 @@
 (autoload 'rm-mouse-drag-region "rect-mark"
   "Drag out a rectangular region with the mouse." t)
 
+;; rainbow-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/rainbow")
+(require 'rainbow-mode)
 
 ;; color-theme
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")

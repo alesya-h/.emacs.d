@@ -28,3 +28,6 @@
 [submodule "plugins/icicles"]
 	path = plugins/icicles
 	url = https://github.com/emacsmirror/icicles
+[submodule "plugins/rainbow"]
+	path = plugins/rainbow
+	url = git://git.naquadah.org/rainbow.git
