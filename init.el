@@ -1,8 +1,8 @@
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
  '(default-input-method "russian-computer")
  '(ecb-layout-window-sizes (quote (("left8" (0.1694915254237288 . 0.24074074074074073) (0.1694915254237288 . 0.25925925925925924) (0.1694915254237288 . 0.2962962962962963) (0.1694915254237288 . 0.18518518518518517)))))
@@ -13,16 +13,15 @@
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
- '(quack-default-program "racket")
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
  '(scroll-bar-mode (quote right))
  '(tool-bar-mode nil))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (setq warning-suppress-types nil)
@@ -30,24 +29,15 @@
 ;; UI stuff goes here
 (setq-default indent-tabs-mode nil)
 
-
 (defun font-existsp (font)
-    (if (null (x-list-fonts font))
-        nil t))
+  (if (null (x-list-fonts font))
+      nil t))
 
 ;; set default font
-(cond ;((font-existsp "Anka/Coder_Narrow")
-       ;(set-face-attribute 'default nil :font "Anka/Coder_Narrow"))
-      ;((font-existsp "Anka/Coder Narrow")
-       ;(set-face-attribute 'default nil :font "Anka/Coder Narrow")))
-      ((font-existsp "Inconsolata")
-       (set-face-attribute 'default nil :font "Inconsolata")))
-(set-face-attribute 'default nil :height 120) ;; pt*10
-
-;; set width and height
-(if (and window-system (window-system))
-    (progn (set-frame-width (selected-frame) 236)
-     (set-frame-height (selected-frame) 56)))
+(cond
+ ((font-existsp "Inconsolata")
+  (set-face-attribute 'default nil :font "Inconsolata")))
+;; (set-face-attribute 'default nil :height 120) ;; pt*10
 
 ;; replace "yes-or-no" with "y-or-n"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -58,6 +48,11 @@
 
 ;;;; Plugins stuff goes here
 (add-to-list 'load-path "~/.emacs.d/plugins")
+
+;; maximize emacs on start
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
+(maximize-frame)
 
 ;; autostart org-mode for .org files
 (require 'org-install)
@@ -81,8 +76,8 @@
 
 ;; git support
 (add-to-list 'load-path "~/.emacs.d/plugins/git")
-  (require 'git)
-  (require 'git-blame)
+(require 'git)
+(require 'git-blame)
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
@@ -121,8 +116,8 @@
 (textmate-mode)
 
 ;; rvm.el
-(require 'rvm)
-(rvm-use-default)
+;; (require 'rvm)
+;; (rvm-use-default)
 
 ;; lua-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/lua-mode")
@@ -144,7 +139,7 @@
 
 ;;markdown-mode
 (autoload 'markdown-mode "markdown-mode.el"
-   "Major mode for editing Markdown files" t)
+  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 
@@ -172,26 +167,27 @@
 ;; zencoding
 (require 'zencoding-mode)
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+(add-hook 'nxhtml-mode-hook 'zencoding-mode)
 
 ;; ruby-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/ruby")
-  (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby files" t)
-  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
-  (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(autoload 'ruby-mode "ruby-mode" "Major mode for Ruby files" t)
+(add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 ;; inferior ruby mode
 (autoload 'run-ruby "inf-ruby"
   "Run an inferior Ruby process")
-  (autoload 'inf-ruby-keys "inf-ruby"
-    "Set local key defs for inf-ruby in ruby-mode")
-  (add-hook 'ruby-mode-hook
-	    '(lambda ()
-	       (inf-ruby-keys)
-	       ))
+(autoload 'inf-ruby-keys "inf-ruby"
+  "Set local key defs for inf-ruby in ruby-mode")
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (inf-ruby-keys)
+             ))
 ;; ruby electric
 ;; (require 'ruby-electric)
 ;; ruby C/C++ style
@@ -229,7 +225,7 @@
                  "end"
                  "#"
                  (lambda (&rest args) (ruby-end-of-block))
-                 ;(lambda (&rest args) (ruby-beginning-of-defun))
+                 ;; (lambda (&rest args) (ruby-beginning-of-defun))
                  )
            hs-special-modes-alist)))
   (hs-minor-mode arg))
@@ -342,23 +338,25 @@
 ;; full screen toggle using f11
 (defun toggle-fullscreen () 
   (interactive) 
-  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen) 
-                                           nil 
-                                           'fullboth)))
+  (set-frame-parameter nil
+                       'fullscreen
+                       (if (frame-parameter nil 'fullscreen)
+                           nil
+                         'fullboth)))
 (global-set-key [(f11)] 'toggle-fullscreen)
 
 ;; show/hide menubar by f12
-(global-set-key [(f12)] 'toggle-menu-bar-mode-from-frame)
+(global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
 
 ;; Start ECB
-(ecb-activate)
+;; (ecb-activate)
 
 ;; emacs server
 (add-hook 'server-switch-hook
-            (lambda ()
-              (when (current-local-map)
-                (use-local-map (copy-keymap (current-local-map))))
-	      (when server-buffer-clients
-		(local-set-key (kbd "C-x k") 'server-edit))))
+          (lambda ()
+            (when (current-local-map)
+              (use-local-map (copy-keymap (current-local-map))))
+            (when server-buffer-clients
+              (local-set-key (kbd "C-x k") 'server-edit))))
 (server-start)
 (put 'dired-find-alternate-file 'disabled nil)
