@@ -37,7 +37,7 @@
 (cond
  ((font-existsp "Inconsolata")
   (set-face-attribute 'default nil :font "Inconsolata")))
-;; (set-face-attribute 'default nil :height 120) ;; pt*10
+(set-face-attribute 'default nil :height 120) ;; pt*10
 
 ;; replace "yes-or-no" with "y-or-n"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -243,8 +243,12 @@
 (load "~/.emacs.d/plugins/nxhtml/autostart.el")
 
 ;; rails-reloaded
-(add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
-(require 'rails-autoload)
+;; (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
+;; (require 'rails-autoload)
+
+;; rinari
+(add-to-list 'load-path "~/.emacs.d/plugins/rinari")
+(require 'rinari)
 
 ;; MuMaMo-Mode for rhtml files
 (add-to-list 'load-path "~/.emacs.d/plugins/nxhtml/util")
@@ -336,7 +340,7 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-gtk-ide)))
+     (color-theme-hober)))
 
 ;; full screen toggle using f11
 (defun toggle-fullscreen () 
