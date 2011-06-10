@@ -60,7 +60,8 @@
 
 ;; ido
 (require 'ido)
-(ido-mode)
+(ido-mode t)
+(setq ido-enable-flex-matching t)
 
 ;;icicles
 ;; (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
@@ -340,7 +341,7 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-hober)))
+     (color-theme-gtk-ide)))
 
 ;; full screen toggle using f11
 (defun toggle-fullscreen () 
