@@ -72,6 +72,9 @@
 (require 'window-numbering)
 (window-numbering-mode 1)
 
+;; mult-eshell
+(require 'multi-eshell)
+
 ;; resize windows with C-M-<arrows>
 (require 'winresize)
 
