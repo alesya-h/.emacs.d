@@ -31,3 +31,6 @@
 [submodule "plugins/rainbow"]
 	path = plugins/rainbow
 	url = git://git.naquadah.org/rainbow.git
+[submodule "plugins/scala-mode"]
+	path = plugins/scala-mode
+	url = https://github.com/ananthakumaran/scala-mode.git

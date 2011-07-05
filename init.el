@@ -133,6 +133,10 @@
 (add-to-list 'exec-path "/usr/local/Cellar/erlang/R14B01/bin")
 (require 'erlang-start)
 
+;; scala-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
+(require 'scala-mode-auto)
+
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
@@ -239,10 +243,6 @@
             ;; (add-to-list 'ac-sources 'ac-source-rsense-constant)
             (ruby-hs-minor-mode)))
 
-;; nxhtml, MuMaMo
-(setq mumamo-survive nil)
-(load "~/.emacs.d/plugins/nxhtml/autostart.el")
-
 ;; rails-reloaded
 ;; (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
 ;; (require 'rails-autoload)
@@ -251,18 +251,20 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/rinari")
 (require 'rinari)
 
-;; MuMaMo-Mode for rhtml files
-(add-to-list 'load-path "~/.emacs.d/plugins/nxhtml/util")
-(require 'mumamo-fun)
-(setq mumamo-chunk-coloring 'submode-colored)
-(add-to-list 'auto-mode-alist '("\\.rhtml$" . eruby-nxhtml-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.html\\.erb$" . eruby-nxhtml-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.fbml\\.erb$" . eruby-nxhtml-mumamo-mode))
+(add-to-list 'load-path "~/.emacs.d/plugins/rhtml")
+(require 'rhtml-mode)
+(setq rinari-tags-file-name "TAGS")
+(add-hook 'rhtml-mode-hook
+          (lambda () (rinari-launch)))
 
 ;; rsense
 (setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense"))
 (add-to-list 'load-path (concat rsense-home "/etc"))
 (require 'rsense)
+
+;; ruby-debug
+(add-to-list 'load-path "~/.emacs.d/plugins/ruby-debug")
+(require 'rdebug)
 
 ;; YARI
 (add-to-list 'load-path "~/.emacs.d/plugins/yari.el")
