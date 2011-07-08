@@ -361,6 +361,12 @@
 ;; show/hide menubar by f12
 (global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
 
+(global-set-key (kbd "C-c (") '(lambda () (interactive) (insert "[")))
+(global-set-key (kbd "C-c )") '(lambda () (interactive) (insert "]")))
+(global-set-key (kbd "C-c <") '(lambda () (interactive) (insert "{")))
+(global-set-key (kbd "C-c >") '(lambda () (interactive) (insert "}")))
+
+
 ;; Start ECB
 ;; (ecb-activate)
 
