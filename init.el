@@ -132,8 +132,8 @@
 
 ;; erlang-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/erlang")
-(setq erlang-root-dir "/usr/local/Cellar/erlang/R14B01/")
-(add-to-list 'exec-path "/usr/local/Cellar/erlang/R14B01/bin")
+(setq erlang-root-dir "/usr/lib/erlang/")
+(add-to-list 'exec-path "/usr/lib/erlang/bin")
 (require 'erlang-start)
 
 ;; scala-mode
@@ -365,6 +365,7 @@
 (global-set-key (kbd "C-c )") '(lambda () (interactive) (insert "]")))
 (global-set-key (kbd "C-c <") '(lambda () (interactive) (insert "{")))
 (global-set-key (kbd "C-c >") '(lambda () (interactive) (insert "}")))
+(global-set-key (kbd "C-c !") '(lambda () (interactive) (insert "%")))
 
 
 ;; Start ECB
