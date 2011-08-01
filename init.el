@@ -29,6 +29,8 @@
 ;; UI stuff goes here
 (setq-default indent-tabs-mode nil)
 
+(show-paren-mode t)
+
 (defun font-existsp (font)
   (if (null (x-list-fonts font))
       nil t))
@@ -52,7 +54,7 @@
 ;; maximize emacs on start
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
-(maximize-frame)
+;; (maximize-frame)
 
 ;; autostart org-mode for .org files
 (require 'org-install)
@@ -132,13 +134,18 @@
 
 ;; erlang-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/erlang")
-(setq erlang-root-dir "/usr/lib/erlang/")
+(setq erlang-root-dir "/usr/lib/erlang")
 (add-to-list 'exec-path "/usr/lib/erlang/bin")
 (require 'erlang-start)
+(require 'erlang-flymake)
+(add-hook 'erlang-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-c C-b") 'erlang-compile)))
 
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
 (require 'scala-mode-auto)
+(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
 
 ;; yaml-mode
 (require 'yaml-mode)
@@ -359,7 +366,11 @@
 (global-set-key [(f11)] 'toggle-fullscreen)
 
 ;; show/hide menubar by f12
-(global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
+(global-set-key (kbd "C-c m") '(lambda ()
+                                 (interactive)
+                                 (toggle-menu-bar-mode-from-frame)
+                                 ;; (restore-frame)
+                                 ))
 
 (global-set-key (kbd "C-c (") '(lambda () (interactive) (insert "[")))
 (global-set-key (kbd "C-c )") '(lambda () (interactive) (insert "]")))
