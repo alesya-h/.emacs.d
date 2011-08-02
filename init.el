@@ -39,7 +39,7 @@
 (cond
  ((font-existsp "Inconsolata")
   (set-face-attribute 'default nil :font "Inconsolata")))
-(set-face-attribute 'default nil :height 120) ;; pt*10
+(set-face-attribute 'default nil :height 110) ;; pt*10
 
 ;; replace "yes-or-no" with "y-or-n"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -325,6 +325,8 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode")
 (require 'twittering-mode)
 
+;; stumpwm-mode
+(require 'stumpwm-mode)
 
 (define-key ctl-x-map "r\C-@" 'rm-set-mark)
 (define-key ctl-x-map [?r ?\C-\ ] 'rm-set-mark)
