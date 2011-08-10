@@ -24,6 +24,8 @@
  ;; If there is more than one, they won't work right.
  )
 
+(put 'dired-find-alternate-file 'disabled nil)
+
 (setq warning-suppress-types nil)
 
 ;; UI stuff goes here
@@ -31,15 +33,25 @@
 
 (show-paren-mode t)
 
+;; X-specific parameters
+(if (eq window-system 'x)
+(progn
+
 (defun font-existsp (font)
   (if (null (x-list-fonts font))
       nil t))
 
 ;; set default font
 (cond
- ((font-existsp "Inconsolata")
-  (set-face-attribute 'default nil :font "Inconsolata")))
-(set-face-attribute 'default nil :height 110) ;; pt*10
+ ((font-existsp "DejaVu Sans Mono") (set-frame-font "DejaVu Sans Mono:size=15" t))
+ ((font-existsp "Inconsolata") (progn (set-frame-font "Inconsolata-12" t)
+                                      (set-fontset-font
+                                       "fontset-default" ; (frame-parameter nil 'font)
+                                       'cyrillic '("DejaVu Sans Mono" . "unicode-bmp"))))
+)
+
+)) ;; End of X-specific parameters
+
 
 ;; replace "yes-or-no" with "y-or-n"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -352,11 +364,19 @@
 ;; color-theme
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
 (require 'color-theme)
+(add-to-list 'load-path "~/.emacs.d/plugins/color-themes")
 (require 'color-theme-molokai)
+;; (require 'color-theme-almost-monokai)
+(require 'my-supercool-theme)
+
+
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-molokai)))
+     ;; (color-theme-molokai)
+     (my-supercool-theme)
+     ;; (color-theme-almost-monokai)
+))
 
 ;; full screen toggle using f11
 (defun toggle-fullscreen () 
@@ -386,11 +406,13 @@
 ;; (ecb-activate)
 
 ;; emacs server
-(add-hook 'server-switch-hook
-          (lambda ()
-            (when (current-local-map)
-              (use-local-map (copy-keymap (current-local-map))))
-            (when server-buffer-clients
-              (local-set-key (kbd "C-x k") 'server-edit))))
-(server-start)
-(put 'dired-find-alternate-file 'disabled nil)
+(if (not (boundp 'server-process))
+    (progn
+      (server-start)
+      (add-hook 'server-switch-hook
+                (lambda ()
+                  (when (current-local-map)
+                    (use-local-map (copy-keymap (current-local-map))))
+                  (when server-buffer-clients
+                    (local-set-key (kbd "C-x k") 'server-edit))))))
+
