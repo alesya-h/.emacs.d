@@ -15,7 +15,7 @@
  '(menu-bar-mode nil)
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
- '(scroll-bar-mode (quote right))
+ '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -352,10 +352,11 @@
 ;; color-theme
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
 (require 'color-theme)
+(require 'color-theme-molokai)
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-gtk-ide)))
+     (color-theme-molokai)))
 
 ;; full screen toggle using f11
 (defun toggle-fullscreen () 
