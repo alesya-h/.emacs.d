@@ -184,6 +184,13 @@
 ;; quack (racket/scheme for emacs)
 (require 'quack)
 
+;; slime
+
+(setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
+(add-to-list 'load-path "~/.emacs.d/plugins/slime") ; your SLIME directory
+(require 'slime)
+(slime-setup '(slime-fancy))
+
 ;; asy-mode, lasy-mode, 
 (add-to-list 'load-path "/usr/local/texlive/2010/texmf/asymptote/")
 (autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
