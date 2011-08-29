@@ -386,9 +386,9 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-molokai)
+     (color-theme-almost-monokai)
+     ;; (color-theme-molokai)
      (my-supercool-theme)
-     ;; (color-theme-almost-monokai)
 ))
 
 ;; full screen toggle using f11
