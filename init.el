@@ -108,6 +108,13 @@
 
 ;; Lorem Ipsum
 (require 'lorem-ipsum)
+(add-hook 'sgml-mode-hook (lambda ()
+                            (setq Lorem-ipsum-paragraph-separator "<br><br>\n"
+                                  Lorem-ipsum-sentence-separator "&nbsp;&nbsp;"
+                                  Lorem-ipsum-list-beginning "<ul>\n"
+                                  Lorem-ipsum-list-bullet "<li>"
+                                  Lorem-ipsum-list-item-end "</li>\n"
+                                  Lorem-ipsum-list-end "</ul>\n")))
 
 ;; Collection of Emacs Development Environment Tools
 (load-file "~/.emacs.d/plugins/cedet-1.0/common/cedet.el")
