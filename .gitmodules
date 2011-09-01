@@ -34,3 +34,6 @@
 [submodule "plugins/scala-mode"]
 	path = plugins/scala-mode
 	url = https://github.com/ananthakumaran/scala-mode.git
+[submodule "plugins/haml-mode"]
+	path = plugins/haml-mode
+	url = https://github.com/nex3/haml-mode.git
