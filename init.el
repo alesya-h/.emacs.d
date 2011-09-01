@@ -80,6 +80,19 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 
+(defun smart-beginning-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line.
+
+Move point to the first non-whitespace character on this line.
+If point was already at that position, move point to beginning of line."
+  (interactive)
+  (let ((oldpos (point)))
+    (back-to-indentation)
+    (and (= oldpos (point))
+         (beginning-of-line))))
+(global-set-key [home] 'smart-beginning-of-line)
+(global-set-key "\C-a" 'smart-beginning-of-line)
+
 ;;icicles
 ;; (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
 ;; (require 'icicles)
@@ -296,6 +309,16 @@
             ;; (add-to-list 'ac-sources 'ac-source-rsense-method)
             ;; (add-to-list 'ac-sources 'ac-source-rsense-constant)
             (ruby-hs-minor-mode)))
+
+(defun toggle-selective-display (column)
+  (interactive "P")
+  (set-selective-display
+   (or column
+       (unless selective-display
+         (1+ (progn
+               (back-to-indentation)
+               (current-column)))))))
+(global-set-key (kbd "C-*") 'toggle-selective-display)
 
 ;; rails-reloaded
 ;; (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
