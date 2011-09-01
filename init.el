@@ -209,6 +209,18 @@
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
 (add-hook 'nxhtml-mode-hook 'zencoding-mode)
 
+;; haml-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/haml-mode")
+(require 'haml-mode)
+
+;; sass-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/sass-mode")
+(require 'sass-mode)
+
+;; scss-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/scss-mode")
+(require 'scss-mode)
+
 ;; ruby-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/ruby")
 (autoload 'ruby-mode "ruby-mode" "Major mode for Ruby files" t)
