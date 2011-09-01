@@ -34,14 +34,16 @@
 (show-paren-mode t)
 
 ;; X-specific parameters
+(add-hook 'after-make-frame-functions '(lambda (frame)
+
 (if (eq window-system 'x)
-(progn
+    (progn
 
 (defun font-existsp (font)
   (if (null (x-list-fonts font))
       nil t))
 
-;; set default font
+;; set frame font
 (cond
  ((font-existsp "DejaVu Sans Mono") (set-frame-font "DejaVu Sans Mono:size=15" t))
  ((font-existsp "Inconsolata") (progn (set-frame-font "Inconsolata-12" t)
@@ -49,6 +51,7 @@
                                        "fontset-default" ; (frame-parameter nil 'font)
                                        'cyrillic '("DejaVu Sans Mono" . "unicode-bmp"))))
 )
+))
 
 )) ;; End of X-specific parameters
 
@@ -102,6 +105,16 @@
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
+
+;; Lorem Ipsum
+(require 'lorem-ipsum)
+(add-hook 'sgml-mode-hook (lambda ()
+                            (setq Lorem-ipsum-paragraph-separator "<br><br>\n"
+                                  Lorem-ipsum-sentence-separator "&nbsp;&nbsp;"
+                                  Lorem-ipsum-list-beginning "<ul>\n"
+                                  Lorem-ipsum-list-bullet "<li>"
+                                  Lorem-ipsum-list-item-end "</li>\n"
+                                  Lorem-ipsum-list-end "</ul>\n")))
 
 ;; Collection of Emacs Development Environment Tools
 (load-file "~/.emacs.d/plugins/cedet-1.0/common/cedet.el")
@@ -202,6 +215,18 @@
 (require 'zencoding-mode)
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
 (add-hook 'nxhtml-mode-hook 'zencoding-mode)
+
+;; haml-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/haml-mode")
+(require 'haml-mode)
+
+;; sass-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/sass-mode")
+(require 'sass-mode)
+
+;; scss-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/scss-mode")
+(require 'scss-mode)
 
 ;; ruby-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/ruby")
@@ -373,16 +398,16 @@
 (require 'color-theme)
 (add-to-list 'load-path "~/.emacs.d/plugins/color-themes")
 (require 'color-theme-molokai)
-;; (require 'color-theme-almost-monokai)
+(require 'color-theme-almost-monokai)
 (require 'my-supercool-theme)
 
 
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
+     (color-theme-almost-monokai)
      ;; (color-theme-molokai)
      (my-supercool-theme)
-     ;; (color-theme-almost-monokai)
 ))
 
 ;; full screen toggle using f11
