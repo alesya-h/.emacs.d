@@ -183,7 +183,12 @@ If point was already at that position, move point to beginning of line."
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
 (require 'scala-mode-auto)
-(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+;;(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+
+;; clojure-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/clojure-mode")
+(require 'clojure-mode)
+
 
 ;; yaml-mode
 (require 'yaml-mode)

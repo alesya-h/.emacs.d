@@ -43,3 +43,6 @@
 [submodule "plugins/scss-mode"]
 	path = plugins/scss-mode
 	url = https://github.com/antonj/scss-mode.git
+[submodule "plugins/clojure-mode"]
+	path = plugins/clojure-mode
+	url = https://github.com/technomancy/clojure-mode.git
