@@ -245,6 +245,7 @@ If point was already at that position, move point to beginning of line."
 ;; scss-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scss-mode")
 (require 'scss-mode)
+(setq scss-compile-at-save nil)
 
 ;; ruby-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/ruby")
