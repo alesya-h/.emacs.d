@@ -7,7 +7,7 @@
  '(default-input-method "russian-computer")
  '(ecb-layout-window-sizes (quote (("left8" (0.1694915254237288 . 0.24074074074074073) (0.1694915254237288 . 0.25925925925925924) (0.1694915254237288 . 0.2962962962962963) (0.1694915254237288 . 0.18518518518518517)))))
  '(ecb-options-version "2.40")
- '(ecb-source-path (quote (("~/projects/work/PM-fixed-ods" "Fixed odds"))))
+ '(ecb-source-path (quote (("~/p/work/basin-holdings-portals" "BHP"))))
  '(ecb-tip-of-the-day nil)
  '(global-font-lock-mode t)
  '(ido-enable-flex-matching t)
@@ -246,6 +246,10 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'load-path "~/.emacs.d/plugins/scss-mode")
 (require 'scss-mode)
 (setq scss-compile-at-save nil)
+(add-hook 'scss-mode-hook '(lambda ()
+                             (rainbow-mode)
+                             (hs-minor-mode)
+                             (auto-complete-mode)))
 
 ;; ruby-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/ruby")
@@ -309,7 +313,7 @@ If point was already at that position, move point to beginning of line."
   (hs-minor-mode arg))
 
 
-(global-set-key (kbd "M-s-<SPC>") 'hs-toggle-hiding)
+(global-set-key (kbd "s-<SPC>") 'hs-toggle-hiding)
 (add-hook 'ruby-mode-hook
           (lambda ()
             ;; (add-to-list 'ac-sources 'ac-source-rsense-method)
@@ -464,7 +468,7 @@ If point was already at that position, move point to beginning of line."
 
 
 ;; Start ECB
-;; (ecb-activate)
+(ecb-activate)
 
 ;; emacs server
 (if (not (boundp 'server-process))
