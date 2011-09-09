@@ -1,13 +1,13 @@
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  '(TeX-engine (quote xetex))
  '(default-input-method "russian-computer")
  '(ecb-layout-window-sizes (quote (("left8" (0.1694915254237288 . 0.24074074074074073) (0.1694915254237288 . 0.25925925925925924) (0.1694915254237288 . 0.2962962962962963) (0.1694915254237288 . 0.18518518518518517)))))
  '(ecb-options-version "2.40")
- '(ecb-source-path (quote (("~/p/work/basin-holdings-portals" "BHP"))))
+ '(ecb-source-path (quote (("~/p/work/basin-holdings-portal" "bhp") ("/" "/"))))
  '(ecb-tip-of-the-day nil)
  '(global-font-lock-mode t)
  '(ido-enable-flex-matching t)
@@ -18,10 +18,10 @@
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  )
 
 (put 'dired-find-alternate-file 'disabled nil)
