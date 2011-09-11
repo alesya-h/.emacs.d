@@ -19,9 +19,6 @@
 [submodule "plugins/rsense"]
 	path = plugins/rsense
 	url = https://github.com/m2ym/rsense.git
-[submodule "plugins/emacs-rails-reloaded"]
-	path = plugins/emacs-rails-reloaded
-	url = https://github.com/ajvargo/emacs-rails-reloaded.git
 [submodule "plugins/lua-mode"]
 	path = plugins/lua-mode
 	url = https://github.com/immerrr/lua-mode.git
