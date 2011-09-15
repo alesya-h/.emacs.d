@@ -468,7 +468,7 @@ If point was already at that position, move point to beginning of line."
 
 
 ;; Start ECB
-(ecb-activate)
+;; (ecb-activate)
 
 ;; emacs server
 (if (not (boundp 'server-process))
