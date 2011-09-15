@@ -3,7 +3,6 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(TeX-engine (quote xetex))
  '(default-input-method "russian-computer")
  '(ecb-layout-window-sizes (quote (("left8" (0.1694915254237288 . 0.24074074074074073) (0.1694915254237288 . 0.25925925925925924) (0.1694915254237288 . 0.2962962962962963) (0.1694915254237288 . 0.18518518518518517)))))
  '(ecb-options-version "2.40")
@@ -200,17 +199,6 @@ If point was already at that position, move point to beginning of line."
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
-
-;; acutex
-;; (add-to-list 'load-path "~/.emacs.d/plugins/auctex-11.86")
-;; (add-to-list 'load-path "~/.emacs.d/plugins/auctex-11.86/preview")
-;; (load "auctex.el" nil t t)
-;; (load "preview-latex.el" nil t t)
-;; (add-hook 'TeX-mode-hook
-;;  '(lambda ()
-;;    (local-set-key "\\" 'TeX-electric-macro)
-;;    (auto-fill-mode)
-;;    ))
 
 ;; quack (racket/scheme for emacs)
 (require 'quack)
