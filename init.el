@@ -15,6 +15,7 @@
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
  '(scroll-bar-mode nil)
+ '(slime-net-coding-system (quote utf-8-unix))
  '(tool-bar-mode nil))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -469,3 +470,4 @@ If point was already at that position, move point to beginning of line."
                   (when server-buffer-clients
                     (local-set-key (kbd "C-x k") 'server-edit))))))
 
+(put 'narrow-to-page 'disabled nil)
