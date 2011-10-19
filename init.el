@@ -4,10 +4,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default-input-method "russian-computer")
- '(ecb-layout-window-sizes (quote (("left8" (0.1694915254237288 . 0.24074074074074073) (0.1694915254237288 . 0.25925925925925924) (0.1694915254237288 . 0.2962962962962963) (0.1694915254237288 . 0.18518518518518517)))))
- '(ecb-options-version "2.40")
- '(ecb-source-path (quote (("~/p/work/basin-holdings-portal" "bhp") ("/" "/"))))
- '(ecb-tip-of-the-day nil)
  '(global-font-lock-mode t)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
@@ -129,16 +125,6 @@ If point was already at that position, move point to beginning of line."
                                   Lorem-ipsum-list-item-end "</li>\n"
                                   Lorem-ipsum-list-end "</ul>\n")))
 
-;; Collection of Emacs Development Environment Tools
-(load-file "~/.emacs.d/plugins/cedet-1.0/common/cedet.el")
-(global-ede-mode 1)
-(semantic-load-enable-code-helpers)
-(global-srecode-minor-mode 1)
-
-;; Load Emacs Code Browser
-(add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
-(require 'ecb)
-
 ;; mode-compile
 (autoload 'mode-compile "mode-compile"
   "Command to compile current buffer file based on the major mode" t)
@@ -207,7 +193,7 @@ If point was already at that position, move point to beginning of line."
 ;; slime
 
 (setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
-(add-to-list 'load-path "~/.emacs.d/plugins/slime") ; your SLIME directory
+(add-to-list 'load-path "~/quicklisp/dists/quicklisp/software/slime-20111001-cvs") ; your SLIME directory
 (require 'slime)
 (slime-setup '(slime-fancy))
 
@@ -265,8 +251,6 @@ If point was already at that position, move point to beginning of line."
 (require 'ruby-style)
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
-
-(setq-mode-local ruby-mode tab-width 2)
 
 (defun display-code-line-counts (ov)
   (when (eq 'code (overlay-get ov 'hs))
@@ -455,9 +439,6 @@ If point was already at that position, move point to beginning of line."
 (global-set-key (kbd "C-c >") '(lambda () (interactive) (insert "}")))
 (global-set-key (kbd "C-c !") '(lambda () (interactive) (insert "%")))
 
-
-;; Start ECB
-;; (ecb-activate)
 
 ;; emacs server
 (if (not (boundp 'server-process))
