@@ -26,6 +26,7 @@
 
 ;; UI stuff goes here
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 
 (show-paren-mode t)
 
