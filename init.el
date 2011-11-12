@@ -286,7 +286,13 @@ If point was already at that position, move point to beginning of line."
   (hs-minor-mode arg))
 
 
+(add-hook 'lisp-mode-hook 'hs-minor-mode)
 (global-set-key (kbd "s-<SPC>") 'hs-toggle-hiding)
+
+;; octave-mode
+(autoload 'octave-mode "octave-mod" nil t)
+(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+
 (add-hook 'ruby-mode-hook
           (lambda ()
             ;; (add-to-list 'ac-sources 'ac-source-rsense-method)
