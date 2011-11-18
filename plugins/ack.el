@@ -38,7 +38,7 @@ find the text that ack hits refer to. The command actually run is
 defined by the ack-command variable."
 (interactive (list (read-file-name "Run ack in directory: " nil "" t)
 (read-string "Search for: " (thing-at-point 'symbol))
-(read-string "Ack arguments: " "-i" nil "-i" nil)
+(read-string "Ack arguments: " "-i --noheading --nocolor" nil "-i --noheading --nocolor" nil)
 ))
 ; Get dir into an the right state, incase a file name was used
 (setq dir (abbreviate-file-name

@@ -30,23 +30,35 @@
 
 (show-paren-mode t)
 
-;; X-specific parameters
-(add-hook
- 'after-make-frame-functions
- '(lambda (frame)
-    (when (eq window-system 'x)
-      (defun font-existsp (font)
-        (if (null (x-list-fonts font))
-            nil t))
+;; (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-20"))
 
-      ;; set frame font
-      (cond
-       ((font-existsp "DejaVu Sans Mono") (set-frame-font "DejaVu Sans Mono:size=15" t))
-       ((font-existsp "Inconsolata") (progn (set-frame-font "Inconsolata-12" t)
-                                            (set-fontset-font
-                                             "fontset-default" ; (frame-parameter nil 'font)
-                                             'cyrillic '("DejaVu Sans Mono" . "unicode-bmp"))))
-       )))) ;; End of X-specific parameters
+
+;; Set font size to 11pt
+;; (let ((11pt (round (* 11.1 10))))
+;;  (set-face-attribute 'default (not 'this-frame-only)
+;;                      :height 11pt))
+
+;; Set font to Dejavu sans mono
+;;(set-face-attribute 'default (not 'this-frame-only)
+;;                    :face "DejaVu Sans Mono")
+
+;; (add-hook
+;;  'after-make-frame-functions
+;;  '(lambda (frame)
+;;     (when (eq window-system 'x) ;; X-specific parameters
+;;       (defun font-existsp (font)
+;;         (if (null (x-list-fonts font))
+;;             nil t))
+
+;;       ;; set frame font
+;;       (cond
+;;        ((font-existsp "DejaVu Sans Mono") (set-frame-font "DejaVu Sans Mono:size=24" t))
+;;        ((font-existsp "Inconsolata") (progn (set-frame-font "Inconsolata-12" t)
+;;                                             (set-fontset-font
+;;                                              "fontset-default" ; (frame-parameter nil 'font)
+;;                                              'cyrillic '("DejaVu Sans Mono" . "unicode-bmp"))))
+;;        )) ;; End of X-specific parameters
+;;     ))
 
 
 ;; replace "yes-or-no" with "y-or-n"
@@ -520,15 +532,15 @@ defined by the ack-command variable."
 (global-set-key (kbd "C-c !") '(lambda () (interactive) (insert "%")))
 
 
-;; emacs server
-(if (not (boundp 'server-process))
-    (progn
-      (server-start)
-      (add-hook 'server-switch-hook
-                (lambda ()
-                  (when (current-local-map)
-                    (use-local-map (copy-keymap (current-local-map))))
-                  (when server-buffer-clients
-                    (local-set-key (kbd "C-x k") 'server-edit))))))
+;; ;; emacs server
+;; (if (not (boundp 'server-process))
+;;     (progn
+;;       (server-start)
+;;       (add-hook 'server-switch-hook
+;;                 (lambda ()
+;;                   (when (current-local-map)
+;;                     (use-local-map (copy-keymap (current-local-map))))
+;;                   (when server-buffer-clients
+;;                     (local-set-key (kbd "C-x k") 'server-edit))))))
 
 (put 'narrow-to-page 'disabled nil)
