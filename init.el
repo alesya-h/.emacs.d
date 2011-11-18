@@ -31,26 +31,22 @@
 (show-paren-mode t)
 
 ;; X-specific parameters
-(add-hook 'after-make-frame-functions '(lambda (frame)
+(add-hook
+ 'after-make-frame-functions
+ '(lambda (frame)
+    (when (eq window-system 'x)
+      (defun font-existsp (font)
+        (if (null (x-list-fonts font))
+            nil t))
 
-(if (eq window-system 'x)
-    (progn
-
-(defun font-existsp (font)
-  (if (null (x-list-fonts font))
-      nil t))
-
-;; set frame font
-(cond
- ((font-existsp "DejaVu Sans Mono") (set-frame-font "DejaVu Sans Mono:size=15" t))
- ((font-existsp "Inconsolata") (progn (set-frame-font "Inconsolata-12" t)
-                                      (set-fontset-font
-                                       "fontset-default" ; (frame-parameter nil 'font)
-                                       'cyrillic '("DejaVu Sans Mono" . "unicode-bmp"))))
-)
-))
-
-)) ;; End of X-specific parameters
+      ;; set frame font
+      (cond
+       ((font-existsp "DejaVu Sans Mono") (set-frame-font "DejaVu Sans Mono:size=15" t))
+       ((font-existsp "Inconsolata") (progn (set-frame-font "Inconsolata-12" t)
+                                            (set-fontset-font
+                                             "fontset-default" ; (frame-parameter nil 'font)
+                                             'cyrillic '("DejaVu Sans Mono" . "unicode-bmp"))))
+       )))) ;; End of X-specific parameters
 
 
 ;; replace "yes-or-no" with "y-or-n"
@@ -375,6 +371,28 @@ If point was already at that position, move point to beginning of line."
 (add-hook 'rhtml-mode-hook
           (lambda () (rinari-launch)))
 
+(require 'ack)
+(defun ack-in-project (pattern)
+  "Run ack, with user-specified ARGS, and collect output in a buffer.
+While ack runs asynchronously, you can use the \\[next-error] command to
+find the text that ack hits refer to. The command actually run is
+defined by the ack-command variable."
+  (interactive (list (read-string "Ack for (in app root): " (thing-at-point 'symbol))))
+  (let (compile-command
+        (compilation-error-regexp-alist grep-regexp-alist)
+        (compilation-directory default-directory)
+        (ack-full-buffer-name (concat "*ack-" pattern "*")))
+
+    ;; lambda defined here since compilation-start expects to call a function to get the buffer name
+    (compilation-start (concat ack-command " -i --noheading --nocolor " pattern " " (rinari-root)) 'ack-mode
+                       (when ack-use-search-in-buffer-name
+                         (function (lambda (ignore)
+                                     ack-full-buffer-name)))
+                       (regexp-quote pattern))))
+(global-set-key "\C-cfa" 'ack-in-project)
+
+(require 'nav)
+
 ;; rsense
 (setq rsense-home (expand-file-name "~/.emacs.d/plugins/rsense"))
 (add-to-list 'load-path (concat rsense-home "/etc"))
@@ -461,17 +479,15 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
 (require 'color-theme)
 (add-to-list 'load-path "~/.emacs.d/plugins/color-themes")
-(require 'color-theme-molokai)
-(require 'color-theme-almost-monokai)
-(require 'my-supercool-theme)
-
+;; (require 'color-theme-molokai)
+;; (require 'color-theme-almost-monokai)
+;; (require 'my-supercool-theme)
+(require 'color-theme-tango)
 
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-almost-monokai)
-     ;; (color-theme-molokai)
-     (my-supercool-theme)
+     (color-theme-tango)
 ))
 
 ;; full screen toggle using f11
