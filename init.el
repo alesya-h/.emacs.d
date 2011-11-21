@@ -142,15 +142,23 @@ If point was already at that position, move point to beginning of line."
   "Command to kill a compilation launched by `mode-compile'" t)
 (global-set-key "\C-ck" 'mode-compile-kill)
 
+;; imenu
+(require 'imenu)
+
+;; pos-tip
+(require 'pos-tip)
+
 ;; auto complete
 (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
 (setq ac-dictionary-directories '())
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/dict")
 (require 'auto-complete-config)
 (ac-config-default)
-
-;; imenu
-(require 'imenu)
+(setq ac-delay 0.5)
+;; (add-hook 'ruby-mode-hook
+;;           (lambda ()
+;;             (make-local-variable 'ac-ignores)
+;;             (add-to-list 'ac-ignores "end")))
 
 (defun ido-goto-symbol (&optional symbol-list)
   "Refresh imenu and jump to a place in the buffer using Ido."
