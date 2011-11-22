@@ -60,6 +60,7 @@
 ;;        )) ;; End of X-specific parameters
 ;;     ))
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; replace "yes-or-no" with "y-or-n"
 (fset 'yes-or-no-p 'y-or-n-p)
