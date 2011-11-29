@@ -1,10 +1,26 @@
+(add-to-list 'load-path "~/.emacs.d/plugins")
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-delay 0.2)
+ '(auto-indent-blank-lines-on-move nil)
+ '(auto-indent-delete-line-char-remove-extra-spaces t)
+ '(auto-indent-delete-trailing-whitespace-on-save-file t)
+ '(auto-indent-delete-trailing-whitespace-on-visit-file t)
+ '(auto-indent-disabled-modes-list (quote (eshell-mode wl-summary-mode compilation-mode org-mode text-mode dired-mode snippet-mode fundamental-mode diff-mode texinfo-mode conf-windows-mode yaml-mode haml-mode)))
+ '(auto-indent-global-mode t nil (auto-indent-mode))
+ '(auto-indent-kill-line-at-eol nil)
+ '(auto-indent-untabify-on-visit-file t)
  '(default-input-method "russian-computer")
+ '(global-auto-complete-mode t)
+ '(global-auto-revert-mode t)
  '(global-font-lock-mode t)
+ '(icicle-max-candidates 64)
+ '(icicle-show-Completions-initially-flag t)
+ '(icicle-top-level-when-sole-completion-flag nil)
  '(ido-enable-flex-matching t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
@@ -12,7 +28,12 @@
  '(quack-pretty-lambda-p t)
  '(scroll-bar-mode nil)
  '(slime-net-coding-system (quote utf-8-unix))
- '(tool-bar-mode nil))
+ '(speedbar-indentation-width 2)
+ '(speedbar-show-unknown-files t)
+ '(speedbar-supported-extension-expressions (quote ("\\.rb" ".org" ".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?" ".tex\\(i\\(nfo\\)?\\)?" ".el" ".emacs" ".l" ".lsp" ".p" ".java" ".js" ".f\\(90\\|77\\|or\\)?" ".ada" ".p[lm]" ".tcl" ".m" ".scm" ".pm" ".py" ".g" ".s?html" ".ma?k" "[Mm]akefile\\(\\.in\\)?" ".")))
+ '(split-width-threshold 100500)
+ '(tool-bar-mode nil)
+ '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -20,47 +41,24 @@
   ;; If there is more than one, they won't work right.
  )
 
+(put 'narrow-to-page 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
-
 (setq warning-suppress-types nil)
 
 ;; UI stuff goes here
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
-
 (show-paren-mode t)
 
-;; (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-20"))
+(require 'gpicker)
+(require 'speedbar)
+(require 'uniquify)
+(require 'icomplete)
+(require 'icomplete+)
+(icomplete-mode 99)
+(iswitchb-mode 1)
 
-
-;; Set font size to 11pt
-;; (let ((11pt (round (* 11.1 10))))
-;;  (set-face-attribute 'default (not 'this-frame-only)
-;;                      :height 11pt))
-
-;; Set font to Dejavu sans mono
-;;(set-face-attribute 'default (not 'this-frame-only)
-;;                    :face "DejaVu Sans Mono")
-
-;; (add-hook
-;;  'after-make-frame-functions
-;;  '(lambda (frame)
-;;     (when (eq window-system 'x) ;; X-specific parameters
-;;       (defun font-existsp (font)
-;;         (if (null (x-list-fonts font))
-;;             nil t))
-
-;;       ;; set frame font
-;;       (cond
-;;        ((font-existsp "DejaVu Sans Mono") (set-frame-font "DejaVu Sans Mono:size=24" t))
-;;        ((font-existsp "Inconsolata") (progn (set-frame-font "Inconsolata-12" t)
-;;                                             (set-fontset-font
-;;                                              "fontset-default" ; (frame-parameter nil 'font)
-;;                                              'cyrillic '("DejaVu Sans Mono" . "unicode-bmp"))))
-;;        )) ;; End of X-specific parameters
-;;     ))
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
 
 ;; replace "yes-or-no" with "y-or-n"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -70,21 +68,30 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;; Plugins stuff goes here
-(add-to-list 'load-path "~/.emacs.d/plugins")
 
 ;; maximize emacs on start
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
+;; (require 'maxframe)
+;; (add-hook 'window-setup-hook 'maximize-frame t)
 ;; (maximize-frame)
 
 ;; autostart org-mode for .org files
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
+;; imenu
+(require 'imenu)
+
+;; pos-tip
+(require 'pos-tip)
+
+(add-to-list 'load-path "~/.emacs.d/plugins/anything-config")
+(require 'anything-match-plugin)
+(require 'anything-config)
+
 ;; ido
-(require 'ido)
-(ido-mode t)
-(setq ido-enable-flex-matching t)
+;; (require 'ido)
+;; (ido-mode t)
+;; (setq ido-enable-flex-matching t)
 
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
@@ -99,10 +106,49 @@ If point was already at that position, move point to beginning of line."
 (global-set-key [home] 'smart-beginning-of-line)
 (global-set-key "\C-a" 'smart-beginning-of-line)
 
+(defun duplicate-line (arg)
+  "Duplicate current line, leaving point in lower line."
+  (interactive "*p")
+
+  ;; save the point for undo
+  (setq buffer-undo-list (cons (point) buffer-undo-list))
+
+  ;; local variables for start and end of line
+  (let ((bol (save-excursion (beginning-of-line) (point)))
+        eol)
+    (save-excursion
+
+      ;; don't use forward-line for this, because you would have
+      ;; to check whether you are at the end of the buffer
+      (end-of-line)
+      (setq eol (point))
+
+      ;; store the line and disable the recording of undo information
+      (let ((line (buffer-substring bol eol))
+            (buffer-undo-list t)
+            (count arg))
+        ;; insert the line arg times
+        (while (> count 0)
+          (newline)         ;; because there is no newline in 'line'
+          (insert line)
+          (setq count (1- count)))
+        )
+
+      ;; create the undo information
+      (setq buffer-undo-list (cons (cons eol (point)) buffer-undo-list)))
+    ) ; end-of-let
+
+  ;; put the point in the lowest line and return
+  (next-line arg))
+(global-set-key (kbd "C-c C-d") 'duplicate-line)
+
 ;;icicles
-;; (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
-;; (require 'icicles)
-;; (icy-mode 1)
+(add-to-list 'load-path "~/.emacs.d/plugins/icicles")
+(require 'icicles)
+(icy-mode 1)
+
+;; auto-indent-mode
+;(require 'auto-indent-mode)
 
 ;; window-numbering
 (require 'window-numbering)
@@ -138,16 +184,10 @@ If point was already at that position, move point to beginning of line."
 ;; mode-compile
 (autoload 'mode-compile "mode-compile"
   "Command to compile current buffer file based on the major mode" t)
-(global-set-key "\C-cc" 'mode-compile)
+;(global-set-key "\C-cc" 'mode-compile)
 (autoload 'mode-compile-kill "mode-compile"
   "Command to kill a compilation launched by `mode-compile'" t)
-(global-set-key "\C-ck" 'mode-compile-kill)
-
-;; imenu
-(require 'imenu)
-
-;; pos-tip
-(require 'pos-tip)
+;(global-set-key "\C-ck" 'mode-compile-kill)
 
 ;; auto complete
 (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
@@ -155,70 +195,16 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/dict")
 (require 'auto-complete-config)
 (ac-config-default)
-(setq ac-delay 0.5)
 ;; (add-hook 'ruby-mode-hook
 ;;           (lambda ()
 ;;             (make-local-variable 'ac-ignores)
 ;;             (add-to-list 'ac-ignores "end")))
 
-(defun ido-goto-symbol (&optional symbol-list)
-  "Refresh imenu and jump to a place in the buffer using Ido."
-  (interactive)
-  (unless (featurep 'imenu)
-    (require 'imenu nil t))
-  (cond
-   ((not symbol-list)
-    (let ((ido-mode ido-mode)
-          (ido-enable-flex-matching
-           (if (boundp 'ido-enable-flex-matching)
-               ido-enable-flex-matching t))
-          name-and-pos symbol-names position)
-      (unless ido-mode
-        (ido-mode 1)
-        (setq ido-enable-flex-matching t))
-      (while (progn
-               (imenu--cleanup)
-               (setq imenu--index-alist nil)
-               (ido-goto-symbol (imenu--make-index-alist))
-               (setq selected-symbol
-                     (ido-completing-read "Symbol? " symbol-names))
-               (string= (car imenu--rescan-item) selected-symbol)))
-      (unless (and (boundp 'mark-active) mark-active)
-        (push-mark nil t nil))
-      (setq position (cdr (assoc selected-symbol name-and-pos)))
-      (cond
-       ((overlayp position)
-        (goto-char (overlay-start position)))
-       (t
-        (goto-char position)))))
-   ((listp symbol-list)
-    (dolist (symbol symbol-list)
-      (let (name position)
-        (cond
-         ((and (listp symbol) (imenu--subalist-p symbol))
-          (ido-goto-symbol symbol))
-         ((listp symbol)
-          (setq name (car symbol))
-          (setq position (cdr symbol)))
-         ((stringp symbol)
-          (setq name symbol)
-          (setq position
-                (get-text-property 1 'org-imenu-marker symbol))))
-        (unless (or (null position) (null name)
-                    (string= (car imenu--rescan-item) name))
-          (add-to-list 'symbol-names name)
-          (add-to-list 'name-and-pos (cons name position))))))))
-(global-set-key "\C-ci" 'ido-goto-symbol) ; or any key you see fit
-
 
 ;; textmate.el
-(add-to-list 'load-path "~/.emacs.d/plugins/textmate.el")
-(require 'textmate)
-(textmate-mode)
-
-;; rvm.el
-;; (require 'rvm)
-;; (rvm-use-default)
+;; (add-to-list 'load-path "~/.emacs.d/plugins/textmate.el")
+;; (require 'textmate)
+;; (textmate-mode)
 
 ;; lua-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/lua-mode")
@@ -272,7 +258,26 @@ If point was already at that position, move point to beginning of line."
 (require 'slime)
 (slime-setup '(slime-fancy))
 
-;; asy-mode, lasy-mode, 
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+(require 'eldoc) ; if not already loaded
+(eldoc-add-command
+ 'paredit-backward-delete
+ 'paredit-close-round)
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+;; Stop SLIME's REPL from grabbing DEL,
+;; which is annoying when backspacing over a '('
+(defun override-slime-repl-bindings-with-paredit ()
+  (define-key slime-repl-mode-map
+    (read-kbd-macro paredit-backward-delete-key) nil))
+(add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
+
+
+;; asy-mode, lasy-mode,
 (add-to-list 'load-path "/usr/local/texlive/2010/texmf/asymptote/")
 (autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
 (autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
@@ -384,19 +389,19 @@ If point was already at that position, move point to beginning of line."
                (current-column)))))))
 (global-set-key (kbd "C-*") 'toggle-selective-display)
 
-;; rails-reloaded
-;; (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails-reloaded")
-;; (require 'rails-autoload)
+;; rails
+(add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails")
+(require 'rails)
 
 ;; rinari
-(add-to-list 'load-path "~/.emacs.d/plugins/rinari")
-(require 'rinari)
+;; (add-to-list 'load-path "~/.emacs.d/plugins/rinari")
+;; (require 'rinari)
+;; (setq rinari-tags-file-name "TAGS")
 
 (add-to-list 'load-path "~/.emacs.d/plugins/rhtml")
 (require 'rhtml-mode)
-(setq rinari-tags-file-name "TAGS")
-(add-hook 'rhtml-mode-hook
-          (lambda () (rinari-launch)))
+;; (add-hook 'rhtml-mode-hook
+;;           (lambda () (rinari-launch)))
 
 (require 'ack)
 (defun ack-in-project (pattern)
@@ -411,7 +416,7 @@ defined by the ack-command variable."
         (ack-full-buffer-name (concat "*ack-" pattern "*")))
 
     ;; lambda defined here since compilation-start expects to call a function to get the buffer name
-    (compilation-start (concat ack-command " -i --noheading --nocolor " pattern " " (rinari-root)) 'ack-mode
+    (compilation-start (concat ack-command " -i --noheading --nocolor " pattern " " (rails-project:root)) 'ack-mode
                        (when ack-use-search-in-buffer-name
                          (function (lambda (ignore)
                                      ack-full-buffer-name)))
@@ -439,40 +444,6 @@ defined by the ack-command variable."
 
 ;; cperl mode by default
 (defalias 'perl-mode 'cperl-mode)
-
-  ;;; integrate ido with artist-mode
-(defun artist-ido-select-operation (type)
-  "Use ido to select a drawing operation in artist-mode"
-  (interactive (list (ido-completing-read "Drawing operation: " 
-                                          (list "Pen" "Pen Line" "line" "straight line" "rectangle" 
-                                                "square" "poly-line" "straight poly-line" "ellipse" 
-                                                "circle" "text see-thru" "text-overwrite" "spray-can" 
-                                                "erase char" "erase rectangle" "vaporize line" "vaporize lines" 
-                                                "cut rectangle" "cut square" "copy rectangle" "copy square" 
-                                                "paste" "flood-fill"))))
-  (artist-select-operation type))
-(defun artist-ido-select-settings (type)
-  "Use ido to select a setting to change in artist-mode"
-  (interactive (list (ido-completing-read "Setting: " 
-                                          (list "Set Fill" "Set Line" "Set Erase" "Spray-size" "Spray-chars" 
-                                                "Rubber-banding" "Trimming" "Borders"))))
-  (if (equal type "Spray-size") 
-      (artist-select-operation "spray set size")
-    (call-interactively (artist-fc-get-fn-from-symbol 
-                         (cdr (assoc type '(("Set Fill" . set-fill)
-                                            ("Set Line" . set-line)
-                                            ("Set Erase" . set-erase)
-                                            ("Rubber-banding" . rubber-band)
-                                            ("Trimming" . trimming)
-                                            ("Borders" . borders)
-                                            ("Spray-chars" . spray-chars))))))))
-(add-hook 'artist-mode-init-hook 
-          (lambda ()
-            (define-key artist-mode-map (kbd "C-c C-a C-o") 'artist-ido-select-operation)
-            (define-key artist-mode-map (kbd "C-c C-a C-c") 'artist-ido-select-settings)
-            (define-key artist-mode-map [down-mouse-3] 'artist-mouse-choose-operation)
-            (define-key artist-mode-map [S-down-mouse-3] 'artist-down-mouse-3)))
-
 
 ;; twittering mode
 (add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode")
@@ -518,8 +489,8 @@ defined by the ack-command variable."
 ))
 
 ;; full screen toggle using f11
-(defun toggle-fullscreen () 
-  (interactive) 
+(defun toggle-fullscreen ()
+  (interactive)
   (set-frame-parameter nil
                        'fullscreen
                        (if (frame-parameter nil 'fullscreen)
@@ -540,16 +511,16 @@ defined by the ack-command variable."
 (global-set-key (kbd "C-c >") '(lambda () (interactive) (insert "}")))
 (global-set-key (kbd "C-c !") '(lambda () (interactive) (insert "%")))
 
+(global-set-key [mouse-6] 'previous-buffer)
+(global-set-key [mouse-7] 'next-buffer)
 
-;; ;; emacs server
-;; (if (not (boundp 'server-process))
-;;     (progn
-;;       (server-start)
-;;       (add-hook 'server-switch-hook
-;;                 (lambda ()
-;;                   (when (current-local-map)
-;;                     (use-local-map (copy-keymap (current-local-map))))
-;;                   (when server-buffer-clients
-;;                     (local-set-key (kbd "C-x k") 'server-edit))))))
-
-(put 'narrow-to-page 'disabled nil)
+;; emacs server
+(if (not (boundp 'server-process))
+    (progn
+      (server-start)
+      (add-hook 'server-switch-hook
+                (lambda ()
+                  (when (current-local-map)
+                    (use-local-map (copy-keymap (current-local-map))))
+                  (when server-buffer-clients
+                    (local-set-key (kbd "C-x k") 'server-edit))))))

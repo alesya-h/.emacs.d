@@ -43,3 +43,9 @@
 [submodule "plugins/coffee-mode"]
 	path = plugins/coffee-mode
 	url = https://github.com/defunkt/coffee-mode.git
+[submodule "plugins/anything-config"]
+	path = plugins/anything-config
+	url = git://repo.or.cz/anything-config.git
+[submodule "plugins/emacs-rails"]
+	path = plugins/emacs-rails
+	url = https://github.com/remvee/emacs-rails.git
