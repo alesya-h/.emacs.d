@@ -49,3 +49,6 @@
 [submodule "plugins/emacs-rails"]
 	path = plugins/emacs-rails
 	url = https://github.com/remvee/emacs-rails.git
+[submodule "plugins/magit"]
+	path = plugins/magit
+	url = https://github.com/magit/magit.git

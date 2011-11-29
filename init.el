@@ -161,9 +161,11 @@ If point was already at that position, move point to beginning of line."
 (require 'winresize)
 
 ;; git support
-(add-to-list 'load-path "~/.emacs.d/plugins/git")
-(require 'git)
-(require 'git-blame)
+;; (add-to-list 'load-path "~/.emacs.d/plugins/git")
+;; (require 'git)
+;; (require 'git-blame)
+(add-to-list 'load-path "~/.emacs.d/plugins/magit")
+(require 'magit)
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
