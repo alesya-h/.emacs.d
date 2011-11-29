@@ -482,13 +482,13 @@ defined by the ack-command variable."
 ;; (require 'color-theme-molokai)
 ;; (require 'color-theme-almost-monokai)
 ;; (require 'my-supercool-theme)
-(require 'color-theme-tango)
+(require 'zenburn)
 
-(eval-after-load "color-theme"
-  '(progn
+;; (eval-after-load "color-theme"
+;;   '(progn
      (color-theme-initialize)
-     (color-theme-tango)
-))
+     (color-theme-zenburn)
+;; ))
 
 ;; full screen toggle using f11
 (defun toggle-fullscreen ()
