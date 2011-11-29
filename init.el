@@ -197,6 +197,9 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/dict")
 (require 'auto-complete-config)
 (ac-config-default)
+(define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map "\r" nil)
+
 ;; (add-hook 'ruby-mode-hook
 ;;           (lambda ()
 ;;             (make-local-variable 'ac-ignores)
