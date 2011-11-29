@@ -256,7 +256,7 @@ If point was already at that position, move point to beginning of line."
 ;; slime
 
 (setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
-(add-to-list 'load-path "~/quicklisp/dists/quicklisp/software/slime-20111001-cvs") ; your SLIME directory
+(add-to-list 'load-path "~/quicklisp/dists/quicklisp/software/slime-20111105-cvs") ; your SLIME directory
 (require 'slime)
 (slime-setup '(slime-fancy))
 
