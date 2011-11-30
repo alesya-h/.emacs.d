@@ -520,12 +520,12 @@ defined by the ack-command variable."
 (global-set-key [mouse-7] 'next-buffer)
 
 ;; emacs server
-(if (not (boundp 'server-process))
-    (progn
+;; (if (not (boundp 'server-process))
+;;     (progn
       (server-start)
-      (add-hook 'server-switch-hook
-                (lambda ()
-                  (when (current-local-map)
-                    (use-local-map (copy-keymap (current-local-map))))
-                  (when server-buffer-clients
-                    (local-set-key (kbd "C-x k") 'server-edit))))))
+      ;; (add-hook 'server-switch-hook
+      ;;           (lambda ()
+      ;;             (when (current-local-map)
+      ;;               (use-local-map (copy-keymap (current-local-map))))
+      ;;             (when server-buffer-clients
+      ;;               (local-set-key (kbd "C-x k") 'server-edit))))))
