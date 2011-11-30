@@ -426,7 +426,7 @@ defined by the ack-command variable."
                          (function (lambda (ignore)
                                      ack-full-buffer-name)))
                        (regexp-quote pattern))))
-(global-set-key "\C-cfa" 'ack-in-project)
+(global-set-key "\C-c\C-fa" 'ack-in-project)
 
 (require 'nav)
 
