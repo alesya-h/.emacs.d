@@ -4,16 +4,8 @@
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; If there is more than one, they won't work right.
  '(ac-delay 0.2)
- '(auto-indent-blank-lines-on-move nil)
- '(auto-indent-delete-line-char-remove-extra-spaces t)
- '(auto-indent-delete-trailing-whitespace-on-save-file t)
- '(auto-indent-delete-trailing-whitespace-on-visit-file t)
- '(auto-indent-disabled-modes-list (quote (eshell-mode wl-summary-mode compilation-mode org-mode text-mode dired-mode snippet-mode fundamental-mode diff-mode texinfo-mode conf-windows-mode yaml-mode haml-mode)))
- '(auto-indent-global-mode t nil (auto-indent-mode))
- '(auto-indent-kill-line-at-eol nil)
- '(auto-indent-untabify-on-visit-file t)
  '(default-input-method "russian-computer")
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
@@ -39,7 +31,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- )
+)
 
 (put 'narrow-to-page 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
@@ -49,14 +41,16 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (show-paren-mode t)
+(require 'rainbow-delimiters)
 
+(require 'recentf)
+(recentf-mode 1)
 (require 'gpicker)
 (require 'speedbar)
 (require 'uniquify)
 (require 'icomplete)
 (require 'icomplete+)
 (icomplete-mode 99)
-(iswitchb-mode 1)
 
 (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
 
@@ -68,11 +62,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;; Plugins stuff goes here
-
-;; maximize emacs on start
-;; (require 'maxframe)
-;; (add-hook 'window-setup-hook 'maximize-frame t)
-;; (maximize-frame)
 
 ;; autostart org-mode for .org files
 (require 'org-install)
@@ -145,10 +134,9 @@ If point was already at that position, move point to beginning of line."
 ;;icicles
 (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
 (require 'icicles)
+;; (require 'icicles-iswitchb)
 (icy-mode 1)
-
-;; auto-indent-mode
-;(require 'auto-indent-mode)
+;; (iswitchb-mode 1)
 
 ;; window-numbering
 (require 'window-numbering)
@@ -256,13 +244,11 @@ If point was already at that position, move point to beginning of line."
 ;; quack (racket/scheme for emacs)
 (require 'quack)
 
-;; slime
+;; slime via quicklisp
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "sbcl")
 
-(setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
-(add-to-list 'load-path "~/quicklisp/dists/quicklisp/software/slime-20111105-cvs") ; your SLIME directory
-(require 'slime)
-(slime-setup '(slime-fancy))
-
+;; paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
@@ -280,7 +266,6 @@ If point was already at that position, move point to beginning of line."
   (define-key slime-repl-mode-map
     (read-kbd-macro paredit-backward-delete-key) nil))
 (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
-
 
 ;; asy-mode, lasy-mode,
 (add-to-list 'load-path "/usr/local/texlive/2010/texmf/asymptote/")
@@ -486,12 +471,9 @@ defined by the ack-command variable."
 ;; (require 'color-theme-almost-monokai)
 ;; (require 'my-supercool-theme)
 (require 'zenburn)
-
-;; (eval-after-load "color-theme"
-;;   '(progn
-     (color-theme-initialize)
-     (color-theme-zenburn)
-;; ))
+(color-theme-initialize)
+(color-theme-zenburn)
+(global-rainbow-delimiters-mode)
 
 ;; full screen toggle using f11
 (defun toggle-fullscreen ()
@@ -503,7 +485,7 @@ defined by the ack-command variable."
                          'fullboth)))
 (global-set-key [(f11)] 'toggle-fullscreen)
 
-;; show/hide menubar by f12
+;; show/hide menubar
 (global-set-key (kbd "C-c m") '(lambda ()
                                  (interactive)
                                  (toggle-menu-bar-mode-from-frame)
@@ -519,13 +501,4 @@ defined by the ack-command variable."
 (global-set-key [mouse-6] 'previous-buffer)
 (global-set-key [mouse-7] 'next-buffer)
 
-;; emacs server
-;; (if (not (boundp 'server-process))
-;;     (progn
-      (server-start)
-      ;; (add-hook 'server-switch-hook
-      ;;           (lambda ()
-      ;;             (when (current-local-map)
-      ;;               (use-local-map (copy-keymap (current-local-map))))
-      ;;             (when server-buffer-clients
-      ;;               (local-set-key (kbd "C-x k") 'server-edit))))))
+(server-start)
