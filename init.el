@@ -3,13 +3,14 @@
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
+  ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(ac-delay 0.2)
  '(default-input-method "russian-computer")
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
  '(global-font-lock-mode t)
+ '(history-length 1000)
  '(icicle-max-candidates 64)
  '(icicle-show-Completions-initially-flag t)
  '(icicle-top-level-when-sole-completion-flag nil)
@@ -18,6 +19,8 @@
  '(menu-bar-mode nil)
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
+ '(recentf-mode t)
+ '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
  '(slime-net-coding-system (quote utf-8-unix))
  '(speedbar-indentation-width 2)
@@ -31,7 +34,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
-)
+ )
 
 (put 'narrow-to-page 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
@@ -44,13 +47,41 @@
 (require 'rainbow-delimiters)
 
 (require 'recentf)
-(recentf-mode 1)
+;; (recentf-mode 1)
+;; (savehist-mode 1)
+(require 'timid)
+(timid-mode t)
+(timid-iswitchb-setup)
+
+
+(defun undo-kill-buffer (arg)
+  "Re-open the last buffer killed.  With ARG, re-open the nth buffer."
+  (interactive "p")
+  (let ((recently-killed-list (copy-sequence recentf-list))
+	 (buffer-files-list
+	  (delq nil (mapcar (lambda (buf)
+			      (when (buffer-file-name buf)
+				(expand-file-name (buffer-file-name buf)))) (buffer-list)))))
+    (mapc
+     (lambda (buf-file)
+       (setq recently-killed-list
+	     (delq buf-file recently-killed-list)))
+     buffer-files-list)
+    (find-file
+     (if arg (nth arg recently-killed-list)
+       (car recently-killed-list)))))
+(global-set-key "\C-T" 'undo-kill-buffer)
+
 (require 'gpicker)
 (require 'speedbar)
 (require 'uniquify)
 (require 'icomplete)
 (require 'icomplete+)
 (icomplete-mode 99)
+
+;; minimap
+(add-to-list 'load-path "~/.emacs.d/plugins/minimap")
+(require 'minimap)
 
 (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
 
@@ -135,8 +166,8 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
 (require 'icicles)
 ;; (require 'icicles-iswitchb)
-(icy-mode 1)
-;; (iswitchb-mode 1)
+(icy-mode)
+(iswitchb-mode 1)
 
 ;; window-numbering
 (require 'window-numbering)
@@ -439,8 +470,8 @@ defined by the ack-command variable."
 (add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode")
 (require 'twittering-mode)
 
-;; stumpwm-mode
-(require 'stumpwm-mode)
+(add-to-list 'load-path "~/.emacs.d/plugins/minimap")
+(require 'minimap)
 
 (define-key ctl-x-map "r\C-@" 'rm-set-mark)
 (define-key ctl-x-map [?r ?\C-\ ] 'rm-set-mark)

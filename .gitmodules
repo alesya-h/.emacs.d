@@ -52,3 +52,6 @@
 [submodule "plugins/magit"]
 	path = plugins/magit
 	url = https://github.com/magit/magit.git
+[submodule "plugins/minimap"]
+	path = plugins/minimap
+	url = git://randomsample.de/minimap.git
