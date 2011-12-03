@@ -286,6 +286,7 @@ If point was already at that position, move point to beginning of line."
 (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+(add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
 (require 'eldoc) ; if not already loaded
 (eldoc-add-command
  'paredit-backward-delete
