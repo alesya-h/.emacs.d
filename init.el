@@ -530,7 +530,7 @@ defined by the ack-command variable."
 (global-set-key (kbd "C-c >") '(lambda () (interactive) (insert "}")))
 (global-set-key (kbd "C-c !") '(lambda () (interactive) (insert "%")))
 
-(global-set-key [mouse-6] 'previous-buffer)
-(global-set-key [mouse-7] 'next-buffer)
+(global-set-key [mouse-6] 'next-buffer)
+(global-set-key [mouse-7] 'previous-buffer)
 
 (server-start)
