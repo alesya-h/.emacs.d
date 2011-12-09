@@ -43,6 +43,7 @@
 ;; UI stuff goes here
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (show-paren-mode t)
 (require 'rainbow-delimiters)
 
