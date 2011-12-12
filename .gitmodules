@@ -58,3 +58,6 @@
 [submodule "plugins/undo-tree"]
 	path = plugins/undo-tree
 	url = http://www.dr-qubit.org/git/undo-tree.git
+[submodule "plugins/org-mode"]
+	path = plugins/org-mode
+	url = git://orgmode.org/org-mode.git

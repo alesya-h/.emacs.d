@@ -99,8 +99,12 @@
 ;;;; Plugins stuff goes here
 
 ;; autostart org-mode for .org files
+(add-to-list 'load-path "~/.emacs.d/plugins/org-mode")
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 ;; imenu
 (require 'imenu)
@@ -169,9 +173,10 @@ If point was already at that position, move point to beginning of line."
 ;;icicles
 (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
 (require 'icicles)
-;; (require 'icicles-iswitchb)
+(require 'icicles-iswitchb)
 (icy-mode)
 (iswitchb-mode 1)
+(global-set-key (kbd "C-x b") 'iswitchb-buffer)
 
 ;; window-numbering
 (require 'window-numbering)
