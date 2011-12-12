@@ -55,3 +55,6 @@
 [submodule "plugins/minimap"]
 	path = plugins/minimap
 	url = git://randomsample.de/minimap.git
+[submodule "plugins/undo-tree"]
+	path = plugins/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git

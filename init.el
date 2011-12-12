@@ -54,6 +54,9 @@
 (timid-mode t)
 (timid-iswitchb-setup)
 
+;; undo-tree
+(add-to-list 'load-path "~/.emacs.d/plugins/undo-tree")
+(require 'undo-tree)
 
 (defun undo-kill-buffer (arg)
   "Re-open the last buffer killed.  With ARG, re-open the nth buffer."
