@@ -87,6 +87,11 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/minimap")
 (require 'minimap)
 
+;; nyan-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/nyan-mode")
+(require 'nyan-mode)
+(nyan-mode)
+
 (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
 
 ;; replace "yes-or-no" with "y-or-n"

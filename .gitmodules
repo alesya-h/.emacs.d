@@ -61,3 +61,6 @@
 [submodule "plugins/org-mode"]
 	path = plugins/org-mode
 	url = git://orgmode.org/org-mode.git
+[submodule "plugins/nyan-mode"]
+	path = plugins/nyan-mode
+	url = https://github.com/TeMPOraL/nyan-mode.git
