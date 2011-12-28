@@ -1,21 +1,23 @@
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(ac-delay 0.2)
+ '(custom-enabled-themes (quote (wombat)))
+ '(custom-safe-themes (quote ("9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
+ '(custom-theme-directory "~/.emacs.d/plugins/themes/")
  '(default-input-method "russian-computer")
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
  '(global-font-lock-mode t)
  '(history-length 1000)
- '(icicle-max-candidates 64)
- '(icicle-show-Completions-initially-flag t)
- '(icicle-top-level-when-sole-completion-flag nil)
  '(ido-enable-flex-matching t)
+ '(ido-mode (quote buffer) nil (ido))
  '(inhibit-startup-screen t)
+ '(iswitchb-mode t)
  '(menu-bar-mode nil)
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
@@ -30,10 +32,10 @@
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 (put 'narrow-to-page 'disabled nil)
@@ -48,11 +50,9 @@
 (require 'rainbow-delimiters)
 
 (require 'recentf)
-;; (recentf-mode 1)
-;; (savehist-mode 1)
 (require 'timid)
 (timid-mode t)
-(timid-iswitchb-setup)
+;; (timid-iswitchb-setup)
 
 ;; undo-tree
 (add-to-list 'load-path "~/.emacs.d/plugins/undo-tree")
@@ -74,7 +74,7 @@
     (find-file
      (if arg (nth arg recently-killed-list)
        (car recently-killed-list)))))
-(global-set-key "\C-T" 'undo-kill-buffer)
+(global-set-key "\C-x\M-b" 'undo-kill-buffer)
 
 (require 'gpicker)
 (require 'speedbar)
@@ -120,11 +120,6 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/anything-config")
 (require 'anything-match-plugin)
 (require 'anything-config)
-
-;; ido
-;; (require 'ido)
-;; (ido-mode t)
-;; (setq ido-enable-flex-matching t)
 
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
@@ -175,13 +170,13 @@ If point was already at that position, move point to beginning of line."
   (next-line arg))
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
-;;icicles
-(add-to-list 'load-path "~/.emacs.d/plugins/icicles")
-(require 'icicles)
-(require 'icicles-iswitchb)
-(icy-mode)
-(iswitchb-mode 1)
-(global-set-key (kbd "C-x b") 'iswitchb-buffer)
+;; ;;icicles
+;; (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
+;; (require 'icicles)
+;; (require 'icicles-iswitchb)
+;; (icy-mode)
+;; (iswitchb-mode 1)
+;; (global-set-key (kbd "C-x b") 'iswitchb-buffer)
 
 ;; window-numbering
 (require 'window-numbering)
@@ -509,16 +504,6 @@ defined by the ack-command variable."
 (add-to-list 'load-path "~/.emacs.d/plugins/rainbow")
 (require 'rainbow-mode)
 
-;; color-theme
-(add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
-(require 'color-theme)
-(add-to-list 'load-path "~/.emacs.d/plugins/color-themes")
-;; (require 'color-theme-molokai)
-;; (require 'color-theme-almost-monokai)
-;; (require 'my-supercool-theme)
-(require 'zenburn)
-(color-theme-initialize)
-(color-theme-zenburn)
 (global-rainbow-delimiters-mode)
 
 ;; full screen toggle using f11
