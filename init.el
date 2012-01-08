@@ -119,7 +119,7 @@
 ;;;; Plugins stuff goes here
 
 ;; autostart org-mode for .org files
-(add-to-list 'load-path "~/.emacs.d/plugins/org-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/org-mode/lisp")
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
