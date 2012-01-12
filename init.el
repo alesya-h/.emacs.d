@@ -61,6 +61,7 @@
 ;; evil
 (add-to-list 'load-path "~/.emacs.d/plugins/evil")
 (require 'evil)
+(evil-mode t)
 
 (defun evil-insert-jk-for-normal-mode ()
   (interactive)
@@ -68,7 +69,7 @@
   (let ((event (read-event nil)))
     (if (= event ?k)
       (progn
-        (backward-delete-char 1)
+        (undo-tree-undo)
         (evil-normal-state))
       (push event unread-command-events))))
 (define-key evil-insert-state-map "j" 'evil-insert-jk-for-normal-mode)
@@ -377,6 +378,9 @@ If point was already at that position, move point to beginning of line."
 (require 'ruby-style)
 (add-hook 'c-mode-hook 'ruby-style-c-mode)
 (add-hook 'c++-mode-hook 'ruby-style-c-mode)
+
+(add-to-list 'load-path "~/.emacs.d/plugins/rcodetools")
+(require 'rcodetools)
 
 (defun display-code-line-counts (ov)
   (when (eq 'code (overlay-get ov 'hs))

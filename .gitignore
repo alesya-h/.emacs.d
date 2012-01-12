@@ -4,3 +4,4 @@ tramp
 *.elc
 /history
 /image-dired/
+/eshell
