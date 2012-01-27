@@ -6,7 +6,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ac-delay 0.2)
- '(custom-enabled-themes (quote (wombat)))
+ '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes (quote ("9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
  '(custom-theme-directory "~/.emacs.d/plugins/themes/")
  '(default-input-method "russian-computer")
