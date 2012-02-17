@@ -67,3 +67,9 @@
 [submodule "plugins/evil"]
 	path = plugins/evil
 	url = git://gitorious.org/evil/evil.git
+[submodule "plugins/themes/zenburn-emacs"]
+	path = plugins/themes/zenburn-emacs
+	url = https://github.com/bbatsov/zenburn-emacs.git
+[submodule "plugins/themes/emacs-color-theme-solarized"]
+	path = plugins/themes/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git

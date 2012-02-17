@@ -7,9 +7,10 @@
  ;; If there is more than one, they won't work right.
  '(ac-delay 0.2)
  '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (zenburn)))
- '(custom-safe-themes (quote ("9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
+ '(custom-enabled-themes (quote (solarized-light)))
+ '(custom-safe-themes (quote ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "e9cd13d22eab8a441c0c7d319dc044881723395b4aa22f283d581d921cc94a87" "9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
  '(custom-theme-directory "~/.emacs.d/plugins/themes/")
+ '(custom-theme-load-path (quote (custom-theme-directory t "~/.emacs.d/plugins/themes/zenburn-emacs" "~/.emacs.d/plugins/themes/emacs-color-theme-solarized")))
  '(default-input-method "russian-computer")
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
@@ -93,7 +94,7 @@
        (car recently-killed-list)))))
 (global-set-key "\C-x\M-b" 'undo-kill-buffer)
 
-(require 'gpicker)
+;;(require 'gpicker)
 (require 'speedbar)
 (require 'uniquify)
 (require 'icomplete)
