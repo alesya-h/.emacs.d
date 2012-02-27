@@ -347,6 +347,9 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'load-path "~/.emacs.d/plugins/haml-mode")
 (require 'haml-mode)
 
+;; slim-mode
+(require 'slim-mode)
+
 ;; sass-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/sass-mode")
 (require 'sass-mode)
