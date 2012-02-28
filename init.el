@@ -10,8 +10,8 @@
  '(background-color "#002b36")
  '(background-mode dark)
  '(cursor-color "#839496")
- '(custom-enabled-themes (quote (railscasts)))
- '(custom-safe-themes (quote ("7acc0466fce1bc967ce1561c8c4fdcbf4358b4ae692577562a3ed747c109f9d7" "a6d39b3e27d45aea4bf0c20a9f6ccbff858eae1728ac0cf72d6a86bd873202d2" "dc49f2cd86d4a6d0ca8f8cb754568fdcfa4d5023b58225d923561c05d0bfcd12" "33818a647c8d514de4571b7263ece9003fd4239807968bd501152c0643251857" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "e9cd13d22eab8a441c0c7d319dc044881723395b4aa22f283d581d921cc94a87" "9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
+ '(custom-enabled-themes (quote (wombat)))
+ '(custom-safe-themes (quote ("aed9aa67f2adc9a72a02c30f4ebdb198e31874ae45d49125206d5ece794a8826" "7acc0466fce1bc967ce1561c8c4fdcbf4358b4ae692577562a3ed747c109f9d7" "a6d39b3e27d45aea4bf0c20a9f6ccbff858eae1728ac0cf72d6a86bd873202d2" "dc49f2cd86d4a6d0ca8f8cb754568fdcfa4d5023b58225d923561c05d0bfcd12" "33818a647c8d514de4571b7263ece9003fd4239807968bd501152c0643251857" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "e9cd13d22eab8a441c0c7d319dc044881723395b4aa22f283d581d921cc94a87" "9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
  '(custom-theme-directory "~/.emacs.d/plugins/themes/")
  '(custom-theme-load-path (quote (custom-theme-directory t "~/.emacs.d/plugins/themes/zenburn-emacs" "~/.emacs.d/plugins/themes/emacs-color-theme-solarized")))
  '(default-input-method "russian-computer")
@@ -52,7 +52,6 @@
 ;; UI stuff goes here
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (show-paren-mode t)
 (require 'rainbow-delimiters)
 
