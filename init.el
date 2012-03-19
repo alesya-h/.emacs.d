@@ -310,25 +310,25 @@ If point was already at that position, move point to beginning of line."
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "sbcl")
 
-;; paredit
-(autoload 'paredit-mode "paredit"
-  "Minor mode for pseudo-structurally editing Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
-(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
-(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
-(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-(add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
-(require 'eldoc) ; if not already loaded
-(eldoc-add-command
- 'paredit-backward-delete
- 'paredit-close-round)
-(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
-;; Stop SLIME's REPL from grabbing DEL,
-;; which is annoying when backspacing over a '('
-(defun override-slime-repl-bindings-with-paredit ()
-  (define-key slime-repl-mode-map
-    (read-kbd-macro paredit-backward-delete-key) nil))
-(add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
+;; ;; paredit
+;; (autoload 'paredit-mode "paredit"
+;;   "Minor mode for pseudo-structurally editing Lisp code." t)
+;; (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+;; (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+;; (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+;; (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+;; (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
+;; (require 'eldoc) ; if not already loaded
+;; (eldoc-add-command
+;;  'paredit-backward-delete
+;;  'paredit-close-round)
+;; (add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+;; ;; Stop SLIME's REPL from grabbing DEL,
+;; ;; which is annoying when backspacing over a '('
+;; (defun override-slime-repl-bindings-with-paredit ()
+;;   (define-key slime-repl-mode-map
+;;     (read-kbd-macro paredit-backward-delete-key) nil))
+;; (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 
 ;; asy-mode, lasy-mode,
 (add-to-list 'load-path "/usr/local/texlive/2010/texmf/asymptote/")
