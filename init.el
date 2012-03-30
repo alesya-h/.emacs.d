@@ -140,10 +140,6 @@
 ;; pos-tip
 (require 'pos-tip)
 
-(add-to-list 'load-path "~/.emacs.d/plugins/anything-config")
-(require 'anything-match-plugin)
-(require 'anything-config)
-
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
 
@@ -354,6 +350,10 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'load-path "~/.emacs.d/plugins/sass-mode")
 (require 'sass-mode)
 
+;; helm
+(add-to-list 'load-path "~/.emacs.d/plugins/helm")
+(require 'helm)
+
 ;; scss-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scss-mode")
 (require 'scss-mode)
@@ -497,10 +497,6 @@ defined by the ack-command variable."
 ;; YARI
 (add-to-list 'load-path "~/.emacs.d/plugins/yari.el")
 (require 'yari)
-
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (local-set-key [f1] 'yari-anything)))
 
 ;; cperl mode by default
 (defalias 'perl-mode 'cperl-mode)
