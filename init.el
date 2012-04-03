@@ -99,7 +99,7 @@
        (car recently-killed-list)))))
 (global-set-key "\C-x\M-b" 'undo-kill-buffer)
 
-;;(require 'gpicker)
+(require 'gpicker)
 (require 'speedbar)
 (require 'uniquify)
 (require 'icomplete)
@@ -352,7 +352,7 @@ If point was already at that position, move point to beginning of line."
 
 ;; helm
 (add-to-list 'load-path "~/.emacs.d/plugins/helm")
-(require 'helm)
+(require 'helm-config)
 
 ;; scss-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scss-mode")
@@ -462,6 +462,9 @@ If point was already at that position, move point to beginning of line."
 (require 'rhtml-mode)
 ;; (add-hook 'rhtml-mode-hook
 ;;           (lambda () (rinari-launch)))
+
+(add-to-list 'load-path "~/.emacs.d/plugins/eproject")
+(require 'eproject)
 
 (require 'ack)
 (defun ack-in-project (pattern)
