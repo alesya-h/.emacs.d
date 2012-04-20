@@ -76,3 +76,6 @@
 [submodule "plugins/eproject"]
 	path = plugins/eproject
 	url = https://github.com/jrockway/eproject.git
+[submodule "plugins/flymake-node-jshint"]
+	path = plugins/flymake-node-jshint
+	url = https://github.com/jegbjerg/flymake-node-jshint.git

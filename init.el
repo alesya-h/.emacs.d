@@ -10,7 +10,7 @@
  '(background-color "#002b36")
  '(background-mode dark)
  '(cursor-color "#839496")
- '(custom-enabled-themes (quote (wombat)))
+ '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes (quote ("aed9aa67f2adc9a72a02c30f4ebdb198e31874ae45d49125206d5ece794a8826" "7acc0466fce1bc967ce1561c8c4fdcbf4358b4ae692577562a3ed747c109f9d7" "a6d39b3e27d45aea4bf0c20a9f6ccbff858eae1728ac0cf72d6a86bd873202d2" "dc49f2cd86d4a6d0ca8f8cb754568fdcfa4d5023b58225d923561c05d0bfcd12" "33818a647c8d514de4571b7263ece9003fd4239807968bd501152c0643251857" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "e9cd13d22eab8a441c0c7d319dc044881723395b4aa22f283d581d921cc94a87" "9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
  '(custom-theme-directory "~/.emacs.d/plugins/themes/")
  '(custom-theme-load-path (quote (custom-theme-directory t "~/.emacs.d/plugins/themes/zenburn-emacs" "~/.emacs.d/plugins/themes/emacs-color-theme-solarized")))
@@ -22,7 +22,7 @@
  '(history-length 1000)
  '(ido-enable-flex-matching t)
  '(ido-mode (quote buffer) nil (ido))
- '(inferior-js-program-command "/usr/bin/js")
+ '(inferior-js-program-command "/usr/bin/node")
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
  '(menu-bar-mode nil)
@@ -56,6 +56,16 @@
 (show-paren-mode t)
 (require 'rainbow-delimiters)
 (require 'js-comint)
+;; (setq inferior-js-mode-hook
+;;       (lambda ()
+;;         ;; We like nice colors
+;;         (ansi-color-for-comint-mode-on)
+;;         ;; Deal with some prompt nonsense
+;;         (add-to-list 'comint-preoutput-filter-functions
+;;                      (lambda (output)
+;;                        (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
+;;                                                  (replace-regexp-in-string ".*1G.*3G" "&gt;" output))))))
+(require 'flymake-cursor)
 (require 'recentf)
 (require 'timid)
 (timid-mode t)
@@ -64,6 +74,12 @@
 ;; undo-tree
 (add-to-list 'load-path "~/.emacs.d/plugins/undo-tree")
 (require 'undo-tree)
+
+;; flymake-node-jshint
+(add-to-list 'load-path "~/.emacs.d/plugins/flymake-node-jshint")
+(require 'flymake-node-jshint)
+; (setq flymake-node-jshint-config "~/.jshintrc-node.json") ; optional
+(add-hook 'js-mode-hook (lambda () (flymake-mode 1)))
 
 ;; evil
 (add-to-list 'load-path "~/.emacs.d/plugins/evil")
