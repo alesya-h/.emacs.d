@@ -85,6 +85,9 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/evil")
 (require 'evil)
 (evil-mode t)
+(add-to-list 'load-path "~/.emacs.d/plugins/evil-surround")
+(require 'surround)
+(global-surround-mode t)
 
 (defun evil-insert-jk-for-normal-mode ()
   (interactive)

@@ -79,3 +79,6 @@
 [submodule "plugins/flymake-node-jshint"]
 	path = plugins/flymake-node-jshint
 	url = https://github.com/jegbjerg/flymake-node-jshint.git
+[submodule "plugins/evil-surround"]
+	path = plugins/evil-surround
+	url = https://github.com/timcharper/evil-surround.git
