@@ -119,6 +119,8 @@
 (global-set-key "\C-x\M-b" 'undo-kill-buffer)
 
 (require 'gpicker)
+(global-set-key [(f5)] 'gpicker-find-file)
+
 (require 'speedbar)
 (require 'uniquify)
 (require 'icomplete)
