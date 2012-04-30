@@ -82,3 +82,6 @@
 [submodule "plugins/evil-surround"]
 	path = plugins/evil-surround
 	url = https://github.com/timcharper/evil-surround.git
+[submodule "plugins/popup"]
+	path = plugins/popup
+	url = https://github.com/m2ym/popup-el.git
