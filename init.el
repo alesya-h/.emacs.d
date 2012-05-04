@@ -118,8 +118,10 @@
        (car recently-killed-list)))))
 (global-set-key "\C-x\M-b" 'undo-kill-buffer)
 
+(global-set-key [(f5)] 'recentf-open-files)
+
 (require 'gpicker)
-(global-set-key [(f5)] 'gpicker-find-file)
+(global-set-key [(f6)] 'gpicker-find-file)
 
 (require 'speedbar)
 (require 'uniquify)
