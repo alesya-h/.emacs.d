@@ -85,3 +85,6 @@
 [submodule "plugins/popup"]
 	path = plugins/popup
 	url = https://github.com/m2ym/popup-el.git
+[submodule "plugins/powerline"]
+	path = plugins/powerline
+	url = https://github.com/jonathanchu/emacs-powerline.git
