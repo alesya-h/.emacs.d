@@ -127,7 +127,7 @@
        (car recently-killed-list)))))
 (global-set-key "\C-x\M-b" 'undo-kill-buffer)
 
-(global-set-key [(f6)] 'recentf-open-files)
+(global-set-key (kbd "<f6>") 'recentf-open-files)
 
 (require 'gpicker)
 (defun gpicker-set-root-and-find-file ()
@@ -135,7 +135,8 @@
   (unless *gpicker-project-dir*
     (call-interactively 'gpicker-visit-project))
   (gpicker-find-file))
-(global-set-key [(f5)] 'gpicker-set-root-and-find-file)
+(global-set-key (kbd "<f5>") 'gpicker-set-root-and-find-file)
+(global-set-key (kbd "C-<f5>") 'gpicker-visit-project)
 
 (require 'speedbar)
 (require 'uniquify)
@@ -580,7 +581,7 @@ defined by the ack-command variable."
                        (if (frame-parameter nil 'fullscreen)
                            nil
                          'fullboth)))
-(global-set-key [(f11)] 'toggle-fullscreen)
+(global-set-key (kbd "<f11>") 'toggle-fullscreen)
 
 ;; show/hide menubar
 (global-set-key (kbd "C-c m") '(lambda ()
