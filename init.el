@@ -76,6 +76,10 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/powerline")
 (require 'powerline)
 
+;; liquid-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/liquid-mode")
+(require 'liquid-mode)
+
 ;; undo-tree
 (add-to-list 'load-path "~/.emacs.d/plugins/undo-tree")
 (require 'undo-tree)

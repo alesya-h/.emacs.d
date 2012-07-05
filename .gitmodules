@@ -88,3 +88,6 @@
 [submodule "plugins/powerline"]
 	path = plugins/powerline
 	url = https://github.com/jonathanchu/emacs-powerline.git
+[submodule "plugins/liquid-mode"]
+	path = plugins/liquid-mode
+	url = https://github.com/alesguzik/liquid-mode.git
