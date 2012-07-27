@@ -27,11 +27,14 @@
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
  '(menu-bar-mode nil)
+ '(mouse-drag-copy-region t)
+ '(mouse-yank-at-point t)
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
  '(recentf-mode t)
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
+ '(select-active-regions nil)
  '(slime-net-coding-system (quote utf-8-unix))
  '(solarized-termcolors 256)
  '(speedbar-indentation-width 2)
@@ -39,7 +42,9 @@
  '(speedbar-supported-extension-expressions (quote ("\\.rb" ".org" ".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?" ".tex\\(i\\(nfo\\)?\\)?" ".el" ".emacs" ".l" ".lsp" ".p" ".java" ".js" ".f\\(90\\|77\\|or\\)?" ".ada" ".p[lm]" ".tcl" ".m" ".scm" ".pm" ".py" ".g" ".s?html" ".ma?k" "[Mm]akefile\\(\\.in\\)?" ".")))
  '(split-width-threshold 100500)
  '(tool-bar-mode nil)
- '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
+ '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
+ '(x-select-enable-clipboard nil)
+ '(x-select-enable-primary t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -90,6 +95,13 @@
 ; (setq flymake-node-jshint-config "~/.jshintrc-node.json") ; optional
 (add-hook 'js-mode-hook (lambda () (flymake-mode 1)))
 
+;; git support
+(add-to-list 'load-path "~/.emacs.d/plugins/git")
+(require 'git)
+(require 'git-blame)
+(add-to-list 'load-path "~/.emacs.d/plugins/magit")
+(require 'magit)
+
 ;; evil
 (add-to-list 'load-path "~/.emacs.d/plugins/evil")
 (require 'evil)
@@ -127,7 +139,7 @@
        (car recently-killed-list)))))
 (global-set-key "\C-x\M-b" 'undo-kill-buffer)
 
-(global-set-key (kbd "<f6>") 'recentf-open-files)
+(global-set-key (kbd "<f5>") 'recentf-open-files)
 
 (require 'gpicker)
 (defun gpicker-set-root-and-find-file ()
@@ -135,7 +147,10 @@
   (unless *gpicker-project-dir*
     (call-interactively 'gpicker-visit-project))
   (gpicker-find-file))
-(global-set-key (kbd "<f5>") 'gpicker-set-root-and-find-file)
+(global-set-key (kbd "<f6>") 'gpicker-set-root-and-find-file)
+(global-set-key (kbd "<f7>") 'gpicker-imenu)
+(global-set-key (kbd "<f8>") 'gpicker-goto-tag)
+(global-set-key (kbd "<f9>") 'gpicker-isearch)
 (global-set-key (kbd "C-<f5>") 'gpicker-visit-project)
 
 (require 'speedbar)
@@ -244,13 +259,6 @@ If point was already at that position, move point to beginning of line."
 
 ;; resize windows with C-M-<arrows>
 (require 'winresize)
-
-;; git support
-(add-to-list 'load-path "~/.emacs.d/plugins/git")
-(require 'git)
-(require 'git-blame)
-(add-to-list 'load-path "~/.emacs.d/plugins/magit")
-(require 'magit)
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
@@ -599,4 +607,4 @@ defined by the ack-command variable."
 (global-set-key [mouse-6] 'next-buffer)
 (global-set-key [mouse-7] 'previous-buffer)
 
-(server-start)
+; (server-start)
