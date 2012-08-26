@@ -148,10 +148,10 @@
     (call-interactively 'gpicker-visit-project))
   (gpicker-find-file))
 (global-set-key (kbd "<f6>") 'gpicker-set-root-and-find-file)
+(global-set-key (kbd "C-<f6>") 'gpicker-visit-project)
 (global-set-key (kbd "<f7>") 'gpicker-imenu)
 (global-set-key (kbd "<f8>") 'gpicker-goto-tag)
 (global-set-key (kbd "<f9>") 'gpicker-isearch)
-(global-set-key (kbd "C-<f5>") 'gpicker-visit-project)
 
 (require 'speedbar)
 (require 'uniquify)
