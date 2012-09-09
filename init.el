@@ -206,41 +206,18 @@ If point was already at that position, move point to beginning of line."
 (global-set-key [home] 'smart-beginning-of-line)
 (global-set-key "\C-a" 'smart-beginning-of-line)
 
-(defun duplicate-line (arg)
-  "Duplicate current line, leaving point in lower line."
-  (interactive "*p")
+(defun comment-dwim-line (&optional arg)
+        "Replacement for the comment-dwim command.
+        If no region is selected and current line is not blank and we are not at the end of the line,
+        then comment current line.
+        Replaces default behaviour of comment-dwim, when it inserts comment at the end of the line."
+          (interactive "*P")
+          (comment-normalize-vars)
+          (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
+              (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+            (comment-dwim arg)))
 
-  ;; save the point for undo
-  (setq buffer-undo-list (cons (point) buffer-undo-list))
-
-  ;; local variables for start and end of line
-  (let ((bol (save-excursion (beginning-of-line) (point)))
-        eol)
-    (save-excursion
-
-      ;; don't use forward-line for this, because you would have
-      ;; to check whether you are at the end of the buffer
-      (end-of-line)
-      (setq eol (point))
-
-      ;; store the line and disable the recording of undo information
-      (let ((line (buffer-substring bol eol))
-            (buffer-undo-list t)
-            (count arg))
-        ;; insert the line arg times
-        (while (> count 0)
-          (newline)         ;; because there is no newline in 'line'
-          (insert line)
-          (setq count (1- count)))
-        )
-
-      ;; create the undo information
-      (setq buffer-undo-list (cons (cons eol (point)) buffer-undo-list)))
-    ) ; end-of-let
-
-  ;; put the point in the lowest line and return
-  (next-line arg))
-(global-set-key (kbd "C-c C-d") 'duplicate-line)
+(global-set-key "\M-;" 'comment-dwim-line)
 
 ;; ;;icicles
 ;; (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
@@ -352,7 +329,7 @@ If point was already at that position, move point to beginning of line."
 
 ;; slime via quicklisp
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "sbcl")
+(setq inferior-lisp-program "clisp")
 
 ;; ;; paredit
 ;; (autoload 'paredit-mode "paredit"
