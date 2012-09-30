@@ -168,7 +168,7 @@
 ;(require 'nyan-mode)
 ;(nyan-mode)
 
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12"))
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-13"))
 
 ;; replace "yes-or-no" with "y-or-n"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -262,7 +262,6 @@ If point was already at that position, move point to beginning of line."
 ;(global-set-key "\C-ck" 'mode-compile-kill)
 
 ;; auto complete
-(add-to-list 'load-path "~/.emacs.d/plugins/popup")
 (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
 (setq ac-dictionary-directories '())
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/dict")
@@ -302,7 +301,9 @@ If point was already at that position, move point to beginning of line."
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
 (require 'scala-mode-auto)
-;;(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+(add-to-list 'load-path "~/.emacs.d/ensime_2.9.2-0.9.8.1/elisp")
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;; clojure-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/clojure-mode")
@@ -330,6 +331,7 @@ If point was already at that position, move point to beginning of line."
 ;; slime via quicklisp
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "clisp")
+(setq common-lisp-hyperspec-root "~/.emacs.d/HyperSpec/")
 
 ;; ;; paredit
 ;; (autoload 'paredit-mode "paredit"
