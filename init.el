@@ -301,7 +301,7 @@ If point was already at that position, move point to beginning of line."
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
 (require 'scala-mode-auto)
-(add-to-list 'load-path "~/.emacs.d/ensime_2.9.2-0.9.8.1/elisp")
+(add-to-list 'load-path "~/.emacs.d/plugins/ensime/elisp")
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
