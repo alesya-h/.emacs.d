@@ -262,6 +262,8 @@ If point was already at that position, move point to beginning of line."
 ;(global-set-key "\C-ck" 'mode-compile-kill)
 
 ;; auto complete
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete/lib/popup")
+(require 'popup)
 (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
 (setq ac-dictionary-directories '())
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/dict")
