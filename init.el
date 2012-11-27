@@ -10,8 +10,8 @@
  '(background-color "#002b36")
  '(background-mode dark)
  '(cursor-color "#839496")
- '(custom-enabled-themes (quote (dichromacy)))
- '(custom-safe-themes (quote ("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" "7cced48b557e24937f437e59c7f6a6cea5ace4e603377beb5067d0b2c27b4b7d" "aed9aa67f2adc9a72a02c30f4ebdb198e31874ae45d49125206d5ece794a8826" "7acc0466fce1bc967ce1561c8c4fdcbf4358b4ae692577562a3ed747c109f9d7" "a6d39b3e27d45aea4bf0c20a9f6ccbff858eae1728ac0cf72d6a86bd873202d2" "dc49f2cd86d4a6d0ca8f8cb754568fdcfa4d5023b58225d923561c05d0bfcd12" "33818a647c8d514de4571b7263ece9003fd4239807968bd501152c0643251857" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "e9cd13d22eab8a441c0c7d319dc044881723395b4aa22f283d581d921cc94a87" "9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
+ '(custom-enabled-themes (quote (adwaita)))
+ '(custom-safe-themes (quote ("78b1c94c1298bbe80ae7f49286e720be25665dca4b89aea16c60dacccfbb0bca" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" "7cced48b557e24937f437e59c7f6a6cea5ace4e603377beb5067d0b2c27b4b7d" "aed9aa67f2adc9a72a02c30f4ebdb198e31874ae45d49125206d5ece794a8826" "7acc0466fce1bc967ce1561c8c4fdcbf4358b4ae692577562a3ed747c109f9d7" "a6d39b3e27d45aea4bf0c20a9f6ccbff858eae1728ac0cf72d6a86bd873202d2" "dc49f2cd86d4a6d0ca8f8cb754568fdcfa4d5023b58225d923561c05d0bfcd12" "33818a647c8d514de4571b7263ece9003fd4239807968bd501152c0643251857" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "e9cd13d22eab8a441c0c7d319dc044881723395b4aa22f283d581d921cc94a87" "9cdf9fb94f560902b567b73f65c2ed4e5cfbaafe" default)))
  '(custom-theme-directory "~/.emacs.d/plugins/themes/")
  '(custom-theme-load-path (quote (custom-theme-directory t "~/.emacs.d/plugins/themes/zenburn-emacs" "~/.emacs.d/plugins/themes/emacs-color-theme-solarized")))
  '(default-input-method "russian-computer")
@@ -291,11 +291,15 @@ If point was already at that position, move point to beginning of line."
 
 
 ;; erlang-mode
-(add-to-list 'load-path "~/.emacs.d/plugins/erlang")
+(add-to-list 'load-path (car (file-expand-wildcards "/usr/lib/erlang/lib/tools-*/emacs")))
 (setq erlang-root-dir "/usr/lib/erlang")
 (add-to-list 'exec-path "/usr/lib/erlang/bin")
 (require 'erlang-start)
 (require 'erlang-flymake)
+(add-to-list 'load-path "~/.emacs.d/plugins/distel/elisp")
+(require 'distel)
+(require 'distel-ie)
+(distel-setup)
 (add-hook 'erlang-mode-hook
           '(lambda ()
              (local-set-key (kbd "C-c C-b") 'erlang-compile)))
@@ -332,7 +336,7 @@ If point was already at that position, move point to beginning of line."
 
 ;; slime via quicklisp
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "clisp")
+(setq inferior-lisp-program "clisp -ansi")
 (setq common-lisp-hyperspec-root "~/.emacs.d/HyperSpec/")
 
 ;; ;; paredit
@@ -387,6 +391,10 @@ If point was already at that position, move point to beginning of line."
 (require 'scss-mode)
 (setq scss-compile-at-save nil)
 (add-hook 'scss-mode-hook '(lambda ()
+                             (rainbow-mode)
+                             (hs-minor-mode)
+                             (auto-complete-mode)))
+(add-hook 'css-mode-hook '(lambda ()
                              (rainbow-mode)
                              (hs-minor-mode)
                              (auto-complete-mode)))

@@ -91,3 +91,6 @@
 [submodule "plugins/liquid-mode"]
 	path = plugins/liquid-mode
 	url = https://github.com/alesguzik/liquid-mode.git
+[submodule "plugins/distel"]
+	path = plugins/distel
+	url = https://github.com/massemanet/distel.git
