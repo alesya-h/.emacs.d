@@ -94,3 +94,6 @@
 [submodule "plugins/distel"]
 	path = plugins/distel
 	url = https://github.com/massemanet/distel.git
+[submodule "plugins/supermegadoc"]
+	path = plugins/supermegadoc
+	url = https://github.com/alk/supermegadoc.git
