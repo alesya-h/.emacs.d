@@ -97,3 +97,6 @@
 [submodule "plugins/supermegadoc"]
 	path = plugins/supermegadoc
 	url = https://github.com/alk/supermegadoc.git
+[submodule "plugins/mirror-mode"]
+	path = plugins/mirror-mode
+	url = https://github.com/alesguzik/mirror-mode.git
