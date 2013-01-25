@@ -5,6 +5,9 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+;; powerline
+(add-to-list 'load-path "~/.emacs.d/plugins/powerline")
+(require 'powerline)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -16,8 +19,8 @@
  '(background-color "#002b36")
  '(background-mode dark)
  '(cursor-color "#839496")
- '(custom-enabled-themes (quote (monokai)))
- '(custom-safe-themes (quote ("30fe7e72186c728bd7c3e1b8d67bc10b846119c45a0f35c972ed427c45bacc19" "71efabb175ea1cf5c9768f10dad62bb2606f41d110152f4ace675325d28df8bd" default)))
+ '(custom-enabled-themes (quote (tron)))
+ '(custom-safe-themes (quote ("c582c1d99904ddc0677f87ba7eb6596cf9321a7e6233857dc4bd6ae587893194" "f07eb9c760be41f36d2971b205d0ec0e1bec9d84ba79e3bc31f26efe724a14f6" "2611d548a133727b1a956c4fa262935e993662a0aaa25d9532b04ab8f556a25b" "72cc9ae08503b8e977801c6d6ec17043b55313cda34bcf0e6921f2f04cf2da56" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "6cfe5b2f818c7b52723f3e121d1157cf9d95ed8923dbc1b47f392da80ef7495d" "d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" "501caa208affa1145ccbb4b74b6cd66c3091e41c5bb66c677feda9def5eab19c" "fe6330ecf168de137bb5eddbf9faae1ec123787b5489c14fa5fa627de1d9f82b" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" "30fe7e72186c728bd7c3e1b8d67bc10b846119c45a0f35c972ed427c45bacc19" "71efabb175ea1cf5c9768f10dad62bb2606f41d110152f4ace675325d28df8bd" default)))
  '(default-input-method "russian-computer")
  '(fci-rule-color "#383838")
  '(foreground-color "#839496")
@@ -56,6 +59,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+(set-frame-parameter (selected-frame) 'alpha '(90 90))  ; (active inactive)
+(add-to-list 'default-frame-alist '(alpha 90 90))
+
 (put 'narrow-to-page 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
 (setq warning-suppress-types nil)
@@ -80,10 +86,6 @@
 (require 'timid)
 (timid-mode t)
 ;; (timid-iswitchb-setup)
-
-;; powerline
-(add-to-list 'load-path "~/.emacs.d/plugins/powerline")
-(require 'powerline)
 
 ;; liquid-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/liquid-mode")
@@ -330,6 +332,8 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'load-path "~/.emacs.d/plugins/clojure-mode")
 (require 'clojure-mode)
 
+;; k-mode
+(require 'k-mode)
 
 ;; yaml-mode
 (require 'yaml-mode)
