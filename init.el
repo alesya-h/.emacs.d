@@ -59,8 +59,8 @@
  ;; If there is more than one, they won't work right.
  )
 
-(set-frame-parameter (selected-frame) 'alpha '(90 90))  ; (active inactive)
-(add-to-list 'default-frame-alist '(alpha 90 90))
+(set-frame-parameter (selected-frame) 'alpha '(80 80))  ; (active inactive)
+(add-to-list 'default-frame-alist '(alpha 80 80))
 
 (put 'narrow-to-page 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
