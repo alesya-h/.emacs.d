@@ -335,6 +335,9 @@ If point was already at that position, move point to beginning of line."
 ;; k-mode
 (require 'k-mode)
 
+;; fuel (factor mode)
+(load-file "/usr/lib/factor/misc/fuel/fu.el")
+
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
