@@ -30,7 +30,7 @@
  '(history-length 1000)
  '(ido-enable-flex-matching t)
  '(ido-mode (quote buffer) nil (ido))
- '(inferior-js-program-command "/usr/bin/node")
+ '(inferior-js-program-command "/usr/bin/js")
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
  '(menu-bar-mode nil)
