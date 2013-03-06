@@ -434,9 +434,6 @@ If point was already at that position, move point to beginning of line."
 ;; ruby electric
 ;; (require 'ruby-electric)
 ;; ruby C/C++ style
-(require 'ruby-style)
-(add-hook 'c-mode-hook 'ruby-style-c-mode)
-(add-hook 'c++-mode-hook 'ruby-style-c-mode)
 
 (add-to-list 'load-path "~/.emacs.d/plugins/rcodetools")
 (require 'rcodetools)
