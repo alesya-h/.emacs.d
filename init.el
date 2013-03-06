@@ -59,8 +59,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-(set-frame-parameter (selected-frame) 'alpha '(80 80))  ; (active inactive)
-(add-to-list 'default-frame-alist '(alpha 80 80))
 (set-frame-parameter (selected-frame) 'font "DejaVu Sans Mono-13")
 (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-13"))
 
