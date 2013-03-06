@@ -140,7 +140,7 @@
 (global-set-key (kbd "<f5>") 'recentf-open-files)
 
 (require 'gpicker)
-(setq *gpicker-project-dir* "/home/me/pmm/chef-repo")
+(setq *gpicker-project-dir* "/home/me/p/250502")
 (defun gpicker-set-root-and-find-file ()
   (interactive)
   (unless *gpicker-project-dir*
