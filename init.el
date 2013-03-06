@@ -119,17 +119,6 @@
 (require 'surround)
 (global-surround-mode t)
 
-(defun evil-insert-jk-for-normal-mode ()
-  (interactive)
-  (insert "j")
-  (let ((event (read-event nil)))
-    (if (= event ?k)
-      (progn
-        (undo-tree-undo)
-        (evil-normal-state))
-      (push event unread-command-events))))
-(define-key evil-insert-state-map "j" 'evil-insert-jk-for-normal-mode)
-
 (defun undo-kill-buffer (arg)
   "Re-open the last buffer killed.  With ARG, re-open the nth buffer."
   (interactive "p")
