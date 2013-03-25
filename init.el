@@ -323,6 +323,10 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'load-path "~/.emacs.d/plugins/clojure-mode")
 (require 'clojure-mode)
 
+;; objj-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/objj-mode")
+(require 'objj-mode)
+
 ;; k-mode
 (require 'k-mode)
 
