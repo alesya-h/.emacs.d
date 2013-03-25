@@ -3,7 +3,7 @@
 ;; Copyright (C) 1989,1999,2000,2004,2007,2010-2013  Free Software Foundation, Inc.
 
 ;; Maintainer: (Stefan Monnier) <monnier@iro.umontreal.ca>
-;; Version: 6.3
+;; Version: 6.4
 ;; Keywords: SML
 ;; Author:	Lars Bo Nielsen
 ;;		Olin Shivers
@@ -656,7 +656,7 @@ Assumes point is right before the | symbol."
 ;;;; Imenu support
 ;;;;
 
-(defvar sml-imenu-regexp
+(defconst sml-imenu-regexp
   (concat "^[ \t]*\\(let[ \t]+\\)?"
 	  (regexp-opt (append sml-module-head-syms
 			      '("and" "fun" "datatype" "abstype" "type")) t)
@@ -678,9 +678,9 @@ Assumes point is right before the | symbol."
 	      (name (sml-smie-forward-token)))
 	  ;; Eliminate trivial renamings.
 	  (when (or (not (member kind '("structure" "signature")))
-		    (progn (search-forward "=")
-			   (forward-comment (point-max))
-			   (looking-at "sig\\|struct")))
+		    (when (search-forward "=" nil t)
+                      (forward-comment (point-max))
+                      (looking-at "sig\\|struct")))
 	    (push (cons (concat (make-string (/ column 2) ?\ ) name) location)
 		  alist)))))
     alist))
@@ -1800,6 +1800,11 @@ If nil, align it with previous cases."
 
 ;;;; ChangeLog:
 
+;; 2013-03-03  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	* packages/sml-mode/sml-mode.el (sml-imenu-regexp): Make it a const.
+;; 	(sml-imenu-create-index): Don't assume we'll find an = after structure.
+;; 
 ;; 2013-01-24  Stefan Monnier  <monnier@iro.umontreal.ca>
 ;; 
 ;; 	* sml-mode: Release 6.3, bugfixes
@@ -1859,6 +1864,155 @@ If nil, align it with previous cases."
 ;; 2012-10-04  Stefan Monnier  <monnier@iro.umontreal.ca>
 ;; 
 ;; 	Fix compilation
+;; 
+;; 2012-10-03  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Start preparing for the move to ELPA.
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Merge from trunk
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Merge sml-defs.el into sml-mode.el.
+;; 	* sml-mode.el: Merge code from sml-defs.el.
+;; 	Remove ":group 'sml" since they're now redundant.
+;; 	* makefile.pkg (ELFILES): Adjust.
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	* sml-mode.el (sml-mark-function): New implementation using SMIE.
+;; 	* sml-defs.el (sml-mode-map): Use backtab.
+;; 	Remove leftover unused sml-drag-region binding.
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Merge from trunk
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Use SMIE by default and make sml-oldindent optional.
+;; 	* sml-mode.el: Only load sml-oldindent if necessary.
+;; 	(sml-use-smie): Default to t.
+;; 	(sml-smie-datatype-|-p): Better handle incomplete datatype branch.
+;; 	(sml-mode): Use prog-mode.  Setup electric-layout and electric-indent.
+;; 	(sml-mode-variables): Always setup SMIE if possible.
+;; 	(sml-imenu-create-index, sml-funname-of-and, sml-electric-pipe)
+;; 	(sml-beginning-of-defun, sml-defuse-symdata-at-point)
+;; 	(sml-yacc-font-lock-keywords, sml-yacc-indentation):
+;; 	Avoid sml-oldindent functions.
+;; 	(sml-find-forward): Move from sml-oldindent and re-implement.
+;; 	(sml-electric-semi): Use self-insert-command so electric-layout and
+;; 	electric-indent can do their job.
+;; 	(sml-smie-find-matching-starter, sml-find-matching-starter)
+;; 	(sml-smie-skip-siblings, sml-skip-siblings): New functions.
+;; 	* sml-oldindent.el (sml-starters-indent-after, sml-exptrail-syms):
+;; 	Remove, unused.
+;; 	(sml-find-forward): Move back to sml-mode.el.
+;; 	(sml-old-find-matching-starter): Rename from sml-find-matching-starter.
+;; 	(sml-old-skip-siblings): Move&rename from sml-mode:sml-skip-siblings.
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Merge from trunk
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Move non-SMIE indentation code to a separate file.
+;; 	* sml-oldindent.el: Rename from sml-move.el.
+;; 	* makefile.pkg (ELFILES): Adjust.
+;; 	* sml-mode.el (sml-indent-line, sml-find-comment-indent)
+;; 	(sml-calculate-indentation, sml-bolp, sml-first-starter-p)
+;; 	(sml-indent-starter, sml-indent-relative, sml-indent-pipe)
+;; 	(sml-find-forward, sml-indent-arg, sml-get-indent, sml-dangling-sym)
+;; 	(sml-delegated-indent, sml-get-sym-indent, sml-indent-default)
+;; 	(sml-current-indentation, sml-find-matching-starter):
+;; 	Move to sml-oldindent.el.
+;; 	(comment-quote-nested, compilation-error-regexp-alist): Declare.
+;; 	* sml-defs.el (sml-begin-syms, sml-begin-syms-re)
+;; 	(sml-sexp-head-symbols-re, sml-preproc-alist, sml-indent-rule)
+;; 	(sml-starters-indent-after, sml-delegate, sml-symbol-indent)
+;; 	(sml-open-paren, sml-close-paren, sml-agglomerate-re)
+;; 	(sml-exptrail-syms): Move to sml-oldindent.el.
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Merge from trunk
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Get rid of ancient compatibility and small utility file.
+;; 	* sml-proc.el (inferior-sml-mode-map): Don't use defmap.
+;; 	* sml-move.el (sml-internal-syntax-table): Don't use defsyntax.
+;; 	* sml-mode.el (sml-syntax-prop-table): Don't use defsyntax.
+;; 	(sml-electric-space): `last-command-char' -> `last-command-event'.
+;; 	(sml-defuse-jump-to-def): Don't use goto-line from Elisp.
+;; 	* sml-defs.el (sml-mode-map): Don't use defmap.
+;; 	(sml-mode-syntax-table): Don't use defsyntax.
+;; 	(sml-preproc-alist, sml-builtin-nested-comments-flag):
+;; 	Move from sml-util.el.
+;; 	* sml-compat.el, sml-utils.el: Remove.
+;; 	* makefile.pkg (ELFILES): Update.
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Merge from trunk
+;; 
+;; 2012-04-11  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Add SMIE support.
+;; 	* .bzrignore: New file.
+;; 	* makefile.pkg (test): Use sml-mode-startup.
+;; 	* sml-mode.el (sml-use-smie): New config var.
+;; 	(sml-smie-grammar, sml-indent-separator-outdent): New vars.
+;; 	(sml-smie-rules, sml-smie-definitional-equal-p)
+;; 	(sml-smie-non-nested-of-p, sml-smie-datatype-|-p)
+;; 	(sml-smie-forward-token-1, sml-smie-forward-token)
+;; 	(sml-smie-backward-token-1, sml-smie-backward-token): New functions.
+;; 	(sml-mode): Don't set forward-sexp-function.
+;; 	(sml-mode-variables): Set it here instead, and setup SMIE instead
+;; 	if applicable.
+;; 
+;; 2012-04-06  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	Minor edits.
+;; 
+;; 2010-11-26  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
+;; 
+;; 2010-11-26  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
+;; 
+;; 2010-11-12  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
+;; 
+;; 2010-11-08  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
+;; 
+;; 2010-11-08  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
+;; 
+;; 2010-11-07  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
+;; 
+;; 2010-11-05  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
+;; 
+;; 2010-11-05  Stefan Monnier  <monnier@iro.umontreal.ca>
+;; 
+;; 	-
 ;; 
 
 (provide 'sml-mode)

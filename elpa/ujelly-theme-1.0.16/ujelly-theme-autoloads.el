@@ -2,10 +2,10 @@
 ;;
 ;;; Code:
 
+(when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
 
 ;;;### (autoloads nil nil ("ujelly-theme-pkg.el" "ujelly-theme.el")
-;;;;;;  (20719 64316 927289))
-(when load-file-name (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
+;;;;;;  (20816 42140 3124 398000))
 
 ;;;***
 
