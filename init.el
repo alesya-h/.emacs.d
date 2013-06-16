@@ -410,6 +410,7 @@ If point was already at that position, move point to beginning of line."
 ;; scss-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scss-mode")
 (require 'scss-mode)
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 (setq scss-compile-at-save nil)
 (add-hook 'scss-mode-hook '(lambda ()
                              (rainbow-mode)
