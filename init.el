@@ -336,7 +336,10 @@ If point was already at that position, move point to beginning of line."
 (require 'k-mode)
 
 ;; fuel (factor mode)
-(load-file "~/p/fork/factor/misc/fuel/fu.el")
+(add-to-list 'load-path "~/p/fork/factor/misc/fuel")
+(setq fuel-factor-root-dir "~/p/fork/factor")
+(require 'factor-mode)
+(require 'fuel-mode)
 
 ;; yaml-mode
 (require 'yaml-mode)
