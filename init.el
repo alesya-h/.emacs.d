@@ -302,20 +302,20 @@ If point was already at that position, move point to beginning of line."
 (require 'lua2-mode)
 
 ;; erlang-mode
-(add-to-list 'load-path (car (file-expand-wildcards "/usr/lib/erlang/lib/tools-*/emacs")))
-(setq erlang-root-dir "/usr/lib/erlang")
-(add-to-list 'exec-path "/usr/lib/erlang/bin")
-(setq inferior-erlang-machine-options '("-sname" "emacs"))
-(require 'erlang-start)
-(require 'erlang-flymake)
-(require 'erlang-eunit)
-(add-to-list 'load-path "~/.emacs.d/plugins/distel/elisp")
-(require 'distel)
-(require 'distel-ie)
-(distel-setup)
-(add-hook 'erlang-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "C-c C-b") 'erlang-compile)))
+;(add-to-list 'load-path (car (file-expand-wildcards "/usr/lib/erlang/lib/tools-*/emacs")))
+;(setq erlang-root-dir "/usr/lib/erlang")
+;(add-to-list 'exec-path "/usr/lib/erlang/bin")
+;(setq inferior-erlang-machine-options '("-sname" "emacs"))
+;(require 'erlang-start)
+;(require 'erlang-flymake)
+;(require 'erlang-eunit)
+;(add-to-list 'load-path "~/.emacs.d/plugins/distel/elisp")
+;(require 'distel)
+;(require 'distel-ie)
+;(distel-setup)
+;(add-hook 'erlang-mode-hook
+;          '(lambda ()
+;             (local-set-key (kbd "C-c C-b") 'erlang-compile)))
 
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
