@@ -35,6 +35,7 @@
  '(inferior-js-program-command "/usr/bin/js")
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
+ '(latex-run-command "pdflatex")
  '(menu-bar-mode nil)
  '(mouse-drag-copy-region t)
  '(mouse-yank-at-point t)
