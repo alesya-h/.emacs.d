@@ -145,7 +145,7 @@
 (global-set-key (kbd "<f5>") 'recentf-open-files)
 
 (require 'gpicker)
-(setq *gpicker-project-dir* "/home/me/p/250502/s")
+(setq *gpicker-project-dir* "/home/me/p/fork/factor")
 (defun gpicker-set-root-and-find-file ()
   (interactive)
   (unless *gpicker-project-dir*
