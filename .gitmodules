@@ -100,3 +100,6 @@
 [submodule "plugins/mirror-mode"]
 	path = plugins/mirror-mode
 	url = https://github.com/alesguzik/mirror-mode.git
+[submodule "plugins/evil-numbers"]
+	path = plugins/evil-numbers
+	url = git@github.com:cofi/evil-numbers.git
