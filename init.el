@@ -62,8 +62,8 @@
  ;; If there is more than one, they won't work right.
  )
 
-(set-frame-parameter (selected-frame) 'font "DejaVu Sans Mono-13")
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-13"))
+;; (set-frame-parameter (selected-frame) 'font "DejaVu Sans Mono-13")
+;; (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-13"))
 
 
 (put 'narrow-to-page 'disabled nil)
@@ -390,6 +390,9 @@ If point was already at that position, move point to beginning of line."
 (autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
 (autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
 (add-to-list 'auto-mode-alist '("\\.asy$" . asy-mode))
+
+;; tex-mode
+(add-hook 'tex-mode-hook 'auto-fill-mode)
 
 ;; zencoding
 (require 'zencoding-mode)
