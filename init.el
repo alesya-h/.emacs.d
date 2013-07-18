@@ -145,7 +145,7 @@
 (global-set-key (kbd "<f5>") 'recentf-open-files)
 
 (require 'gpicker)
-(setq *gpicker-project-dir* "/home/me/mag")
+(setq *gpicker-project-dir* "/home/me/p/work/xv_web3")
 (defun gpicker-set-root-and-find-file ()
   (interactive)
   (unless *gpicker-project-dir*
@@ -320,9 +320,9 @@ If point was already at that position, move point to beginning of line."
 ;; scala-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/scala-mode")
 (require 'scala-mode-auto)
-(add-to-list 'load-path "~/.emacs.d/plugins/ensime/elisp")
-(require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;; (add-to-list 'load-path "~/.emacs.d/plugins/ensime/elisp")
+;; (require 'ensime)
+;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;; clojure-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/clojure-mode")
