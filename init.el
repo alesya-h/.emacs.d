@@ -144,8 +144,12 @@
 
 (global-set-key (kbd "<f5>") 'recentf-open-files)
 
+;; gpicker and supermegadoc
 (require 'gpicker)
-(setq *gpicker-project-dir* "/home/me/mag")
+(add-to-list 'load-path "~/.emacs.d/plugins/supermegadoc")
+(require 'supermegadoc)
+(setq *supermegadoc-browse-url-function* 'browse-url)
+(setq *gpicker-project-dir* "/home/me/p/work/xv_web3")
 (defun gpicker-set-root-and-find-file ()
   (interactive)
   (unless *gpicker-project-dir*
@@ -155,16 +159,7 @@
 (global-set-key (kbd "C-<f6>") 'gpicker-visit-project)
 (global-set-key (kbd "<f7>") 'gpicker-imenu)
 (global-set-key (kbd "<f8>") 'gpicker-goto-tag)
-(global-set-key (kbd "<f9>") 'gpicker-isearch)
-
-;; supermegadoc
-(add-to-list 'load-path "~/.emacs.d/plugins/supermegadoc")
-(require 'supermegadoc)
-(setq *supermegadoc-browse-url-function* 'browse-url)
-(add-hook 'erlang-mode-hook
-          #'(lambda ()
-              (local-set-key (kbd "s-q") 'supermegadoc-erlang)))
-
+(global-set-key (kbd "<f9>") 'supermegadoc-ri)
 
 (require 'speedbar)
 (require 'uniquify)
@@ -512,8 +507,8 @@ If point was already at that position, move point to beginning of line."
 (global-set-key (kbd "C-*") 'toggle-selective-display)
 
 ;; rails
-(add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails")
-(require 'rails)
+;; (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails")
+;; (require 'rails)
 
 ;; rinari
 ;; (add-to-list 'load-path "~/.emacs.d/plugins/rinari")
@@ -566,29 +561,8 @@ defined by the ack-command variable."
 ;; cperl mode by default
 (defalias 'perl-mode 'cperl-mode)
 
-;; twittering mode
-(add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode")
-(require 'twittering-mode)
-
 (add-to-list 'load-path "~/.emacs.d/plugins/minimap")
 (require 'minimap)
-
-(define-key ctl-x-map "r\C-@" 'rm-set-mark)
-(define-key ctl-x-map [?r ?\C-\ ] 'rm-set-mark)
-(define-key ctl-x-map "r\C-x" 'rm-exchange-point-and-mark)
-(define-key ctl-x-map "r\C-w" 'rm-kill-region)
-(define-key ctl-x-map "r\M-w" 'rm-kill-ring-save)
-(define-key global-map [S-down-mouse-1] 'rm-mouse-drag-region)
-(autoload 'rm-set-mark "rect-mark"
-  "Set mark for rectangle." t)
-(autoload 'rm-exchange-point-and-mark "rect-mark"
-  "Exchange point and mark for rectangle." t)
-(autoload 'rm-kill-region "rect-mark"
-  "Kill a rectangular region and save it in the kill ring." t)
-(autoload 'rm-kill-ring-save "rect-mark"
-  "Copy a rectangular region to the kill ring." t)
-(autoload 'rm-mouse-drag-region "rect-mark"
-  "Drag out a rectangular region with the mouse." t)
 
 ;; rainbow-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/rainbow")
@@ -596,30 +570,9 @@ defined by the ack-command variable."
 
 (global-rainbow-delimiters-mode)
 
-;; full screen toggle using f11
-(defun toggle-fullscreen ()
-  (interactive)
-  (set-frame-parameter nil
-                       'fullscreen
-                       (if (frame-parameter nil 'fullscreen)
-                           nil
-                         'fullboth)))
-(global-set-key (kbd "<f11>") 'toggle-fullscreen)
-
 ;; show/hide menubar
 (global-set-key (kbd "C-c m") '(lambda ()
                                  (interactive)
                                  (toggle-menu-bar-mode-from-frame)
                                  ;; (restore-frame)
                                  ))
-
-(global-set-key (kbd "C-c (") '(lambda () (interactive) (insert "[")))
-(global-set-key (kbd "C-c )") '(lambda () (interactive) (insert "]")))
-(global-set-key (kbd "C-c <") '(lambda () (interactive) (insert "{")))
-(global-set-key (kbd "C-c >") '(lambda () (interactive) (insert "}")))
-(global-set-key (kbd "C-c !") '(lambda () (interactive) (insert "%")))
-
-(global-set-key [mouse-6] 'next-buffer)
-(global-set-key [mouse-7] 'previous-buffer)
-
-; (server-start)
