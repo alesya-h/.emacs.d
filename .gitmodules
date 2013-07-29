@@ -1,6 +1,3 @@
-[submodule "plugins/rinari"]
-	path = plugins/rinari
-	url = https://github.com/eschulte/rinari.git
 [submodule "plugins/rhtml"]
 	path = plugins/rhtml
 	url = https://github.com/eschulte/rhtml.git
