@@ -16,9 +16,6 @@
 [submodule "plugins/auto-complete"]
 	path = plugins/auto-complete
 	url = https://github.com/auto-complete/auto-complete.git
-[submodule "plugins/rsense"]
-	path = plugins/rsense
-	url = https://github.com/m2ym/rsense.git
 [submodule "plugins/lua-mode"]
 	path = plugins/lua-mode
 	url = https://github.com/immerrr/lua-mode.git
