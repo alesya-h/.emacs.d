@@ -8,10 +8,6 @@
       "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-;; powerline
-(add-to-list 'load-path "~/.emacs.d/plugins/powerline")
-(require 'powerline)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -24,8 +20,8 @@
  '(c-basic-offset 4)
  '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (django)))
- '(custom-safe-themes (quote ("fc6e906a0e6ead5747ab2e7c5838166f7350b958d82e410257aeeb2820e8a07a" "60e70079a187df634db25db4bb778255eaace1ef4309e56389459fb9418b4840" "7a2c92b6267b84ae28a396f24dd832e29a164c1942f1f8b3fe500f1c25f8e09d" "1f3304214265481c56341bcee387ef1abb684e4efbccebca0e120be7b1a13589" "9ea054db5cdbd5baa4cda9d373a547435ba88d4e345f4b06f732edbc4f017dc3" "3c67d690c2d801885c06f00c99c7a12c3490ce3b655be3fdc8ecc4fe0ff55706" "bad832ac33fcbce342b4d69431e7393701f0823a3820f6030ccc361edd2a4be4" "978bd4603630ecb1f01793af60beb52cb44734fc14b95c62e7b1a05f89b6c811" "3341f6db5ac17e4174f7488c40676e7f0464f1e88519a59303dc7e7774245bbf" "8874901e0011a7b07e546b65be1726c4cc3f35cf1a60f8805e6cb5bb59ba305c" "dc46381844ec8fcf9607a319aa6b442244d8c7a734a2625dac6a1f63e34bc4a6" "d0ff5ea54497471567ed15eb7279c37aef3465713fb97a50d46d95fe11ab4739" "6f3060ac8300275c990116794e1ba897b6a8af97c51a0cb226a98759752cddcf" "5bff694d9bd3791807c205d8adf96817ee1e572654f6ddc5e1e58b0488369f9d" "c377a5f3548df908d58364ec7a0ee401ee7235e5e475c86952dc8ed7c4345d8e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "d921083fbcd13748dd1eb638f66563d564762606f6ea4389ea9328b6f92723b7" "936e5cac238333f251a8d76a2ed96c8191b1e755782c99ea1d7b8c215e66d11e" "8f6537eb6f9d66b060c736f5f680f5c661e0a6b311b86defa293bc5ba104a030" "3bd9497fb8f39c28ab58a9e957152ba2dc41223c23c5520ef10fc7bd6b222384" "1278386c1d30fc24b4248ba69bc5b49d92981c3476de700a074697d777cb0752" "ca3bf8a7c831776c77d09ded89f2f0993dbdd9cb0765d8db061d1ebff806f41c" "60a2ebd7effefeb960f61bc4772afd8b1ae4ea48fae4d732864ab9647c92093a" "5ce9c2d2ea2d789a7e8be2a095b8bc7db2e3b985f38c556439c358298827261c" "4be0cb1919fc15bfb879960ac270da77bf8a5d162fd2b4db7ce8969d188eeb3a" "f8d59d5af01b435272cc3a537f7a239b823b47d9d18b4721f9f474f2a21c5abc" "a234f91f9be6ed40f6ce0e94dce5cea1b9f1ccec2b9ccd42bb71c499867a3fcc" "9f42bccce1e13fa5017eb8718574db099e85358b9f424db78e7318f86d1be08f" "5339210234ec915d7d3fd87bfeb506bfc436ff7277a55516ab1781ec85c57224" "c57e14593c563ed159e8fec3cfd20f57b5820ff19f26ab42cfa46ab01af64959" "04643edb183240f680d5465cf9e9ac3037086f701df09ce5d9183e6c69e73a7e" "65f7173faa84a97044d743d4bab115a6ab52bc6e6dc47612e31e4dbc39ebb1ae" "446c73cdfb49f1dab4c322e51ac00a536fb0e3cb7e6809b9f4616e0858012e92" "fe0a47cc3952fede574527a1c28ddf3a1af381fc1fb5843ca60d22e4c841011a" "246a51f19b632c27d7071877ea99805d4f8131b0ff7acb8a607d4fd1c101e163" "ea0c5df0f067d2e3c0f048c1f8795af7b873f5014837feb0a7c8317f34417b04" "65510ff6bb3cddeb9fcdc61770abcb8cbf8a15185a0b268f77c6b515650a625b" "75d4ccc5e912b93f722e57cca3ca1a15e079032cd69fd9bc67268b4c85639663" "1177fe4645eb8db34ee151ce45518e47cc4595c3e72c55dc07df03ab353ad132" "764777857ef24b4ef1041be725960172ac40964b9f23a75894a578759ba6652f" "b1cbf9910beb0e3655a779d1d4db5b4892a9e9968c7166be2c3f4c6574055fa8" "f5e56ac232ff858afb08294fc3a519652ce8a165272e3c65165c42d6fe0262a0" "91b1b8ec7d5ff7c11b5dce20423e646f2322dbff8decb3f13dc5c19784317a58" "d24e10524bb50385f7631400950ba488fa45560afcadd21e6e03c2f5d0fad194" "c582c1d99904ddc0677f87ba7eb6596cf9321a7e6233857dc4bd6ae587893194" "f07eb9c760be41f36d2971b205d0ec0e1bec9d84ba79e3bc31f26efe724a14f6" "2611d548a133727b1a956c4fa262935e993662a0aaa25d9532b04ab8f556a25b" "72cc9ae08503b8e977801c6d6ec17043b55313cda34bcf0e6921f2f04cf2da56" "5e1d1564b6a2435a2054aa345e81c89539a72c4cad8536cfe02583e0b7d5e2fa" "6cfe5b2f818c7b52723f3e121d1157cf9d95ed8923dbc1b47f392da80ef7495d" "d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" "501caa208affa1145ccbb4b74b6cd66c3091e41c5bb66c677feda9def5eab19c" "fe6330ecf168de137bb5eddbf9faae1ec123787b5489c14fa5fa627de1d9f82b" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" "30fe7e72186c728bd7c3e1b8d67bc10b846119c45a0f35c972ed427c45bacc19" "71efabb175ea1cf5c9768f10dad62bb2606f41d110152f4ace675325d28df8bd" default)))
+ '(custom-enabled-themes (quote (monokai)))
+ '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#383838")
@@ -82,6 +78,8 @@
 ;; (set-frame-parameter (selected-frame) 'font "DejaVu Sans Mono-13")
 ;; (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-13"))
 
+;; powerline
+(powerline-default-theme)
 
 (put 'narrow-to-page 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
@@ -239,14 +237,6 @@ If point was already at that position, move point to beginning of line."
 
 (global-set-key "\M-;" 'comment-dwim-line)
 
-;; ;;icicles
-;; (add-to-list 'load-path "~/.emacs.d/plugins/icicles")
-;; (require 'icicles)
-;; (require 'icicles-iswitchb)
-;; (icy-mode)
-;; (iswitchb-mode 1)
-;; (global-set-key (kbd "C-x b") 'iswitchb-buffer)
-
 ;; window-numbering
 (require 'window-numbering)
 (window-numbering-mode 1)
@@ -282,26 +272,15 @@ If point was already at that position, move point to beginning of line."
 ;(global-set-key "\C-ck" 'mode-compile-kill)
 
 ;; ;; auto complete
-;; (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete/lib/popup")
-;; (require 'popup)
-;; (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
-;; (setq ac-dictionary-directories '())
-;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/dict")
-;; (require 'auto-complete-config)
-;; (ac-config-default)
-;; (define-key ac-completing-map "\t" 'ac-complete)
-;; (define-key ac-completing-map "\r" nil)
+(require 'auto-complete-config)
+(ac-config-default)
+(define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map "\r" nil)
 
-;; (add-hook 'ruby-mode-hook
-;;           (lambda ()
-;;             (make-local-variable 'ac-ignores)
-;;             (add-to-list 'ac-ignores "end")))
-
-
-;; textmate.el
-;; (add-to-list 'load-path "~/.emacs.d/plugins/textmate.el")
-;; (require 'textmate)
-;; (textmate-mode)
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (make-local-variable 'ac-ignores)
+            (add-to-list 'ac-ignores "end")))
 
 ;; lua-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/lua-mode")
@@ -373,26 +352,6 @@ If point was already at that position, move point to beginning of line."
 (setq inferior-lisp-program "clisp -ansi")
 (setq common-lisp-hyperspec-root "~/.emacs.d/HyperSpec/")
 
-;; ;; paredit
-;; (autoload 'paredit-mode "paredit"
-;;   "Minor mode for pseudo-structurally editing Lisp code." t)
-;; (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
-;; (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
-;; (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
-;; (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-;; (add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
-;; (require 'eldoc) ; if not already loaded
-;; (eldoc-add-command
-;;  'paredit-backward-delete
-;;  'paredit-close-round)
-;; (add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
-;; ;; Stop SLIME's REPL from grabbing DEL,
-;; ;; which is annoying when backspacing over a '('
-;; (defun override-slime-repl-bindings-with-paredit ()
-;;   (define-key slime-repl-mode-map
-;;     (read-kbd-macro paredit-backward-delete-key) nil))
-;; (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
-
 ;; asy-mode, lasy-mode,
 (add-to-list 'load-path "/usr/local/texlive/2010/texmf/asymptote/")
 (autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
@@ -452,9 +411,8 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'load-path "~/.emacs.d/plugins/yari.el")
 (require 'yari)
 
-(global-company-mode)
-(push 'company-robe company-backends)
 (add-hook 'ruby-mode-hook 'robe-mode)
+(push 'ac-source-robe ac-sources)
 
 (defun display-code-line-counts (ov)
   (when (eq 'code (overlay-get ov 'hs))

@@ -1,12 +1,6 @@
 [submodule "plugins/rhtml"]
 	path = plugins/rhtml
 	url = https://github.com/eschulte/rhtml.git
-[submodule "plugins/textmate.el"]
-	path = plugins/textmate.el
-	url = https://github.com/defunkt/textmate.el.git
-[submodule "plugins/twittering-mode"]
-	path = plugins/twittering-mode
-	url = https://github.com/hayamiz/twittering-mode.git
 [submodule "plugins/yari.el"]
 	path = plugins/yari.el
 	url = https://github.com/hron/yari.el.git
@@ -76,12 +70,6 @@
 [submodule "plugins/evil-surround"]
 	path = plugins/evil-surround
 	url = https://github.com/timcharper/evil-surround.git
-[submodule "plugins/popup"]
-	path = plugins/popup
-	url = https://github.com/m2ym/popup-el.git
-[submodule "plugins/powerline"]
-	path = plugins/powerline
-	url = https://github.com/jonathanchu/emacs-powerline.git
 [submodule "plugins/liquid-mode"]
 	path = plugins/liquid-mode
 	url = https://github.com/alesguzik/liquid-mode.git

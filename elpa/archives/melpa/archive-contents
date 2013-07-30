@@ -177,7 +177,7 @@
 	       (1 6 8)))
 	     "Weblog maintenance via XML-RPC APIs [bzr]" single])
  (web-mode .
-	   [(20130728 2202)
+	   [(20130730 21)
 	    nil "major mode for editing html templates [github]" single])
  (web .
       [(20130429 1926)
@@ -977,7 +977,7 @@
 	   [(20121207 1930)
 	    nil "Roy major mode [github]" single])
  (robe .
-       [(20130728 1241)
+       [(20130730 129)
 	((inf-ruby
 	  (2 3 0)))
 	"Code navigation, documentation lookup and completion for Ruby [github]" tar])
@@ -1210,7 +1210,7 @@
 	   [(20130709 819)
 	    nil "Major mode for Pig files [github]" single])
  (php-mode .
-	   [(20130718 407)
+	   [(20130729 1530)
 	    nil "Major mode for editing PHP code [github]" single])
  (php-eldoc .
 	    [(20130328 1526)
@@ -1512,7 +1512,7 @@
 			 (24 2)))
 		       "Display org properties in the agenda buffer. [github]" single])
  (org .
-      [(20130728 2140)
+      [(20130729 1818)
        nil "Outline-based notes management and organizer [git]" tar])
  (openwith .
 	   [(20120531 1636)
@@ -2334,7 +2334,7 @@
 	     [(20130723 2333)
 	      nil "Extensions to `icomplete.el'. [wiki]" single])
  (icicles .
-	  [(20130724 242)
+	  [(20130729 2157)
 	   nil "Minibuffer input completion and cycling. [wiki]" tar])
  (ibuffer-vc .
 	     [(20130728 926)
@@ -3051,7 +3051,7 @@
 			      (24 1)))
 			    "Change mode line color with Flycheck status [github]" single])
  (flycheck .
-	   [(20130728 1724)
+	   [(20130729 1806)
 	    ((s
 	      (1 6 0))
 	     (dash
@@ -3150,11 +3150,11 @@
 	      (0 3 1)))
 	   "File activity logger [github]" single])
  (f .
-    [(20130729 951)
+    [(20130729 1445)
      ((s
-       (1 6 0))
+       (1 6 1))
       (dash
-       (1 4 0)))
+       (1 5 0)))
      "Modern API for working with files and directories [github]" single])
  (extend-dnd .
 	     [(20130328 1234)
@@ -3270,7 +3270,7 @@
 	 [(20130701 1012)
 	  nil "Erlang major mode [github]" tar])
  (ergoemacs-mode .
-		 [(20130726 1219)
+		 [(20130729 1901)
 		  ((org-cua-dwim
 		    (0 5)))
 		  "A minor mode, a keybinding set based on ergonomics. [github]" tar])
@@ -4020,7 +4020,7 @@
 		     (0 0 3)))
 		   "Context-sensitive external browse URL or Internet search [github]" single])
  (browse-kill-ring .
-		   [(20130702 1224)
+		   [(20130729 1607)
 		    nil "interactively insert items from kill-ring [github]" single])
  (boxquote .
 	   [(20081011 2126)
@@ -4132,7 +4132,7 @@
 	       [(20130306 426)
 		nil "Auto install elisp file [wiki]" single])
  (auto-indent-mode .
-		   [(20130725 836)
+		   [(20130729 907)
 		    nil "Auto indent Minor mode [github]" tar])
  (auto-dim-other-buffers .
 			 [(20130429 2026)
@@ -4147,7 +4147,7 @@
 		      [(20120612 2224)
 		       nil "Auto Completion source for clang for GNU Emacs [github]" single])
  (auto-complete .
-		[(20130503 2013)
+		[(20130724 1750)
 		 ((popup
 		   (0 5 0)))
 		 "Auto Completion for GNU Emacs [github]" tar])
