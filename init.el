@@ -118,13 +118,6 @@
 ; (setq flymake-node-jshint-config "~/.jshintrc-node.json") ; optional
 (add-hook 'js-mode-hook (lambda () (flymake-mode 1)))
 
-;; git support
-(add-to-list 'load-path "~/.emacs.d/plugins/git")
-(require 'git)
-(require 'git-blame)
-(add-to-list 'load-path "~/.emacs.d/plugins/magit")
-(require 'magit)
-
 ;; evil
 (add-to-list 'load-path "~/.emacs.d/plugins/evil")
 (require 'evil)
@@ -136,6 +129,9 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/evil-surround")
 (require 'surround)
 (global-surround-mode t)
+(add-to-list 'load-path "~/.emacs.d/plugins/evil-leader")
+(require 'evil-leader)
+(global-evil-leader-mode)
 
 (evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
 (evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)

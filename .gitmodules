@@ -85,3 +85,6 @@
 [submodule "plugins/evil-numbers"]
 	path = plugins/evil-numbers
 	url = git@github.com:cofi/evil-numbers.git
+[submodule "plugins/evil-leader"]
+	path = plugins/evil-leader
+	url = git@github.com:cofi/evil-leader.git
