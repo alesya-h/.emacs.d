@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads (robe-mode) "robe" "robe.el" (20982 17059 563311
-;;;;;;  455000))
+;;;### (autoloads (robe-mode) "robe" "robe.el" (20983 37610 713072
+;;;;;;  38000))
 ;;; Generated autoloads from robe.el
 
 (autoload 'robe-mode "robe" "\
@@ -14,8 +14,8 @@ Improved navigation for Ruby
 
 ;;;***
 
-;;;### (autoloads (robe-ac-available) "robe-ac" "robe-ac.el" (20982
-;;;;;;  17059 229977 770000))
+;;;### (autoloads (robe-ac-available) "robe-ac" "robe-ac.el" (20983
+;;;;;;  37610 343071 791000))
 ;;; Generated autoloads from robe-ac.el
 
 (autoload 'robe-ac-available "robe-ac" "\
@@ -29,7 +29,7 @@ Return t if `robe-mode' completions are available, otherwise nil.
 ;;;***
 
 ;;;### (autoloads (company-robe) "robe-company" "robe-company.el"
-;;;;;;  (20982 17059 526644 749000))
+;;;;;;  (20983 37610 676405 345000))
 ;;; Generated autoloads from robe-company.el
 
 (autoload 'company-robe "robe-company" "\
@@ -39,7 +39,7 @@ A `company-mode' completion back-end for `robe-mode'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("robe-pkg.el") (20982 17059 603331 938000))
+;;;### (autoloads nil nil ("robe-pkg.el") (20983 37610 761255 593000))
 
 ;;;***
 

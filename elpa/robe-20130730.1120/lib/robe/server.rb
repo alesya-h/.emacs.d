@@ -49,9 +49,17 @@ module Robe
           resp.status = 200
           resp.body = body
 
-          resp.send_response(client)
-          client.close
+          begin
+            resp.send_response(client)
+            client.close
+          rescue Errno::EPIPE
+            error_logger.error "Connection lost, unsent response:"
+            error_logger.error body
+          end
         rescue Errno::EINVAL
+          break
+        rescue IOError
+          # Hello JRuby
           break
         end
       end
@@ -68,7 +76,12 @@ module Robe
 
     def shutdown
       @running = false
-      @server && @server.shutdown(Socket::SHUT_RDWR)
+      begin
+        @server && @server.shutdown(Socket::SHUT_RDWR)
+      rescue Errno::ENOTCONN
+        # Hello JRuby
+        @server.close
+      end
     end
   end
 end
