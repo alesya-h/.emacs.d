@@ -31,6 +31,7 @@
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
  '(global-font-lock-mode t)
+ '(global-rinari-mode t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors (quote (("#073642" . 0) ("#546E00" . 20) ("#00736F" . 30) ("#00629D" . 50) ("#7B6000" . 60) ("#8B2C02" . 70) ("#93115C" . 85) ("#073642" . 100))))
  '(history-length 1000)
@@ -135,6 +136,20 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/evil-surround")
 (require 'surround)
 (global-surround-mode t)
+
+(evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
+(evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)
+(evil-ex-define-cmd "Rmodel" 'rinari-find-model)
+(evil-ex-define-cmd "Rview" 'rinari-find-view)
+(evil-ex-define-cmd "Rspec" 'rinari-find-rspec)
+(evil-ex-define-cmd "Rhelper" 'rinari-find-helper)
+(evil-ex-define-cmd "Rmailer" 'rinari-find-mailer)
+(evil-ex-define-cmd "Rmigration" 'rinari-find-migration)
+(evil-ex-define-cmd "Rstylesheet" 'rinari-find-stylesheet)
+(evil-ex-define-cmd "Rsass" 'rinari-find-sass)
+(evil-ex-define-cmd "Rjavascript" 'rinari-find-javascript)
+(evil-ex-define-cmd "Rfeature" 'rinari-find-festures)
+(evil-ex-define-cmd "Rserver" 'rinari-web-server-restart)
 
 (defun undo-kill-buffer (arg)
   "Re-open the last buffer killed.  With ARG, re-open the nth buffer."
@@ -465,15 +480,6 @@ If point was already at that position, move point to beginning of line."
                (back-to-indentation)
                (current-column)))))))
 (global-set-key (kbd "C-*") 'toggle-selective-display)
-
-;; rails
-;; (add-to-list 'load-path "~/.emacs.d/plugins/emacs-rails")
-;; (require 'rails)
-
-;; rinari
-;; (add-to-list 'load-path "~/.emacs.d/plugins/rinari")
-;; (require 'rinari)
-;; (setq rinari-tags-file-name "TAGS")
 
 (add-to-list 'load-path "~/.emacs.d/plugins/rhtml")
 (require 'rhtml-mode)
