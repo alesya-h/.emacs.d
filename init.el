@@ -395,6 +395,7 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
 
+(require 'align)
 (add-to-list
  'align-rules-list
  '(symbol-value-alignment
