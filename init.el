@@ -20,7 +20,7 @@
  '(c-basic-offset 4)
  '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (monokai)))
+ '(custom-enabled-themes (quote (base16-monokai)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(fci-rule-character-color "#452E2E")
