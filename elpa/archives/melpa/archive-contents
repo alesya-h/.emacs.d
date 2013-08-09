@@ -187,7 +187,7 @@
 	       (1 6 8)))
 	     "Weblog maintenance via XML-RPC APIs [bzr]" single])
  (web-mode .
-	   [(20130808 948)
+	   [(20130809 1112)
 	    nil "major mode for editing html templates [github]" single])
  (web .
       [(20130429 1926)
@@ -493,7 +493,7 @@
 		 [(20121228 1141)
 		  nil "unit test front-end [github]" single])
  (tern-auto-complete .
-		     [(20130805 1824)
+		     [(20130809 1129)
 		      ((tern
 			(0 0 1))
 		       (auto-complete
@@ -2634,7 +2634,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [github]" single])
  (helm .
-       [(20130808 1522)
+       [(20130809 946)
 	nil "Helm is an Emacs incremental and narrowing framework [github]" tar])
  (header2 .
 	  [(20130723 2321)
@@ -3349,7 +3349,7 @@
 	 [(20130701 1012)
 	  nil "Erlang major mode [github]" tar])
  (ergoemacs-mode .
-		 [(20130808 2252)
+		 [(20130809 0)
 		  ((org-cua-dwim
 		    (0 5)))
 		  "Emacs mode based on common modern software interface and ergonomics. [github]" tar])
@@ -3885,7 +3885,7 @@
 		  [(20130808 2150)
 		   nil "Emacs mode for editing confluence content buffers [svn]" single])
  (confluence .
-	     [(20130808 2150)
+	     [(20130808 2303)
 	      ((xml-rpc
 		(1 6 4))
 	       (confluence-edit
@@ -3986,6 +3986,13 @@
  (clojure-mode .
 	       [(20130806 1837)
 		nil "Major mode for Clojure code [github]" single])
+ (clojure-cheatsheet .
+		     [(20130808 2305)
+		      ((helm
+			(1 5 3))
+		       (nrepl
+			(0 1 8)))
+		      "The Clojure Cheatsheet in Emacs [github]" single])
  (cljsbuild-mode .
 		 [(20130110 1632)
 		  nil "A minor mode for the ClojureScript 'lein cljsbuild' command [github]" single])

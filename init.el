@@ -78,7 +78,8 @@
  '(whitespace-line-column 100)
  '(whitespace-style (quote (face tabs trailing lines space-before-tab empty space-after-tab tab-mark)))
  '(x-select-enable-clipboard nil)
- '(x-select-enable-primary t))
+ '(x-select-enable-primary t)
+ '(yas-global-mode t nil (yasnippet)))
 
 ;; (set-frame-parameter (selected-frame) 'font "DejaVu Sans Mono-13")
 ;; (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-13"))
@@ -238,12 +239,6 @@ If point was already at that position, move point to beginning of line."
 
 ;; mult-eshell
 (require 'multi-eshell)
-
-;; yasnippet
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
 
 ;; Lorem Ipsum
 (require 'lorem-ipsum)
