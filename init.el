@@ -32,6 +32,7 @@
  '(global-auto-revert-mode t)
  '(global-font-lock-mode t)
  '(global-rinari-mode t)
+ '(global-whitespace-mode t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors (quote (("#073642" . 0) ("#546E00" . 20) ("#00736F" . 30) ("#00629D" . 50) ("#7B6000" . 60) ("#8B2C02" . 70) ("#93115C" . 85) ("#073642" . 100))))
  '(history-length 1000)
@@ -51,6 +52,7 @@
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
  '(recentf-mode t)
+ '(ruby-deep-indent-paren nil)
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
  '(select-active-regions nil)
@@ -73,6 +75,8 @@
  '(vc-annotate-color-map (quote ((20 . "#437c7c") (40 . "#336c6c") (60 . "#205070") (80 . "#2f4070") (100 . "#1f3060") (120 . "#0f2050") (140 . "#a080a0") (160 . "#806080") (180 . "#704d70") (200 . "#603a60") (220 . "#502750") (240 . "#401440") (260 . "#6c1f1c") (280 . "#935f5c") (300 . "#834744") (320 . "#732f2c") (340 . "#6b400c") (360 . "#23733c"))))
  '(vc-annotate-very-old-color "#23733c")
  '(weechat-color-list (quote (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
+ '(whitespace-line-column 100)
+ '(whitespace-style (quote (face tabs trailing lines space-before-tab empty space-after-tab tab-mark)))
  '(x-select-enable-clipboard nil)
  '(x-select-enable-primary t))
 
@@ -100,7 +104,7 @@
 ;;         (add-to-list 'comint-preoutput-filter-functions
 ;;                      (lambda (output)
 ;;                        (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
-;;                                                  (replace-regexp-in-string ".*1G.*3G" "&gt;" output))))))
+;;                          (replace-regexp-in-string ".*1G.*3G" "&gt;" output))))))
 (require 'flymake-cursor)
 (require 'recentf)
 
@@ -146,24 +150,6 @@
 (evil-ex-define-cmd "Rjavascript" 'rinari-find-javascript)
 (evil-ex-define-cmd "Rfeature" 'rinari-find-festures)
 (evil-ex-define-cmd "Rserver" 'rinari-web-server-restart)
-
-(defun undo-kill-buffer (arg)
-  "Re-open the last buffer killed.  With ARG, re-open the nth buffer."
-  (interactive "p")
-  (let ((recently-killed-list (copy-sequence recentf-list))
-	 (buffer-files-list
-	  (delq nil (mapcar (lambda (buf)
-			      (when (buffer-file-name buf)
-				(expand-file-name (buffer-file-name buf)))) (buffer-list)))))
-    (mapc
-     (lambda (buf-file)
-       (setq recently-killed-list
-	     (delq buf-file recently-killed-list)))
-     buffer-files-list)
-    (find-file
-     (if arg (nth arg recently-killed-list)
-       (car recently-killed-list)))))
-(global-set-key "\C-x\M-b" 'undo-kill-buffer)
 
 (global-set-key (kbd "<f5>") 'recentf-open-files)
 
@@ -236,27 +222,22 @@ If point was already at that position, move point to beginning of line."
 (global-set-key "\C-a" 'smart-beginning-of-line)
 
 (defun comment-dwim-line (&optional arg)
-        "Replacement for the comment-dwim command.
-        If no region is selected and current line is not blank and we are not at the end of the line,
-        then comment current line.
-        Replaces default behaviour of comment-dwim, when it inserts comment at the end of the line."
-          (interactive "*P")
-          (comment-normalize-vars)
-          (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
-              (comment-or-uncomment-region (line-beginning-position) (line-end-position))
-            (comment-dwim arg)))
+  "Replacement for the comment-dwim command.
+  If no region is selected and current line is not blank and we are
+  not at the end of the line,then comment current line.
+  Replaces default behaviour of comment-dwim, when it inserts comment at the end of the line."
+  (interactive "*P")
+  (comment-normalize-vars)
+  (if (and (not (region-active-p))
+           (not (looking-at "[ \t]*$")))
+      (comment-or-uncomment-region (line-beginning-position)
+                                   (line-end-position))
+    (comment-dwim arg)))
 
 (global-set-key "\M-;" 'comment-dwim-line)
 
-;; window-numbering
-(require 'window-numbering)
-(window-numbering-mode 1)
-
 ;; mult-eshell
 (require 'multi-eshell)
-
-;; resize windows with C-M-<arrows>
-(require 'winresize)
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
@@ -414,6 +395,22 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
 
+(add-to-list
+ 'align-rules-list
+ '(symbol-value-alignment
+   (regexp . "\\w+:\\(\\s-*\\)")
+   (group . 1)
+   (modes . '(ruby-mode coffee-mode yaml-mode javascript-mode))
+   (repeat . nil)))
+
+;; (add-to-list
+;;  'align-rules-list
+;;  '(symbol-value-alignment
+;;    (regexp . "=>\\(\\s-*\\)")
+;;    (group . 1)
+;;    (modes . '(ruby-mode))
+;;    (repeat . nil)))
+
 ;; ruby-debug
 ;; (add-to-list 'load-path "~/.emacs.d/plugins/ruby-debug")
 ;; (require 'rdebug)
@@ -511,3 +508,4 @@ If point was already at that position, move point to beginning of line."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'narrow-to-region 'disabled nil)
