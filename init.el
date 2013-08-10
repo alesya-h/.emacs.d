@@ -43,6 +43,7 @@
  '(iswitchb-mode t)
  '(latex-run-command "pdflatex")
  '(linum-format " %7d ")
+ '(magit-wip-mode t)
  '(main-line-color1 "#191919")
  '(main-line-color2 "#111111")
  '(main-line-separator-style (quote chamfer))
