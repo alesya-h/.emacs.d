@@ -495,11 +495,8 @@ If point was already at that position, move point to beginning of line."
 (global-rainbow-delimiters-mode)
 
 ;; show/hide menubar
-(global-set-key (kbd "C-c m") '(lambda ()
-                                 (interactive)
-                                 (toggle-menu-bar-mode-from-frame)
-                                 ;; (restore-frame)
-                                 ))
+(global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
