@@ -52,6 +52,7 @@
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
  '(recentf-mode t)
+ '(rspec-use-rake-when-possible nil)
  '(ruby-deep-indent-paren nil)
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
