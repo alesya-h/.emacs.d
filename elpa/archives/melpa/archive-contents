@@ -980,7 +980,7 @@
 		    (1 0)))
 		  "Minor mode for Behaviour and Test Driven [github]" single])
  (ruby-refactor .
-		[(20130803 955)
+		[(20130808 2227)
 		 ((ruby-mode
 		   (1 2)))
 		 "A minor mode which presents various Ruby refactoring helpers. [github]" single])
@@ -1176,7 +1176,7 @@
 		(1 5 0)))
 	      "Manage and navigate projects in Emacs easily [github]" single])
  (project-persist .
-		  [(20130422 1607)
+		  [(20130810 1359)
 		   nil "A minor mode to allow loading and saving of project settings. [github]" tar])
  (project-local-variables .
 			  [(20080502 1652)
@@ -1268,6 +1268,13 @@
  (php-boris .
 	    [(20130527 1021)
 	     nil "Run boris php REPL [github]" single])
+ (php-auto-yasnippets .
+		      [(20130807 1647)
+		       ((php-mode
+			 (1 11))
+			(yasnippet
+			 (0 8 0)))
+		       "Creates snippets for PHP functions [github]" tar])
  (php+-mode .
 	    [(20121129 1452)
 	     nil "A better PHP mode with Zend Framework 1 support. [github]" tar])
@@ -1941,7 +1948,7 @@
 			       [(20130730 1032)
 				nil "Advice for magit-log-edit-commit [github]" single])
  (magit .
-	[(20130809 1226)
+	[(20130810 1119)
 	 nil "control Git from Emacs [github]" tar])
  (mag-menu .
 	   [(20130224 56)
@@ -2634,7 +2641,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [github]" single])
  (helm .
-       [(20130810 752)
+       [(20130810 1303)
 	nil "Helm is an Emacs incremental and narrowing framework [github]" tar])
  (header2 .
 	  [(20130723 2321)
@@ -2692,7 +2699,7 @@
 	      [(20130506 1025)
 	       nil "Groovy mode derived mode [github]" tar])
  (grizzl .
-	 [(20130713 1943)
+	 [(20130810 1902)
 	  ((cl-lib
 	    (0 1)))
 	  "Fuzzy Search Library & Completing Read [github]" tar])
@@ -3177,7 +3184,7 @@
 	    [(20130723 2311)
 	     nil "Resize a frame.  In particular, fit a frame to its buffers. [wiki]" single])
  (fiplr .
-	[(20130713 2058)
+	[(20130810 1841)
 	 ((grizzl
 	   (0 1 0))
 	  (cl-lib
