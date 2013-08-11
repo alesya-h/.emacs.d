@@ -187,7 +187,7 @@
 	       (1 6 8)))
 	     "Weblog maintenance via XML-RPC APIs [bzr]" single])
  (web-mode .
-	   [(20130809 1112)
+	   [(20130811 932)
 	    nil "major mode for editing html templates [github]" single])
  (web .
       [(20130429 1926)
@@ -754,7 +754,7 @@
 	   [(20130312 1839)
 	    nil "Support sequential operation which omitted prefix keys. [github]" single])
  (smartparens .
-	      [(20130805 2048)
+	      [(20130811 38)
 	       ((cl-lib
 		 (0 1))
 		(dash
@@ -773,7 +773,7 @@
 		 [(20051013 1756)
 		  nil "Beautify the operators in codes [wiki]" single])
  (smart-mode-line .
-		  [(20130718 1508)
+		  [(20130811 1043)
 		   nil "A color coded smart mode-line. [github]" single])
  (smart-forward .
 		[(20130205 1352)
@@ -969,7 +969,7 @@
       [(20130521 902)
        nil "Emacs integration for rvm [github]" single])
  (rust-mode .
-	    [(20130803 1831)
+	    [(20130808 1925)
 	     nil "A major emacs mode for editing Rust source code [github]" single])
  (ruby-tools .
 	     [(20121008 1851)
@@ -997,7 +997,7 @@
 		[(20130127 1902)
 		 nil "Minor mode with electric editing commands for Ruby files [github]" single])
  (ruby-dev .
-	   [(20130712 1441)
+	   [(20130811 1051)
 	    nil "Interactive developement environment for Ruby. [github]" tar])
  (ruby-compilation .
 		   [(20130429 1411)
@@ -1013,7 +1013,7 @@
 	     (1 0 0)))
 	   "An Emacs interface for RuboCop [github]" single])
  (rspec-mode .
-	     [(20130628 2224)
+	     [(20130810 1844)
 	      ((ruby-mode
 		(1 0)))
 	      "Enhance ruby-mode for RSpec [github]" single])
@@ -1187,7 +1187,7 @@
 			 (0 8 0)))
 		       "Snippets for processing-mode [github]" tar])
  (processing-mode .
-		  [(20130804 1120)
+		  [(20130811 1102)
 		   nil "Major mode for Processing 2.0 [github]" single])
  (proc-net .
 	   [(20130322 12)
@@ -1497,7 +1497,7 @@
 		(21 0)))
 	      "Integrates Readme.org and Commentary/Change-logs. [github]" tar])
  (org-protocol-jekyll .
-		      [(20130809 1701)
+		      [(20130811 50)
 		       nil "Jekyll's handler for org-protocol [github]" single])
  (org-present .
 	      [(20130426 2049)
@@ -1768,7 +1768,7 @@
 	       (1 1)))
 	     "Mote minor mode [github]" single])
  (monokai-theme .
-		[(20130806 1840)
+		[(20130810 1645)
 		 nil "A fruity color theme for Emacs. [git]" single])
  (monky .
 	[(20130513 1413)
@@ -2641,7 +2641,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [github]" single])
  (helm .
-       [(20130810 1303)
+       [(20130811 936)
 	nil "Helm is an Emacs incremental and narrowing framework [github]" tar])
  (header2 .
 	  [(20130723 2321)
@@ -2716,7 +2716,7 @@
 		    [(20120821 1835)
 		     nil "Mode for the dot-language used by graphviz (att). [github]" single])
  (graphene .
-	   [(20130621 911)
+	   [(20130810 1356)
 	    ((auto-complete
 	      (20130330))
 	     (smartparens
@@ -2767,6 +2767,9 @@
  (golden-ratio .
 	       [(20130530 1410)
 		nil "Automatic resizing of Emacs windows to the golden ratio [github]" single])
+ (god-mode .
+	   [(20130811 1014)
+	    nil "God-like command entering minor mode [github]" single])
  (go-snippets .
 	      [(20130602 2225)
 	       ((yasnippet
@@ -3095,7 +3098,7 @@
 		  [(20130327 2132)
 		   nil "A flymake handler for javascript using both jshint and gjslint [github]" single])
  (flymake-elixir .
-		 [(20130420 59)
+		 [(20130810 1017)
 		  nil "A flymake handler for elixir-mode .ex files. [github]" single])
  (flymake-easy .
 	       [(20130610 1705)
@@ -4089,7 +4092,7 @@
 	     (2 1)))
 	   "Interact with Bundler from Emacs [github]" single])
  (bug-reference-github .
-		       [(20121031 738)
+		       [(20130611 1155)
 			nil "Automatically set `bug-reference-url-format' in Github repositories. [github]" single])
  (bufshow .
 	  [(20130711 1139)
@@ -4114,7 +4117,7 @@
 		     (0 0 3)))
 		   "Context-sensitive external browse URL or Internet search [github]" single])
  (browse-kill-ring .
-		   [(20130729 1607)
+		   [(20130810 1136)
 		    nil "interactively insert items from kill-ring [github]" single])
  (boxquote .
 	   [(20081011 2126)
@@ -4439,14 +4442,5 @@
 	    nil "Python TDD minor mode [github]" single])
  (abc-mode .
 	   [(20130607 917)
-	    nil "Major mode for editing abc music files [github]" single])
- (package-spec .
-	       [(20120403 2010)
-		nil "Specify package.el packages to use in a package spec [github]" single])
- (mactag .
-	 [(20101013 2218)
-	  nil "Mode for automatically handle multiple tags files with Mactag rubygem [github]" single])
- (citrus-mode .
-	      [(20121008 1918)
-	       nil "Major mode for editing Citrus files [github]" tar]))
+	    nil "Major mode for editing abc music files [github]" single]))
 
