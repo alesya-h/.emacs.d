@@ -1,6 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/plugins")
 (require 'package)
-(add-to-list 'package-archives 
+(add-to-list 'package-archives
     '("marmalade" .
       "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
@@ -391,6 +391,9 @@ If point was already at that position, move point to beginning of line."
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
+
+(eval-after-load 'rspec-mode
+  '(rspec-install-snippets))
 
 (require 'align)
 (add-to-list
