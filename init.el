@@ -173,6 +173,8 @@
 (global-set-key (kbd "<f8>") 'gpicker-goto-tag)
 (global-set-key (kbd "<f9>") 'supermegadoc-ri)
 
+(global-magit-wip-save-mode 1)
+
 (require 'speedbar)
 (require 'uniquify)
 (require 'icomplete)
