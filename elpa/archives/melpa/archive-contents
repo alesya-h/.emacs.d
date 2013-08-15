@@ -391,7 +391,7 @@
 	    (0)))
 	  "an Tumblr mode for Emacs [github]" single])
  (tuareg .
-	 [(20130218 1334)
+	 [(20130815 736)
 	  ((caml
 	    (3 12 0 1)))
 	  "OCaml mode for Emacs. [svn]" tar])
@@ -875,6 +875,9 @@
  (session .
 	  [(20120511 0)
 	   nil "use variables, registers and buffer places across sessions [github]" single])
+ (sequential-command .
+		     [(20100504 855)
+		      nil "Many commands into one command [wiki]" tar])
  (sentence-highlight .
 		     [(20121026 1450)
 		      nil "highlight the current sentence [wiki]" single])
@@ -1084,6 +1087,11 @@
  (regex-dsl .
 	    [(20100124 1228)
 	     nil "lisp syntax for regexps [github]" single])
+ (refheap .
+	  [(20130815 821)
+	   ((json
+	     (1 2)))
+	   "A library for pasting to https://refheap.com [github]" single])
  (redshank .
 	   [(20120510 1230)
 	    nil "No description available. [git]" tar])
@@ -1416,6 +1424,9 @@
 		 ((cl-lib
 		   (0 2)))
 		 "Tools for assembling a package archive [github]" tar])
+ (package+ .
+	   [(20130725 1401)
+	    nil "Extensions for the package library. [github]" single])
  (pabbrev .
 	  [(20121025 1200)
 	   nil "Predictive abbreviation expansion [hg]" single])
@@ -2587,7 +2598,7 @@
 	      [(20130511 1253)
 	       nil "list git files. [github]" single])
  (helm-gtags .
-	     [(20130731 2025)
+	     [(20130815 1553)
 	      ((helm
 		(1 0)))
 	      "GNU GLOBAL helm interface [github]" single])
@@ -2662,7 +2673,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [github]" single])
  (helm .
-       [(20130814 1810)
+       [(20130815 744)
 	nil "Helm is an Emacs incremental and narrowing framework [github]" tar])
  (header2 .
 	  [(20130723 2321)
@@ -3152,11 +3163,13 @@
 			      (24 1)))
 			    "Change mode line color with Flycheck status [github]" single])
  (flycheck .
-	   [(20130814 2202)
+	   [(20130815 1136)
 	    ((s
 	      (1 6 0))
 	     (dash
 	      (1 6 0))
+	     (f
+	      (0 5 0))
 	     (cl-lib
 	      (0 1))
 	     (emacs
@@ -4323,6 +4336,9 @@
  (apache-mode .
 	      [(20080905 553)
 	       nil "major mode for editing Apache configuration files [wiki]" single])
+ (aok .
+      [(20130815 756)
+       nil "various useful ways to do `multi-occur' [wiki]" single])
  (anything-git-grep .
 		    [(20130609 1111)
 		     ((anything

@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads (ocamldebug) "ocamldebug" "ocamldebug.el" (20982
-;;;;;;  17050 569968 615000))
+;;;### (autoloads (ocamldebug) "ocamldebug" "ocamldebug.el" (21004
+;;;;;;  60658 817472 638000))
 ;;; Generated autoloads from ocamldebug.el
 
 (autoload 'ocamldebug "ocamldebug" "\
@@ -20,7 +20,7 @@ the ocamldebug commands `cd DIR' and `directory'.
 ;;;***
 
 ;;;### (autoloads (tuareg-run-ocaml tuareg-mode) "tuareg" "tuareg.el"
-;;;;;;  (20982 17050 609968 656000))
+;;;;;;  (21004 60658 860805 992000))
 ;;; Generated autoloads from tuareg.el
 (add-to-list 'auto-mode-alist '("\\.ml[iylp]?\\'" . tuareg-mode))
 (dolist (ext '(".cmo" ".cmx" ".cma" ".cmxa" ".cmi" ".annot"))
@@ -101,7 +101,7 @@ Run an OCaml toplevel process. I/O via buffer `*ocaml-toplevel*'.
 ;;;***
 
 ;;;### (autoloads nil nil ("tuareg-light.el" "tuareg-pkg.el" "tuareg-site-file.el")
-;;;;;;  (20982 17050 776116 860000))
+;;;;;;  (21004 60659 52143 393000))
 
 ;;;***
 
