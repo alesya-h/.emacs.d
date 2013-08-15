@@ -3,16 +3,16 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "leuven-theme" "leuven-theme.el" (20996 44648
-;;;;;;  743647 176000))
+;;;### (autoloads nil "leuven-theme" "leuven-theme.el" (21004 45355
+;;;;;;  984061 149000))
 ;;; Generated autoloads from leuven-theme.el
 
 (when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
 
 ;;;***
 
-;;;### (autoloads nil nil ("leuven-theme-pkg.el") (20996 44648 825458
-;;;;;;  429000))
+;;;### (autoloads nil nil ("leuven-theme-pkg.el") (21004 45356 58639
+;;;;;;  132000))
 
 ;;;***
 
