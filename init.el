@@ -20,9 +20,10 @@
  '(c-basic-offset 4)
  '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (base16-chalk)))
+ '(custom-enabled-themes (quote (base16-mocha)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
+ '(evil-leader/leader "l")
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#383838")
  '(foreground-color "#839496")
@@ -136,9 +137,9 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/evil-surround")
 (require 'surround)
 (global-surround-mode t)
-(add-to-list 'load-path "~/.emacs.d/plugins/evil-leader")
-(require 'evil-leader)
+
 (global-evil-leader-mode)
+(evil-leader/set-key "b" 'ido-switch-buffer)
 
 (evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
 (evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)
@@ -240,6 +241,14 @@ If point was already at that position, move point to beginning of line."
     (comment-dwim arg)))
 
 (global-set-key "\M-;" 'comment-dwim-line)
+
+(defun switch-to-previous-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+(global-set-key (kbd "s-<tab>") 'switch-to-previous-buffer)
 
 ;; mult-eshell
 (require 'multi-eshell)

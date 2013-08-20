@@ -4,8 +4,7 @@
 ;; Author: Peter Williams, et al.
 ;; URL: http://github.com/pezra/rspec-mode
 ;; Created: 2011
-;; Version: 20130810.1844
-;; X-Original-Version: 1.8
+;; Version: 1.8
 ;; Keywords: rspec ruby
 ;; Package-Requires: ((ruby-mode "1.0"))
 
