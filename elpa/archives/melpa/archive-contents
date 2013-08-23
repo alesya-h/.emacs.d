@@ -61,7 +61,7 @@
 	  [(20130217 1711)
 	   nil "yet another display line numbers. [github]" single])
  (yagist .
-	 [(20130725 2023)
+	 [(20130823 1920)
 	  ((json
 	    (1 2 0)))
 	  "Yet Another Emacs integration for gist.github.com [github]" single])
@@ -1494,7 +1494,7 @@
 	      (0 1)))
 	    "Blog from Org mode to wordpress [github]" tar])
  (org-trello .
-	     [(20130820 230)
+	     [(20130823 951)
 	      ((org
 		(8 0 7))
 	       (dash
@@ -1506,7 +1506,9 @@
 	       (json
 		(1 2))
 	       (elnode
-		(0 9 9 7 6)))
+		(0 9 9 7 6))
+	       (esxml
+		(0 3 0)))
 	      "Org minor mode to synchronize with trello [github]" tar])
  (org-toodledo .
 	       [(20130608 1434)
@@ -2739,7 +2741,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [github]" single])
  (helm .
-       [(20130822 1620)
+       [(20130823 913)
 	nil "Helm is an Emacs incremental and narrowing framework [github]" tar])
  (header2 .
 	  [(20130723 2321)
@@ -3433,7 +3435,7 @@
 		     (20130225 1754)))
 		   "Data viewer for GNU R [github]" single])
  (ess .
-      [(20130815 1620)
+      [(20130823 950)
        nil "No description available. [github]" tar])
  (espuds .
 	 [(20130226 2124)
@@ -3666,7 +3668,7 @@
 		  [(20130410 17)
 		   nil "Some extension for eldoc [wiki]" single])
  (eldoc-eval .
-	     [(20130822 724)
+	     [(20130823 957)
 	      nil "Enable eldoc support when minibuffer is in use. [github]" single])
  (el-x .
        [(20130418 2335)

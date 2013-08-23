@@ -24,6 +24,7 @@
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
+ '(evil-search-module (quote evil-search))
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#383838")
  '(foreground-color "#839496")
