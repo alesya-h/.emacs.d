@@ -164,13 +164,19 @@
 (require 'supermegadoc)
 (setq *supermegadoc-browse-url-function* 'browse-url)
 (setq *gpicker-project-dir* "/home/me/p/work/xv_web3")
+(defun gpicker-visit-project-ask-type ()
+  (interactive)
+  (call-interactively 'gpicker-visit-project)
+  (call-interactively 'gpicker-set-project-type))
+
 (defun gpicker-set-root-and-find-file ()
   (interactive)
   (unless *gpicker-project-dir*
-    (call-interactively 'gpicker-visit-project))
+    (gpicker-visit-project-ask-type))
   (gpicker-find-file))
+
 (global-set-key (kbd "<f6>") 'gpicker-set-root-and-find-file)
-(global-set-key (kbd "C-<f6>") 'gpicker-visit-project)
+(global-set-key (kbd "C-<f6>") 'gpicker-visit-project-ask-type)
 (global-set-key (kbd "<f7>") 'gpicker-imenu)
 (global-set-key (kbd "<f8>") 'gpicker-goto-tag)
 (global-set-key (kbd "<f9>") 'supermegadoc-ri)
