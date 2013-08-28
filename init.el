@@ -140,7 +140,9 @@
 (global-surround-mode t)
 
 (global-evil-leader-mode)
-(evil-leader/set-key "b" 'ido-switch-buffer)
+(evil-leader/set-key "b" 'magit-blame-mode)
+(evil-leader/set-key "." 'robe-jump)
+(evil-leader/set-key "M-." 'find-tag)
 
 (evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
 (evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)
