@@ -17,6 +17,7 @@
 ;;	Phil Jackson      <phil@shellarchive.co.uk>
 
 ;; Keywords: tools
+;; Package-Requires: ((cl-lib "0.3") (git-commit-mode "0.14.0") (git-rebase-mode "0.14.0"))
 
 ;; Magit is free software; you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by
@@ -55,7 +56,8 @@ Use the function by the same name instead of this variable.")
 
 (require 'magit-compat)
 
-(require 'git-commit-mode nil t)
+(require 'git-commit-mode)
+(require 'git-rebase-mode)
 
 (require 'ansi-color)
 (require 'cl-lib)
@@ -110,7 +112,8 @@ Also set the local value in all Magit buffers and refresh them.
     (dolist (buffer (buffer-list))
       (when (derived-mode-p 'magit-mode)
         (with-current-buffer buffer
-          (setq-local magit-diff-options value)
+          (with-no-warnings
+            (setq-local magit-diff-options value))
           (magit-refresh-buffer))))))
 
 ;;;; Variables
@@ -119,6 +122,10 @@ Also set the local value in all Magit buffers and refresh them.
   "Controlling Git from Emacs."
   :prefix "magit-"
   :group 'tools)
+
+(custom-add-to-group 'magit 'git-commit 'custom-group)
+(custom-add-to-group 'magit 'git-rebase 'custom-group)
+(custom-add-to-group 'magit 'vc-follow-symlinks 'custom-variable)
 
 (defcustom magit-git-executable "git"
   "The name of the Git executable."
@@ -174,8 +181,6 @@ When looking for a Git repository below the directories in
 deep."
   :group 'magit
   :type 'integer)
-
-(custom-add-to-group 'magit 'vc-follow-symlinks 'custom-variable)
 
 (defcustom magit-set-upstream-on-push nil
   "Whether `magit-push' may use --set-upstream when pushing a branch.
@@ -558,6 +563,9 @@ set before loading libary `magit'.")
   :prefix "magit-"
   :group 'faces
   :group 'magit)
+
+(custom-add-to-group 'magit-faces 'git-commit-faces 'custom-group)
+(custom-add-to-group 'magit-faces 'git-rebase-faces 'custom-group)
 
 (defface magit-header
   '((t :inherit header-line))
@@ -4676,6 +4684,7 @@ non-nil, then autocompletion will offer directory names."
 
 (defun magit-remove-conflicts (alist)
   (let ((dict (make-hash-table :test 'equal))
+        (alist (delete-dups alist))
         (result nil))
     (dolist (a alist)
       (puthash (car a) (cons (cdr a) (gethash (car a) dict))
@@ -5451,7 +5460,6 @@ With a prefix argument amend to the commit at HEAD instead.
   (if (magit-use-emacsclient-p)
       (magit-with-emacsclient magit-server-window-for-commit
         (apply 'magit-run-git-async subcmd args))
-    (require 'git-commit-mode)
     (let ((topdir (magit-get-top-dir)))
       (with-current-buffer
           (find-file-noselect

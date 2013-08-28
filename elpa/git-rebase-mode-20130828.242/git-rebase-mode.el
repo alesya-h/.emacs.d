@@ -5,7 +5,7 @@
 
 ;; Author: Phil Jackson <phil@shellarchive.co.uk>
 ;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
-;; Version: 20130827.231
+;; Version: 20130828.242
 ;; X-Original-Version: 0.14.0
 ;; Homepage: https://github.com/magit/git-modes
 ;; Keywords: convenience vc git
@@ -40,31 +40,31 @@
 
 ;;; Options
 
-(defgroup git-rebase-mode nil
+(defgroup git-rebase nil
   "Customize Git-Rebase mode"
   :group 'tools)
 
 (defcustom git-rebase-auto-advance nil
   "If non-nil, moves point forward a line after running an action."
-  :group 'git-rebase-mode
+  :group 'git-rebase
   :type 'boolean)
 
-(defgroup git-rebase-mode-faces nil
+(defgroup git-rebase-faces nil
   "Customize Git-Rebase mode faces."
   :group 'faces
-  :group 'git-rebase-mode)
+  :group 'git-rebase)
 
 (defface git-rebase-killed-action-face
   '((((class color))
      :inherit font-lock-comment-face
      :strike-through t))
   "Action lines in the rebase TODO list that have been commented out."
-  :group 'git-rebase-mode-faces)
+  :group 'git-rebase-faces)
 
 (defface git-rebase-description-face
   '((t :inherit font-lock-comment-face))
   "Face for one-line commit descriptions."
-  :group 'git-rebase-mode-faces)
+  :group 'git-rebase-faces)
 
 ;;; Regexps
 

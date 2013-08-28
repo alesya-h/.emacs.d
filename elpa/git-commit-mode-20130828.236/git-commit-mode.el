@@ -6,7 +6,7 @@
 ;; Authors: Sebastian Wiesner <lunaryorn@gmail.com>
 ;;	Florian Ragwitz <rafl@debian.org>
 ;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
-;; Version: 20130827.231
+;; Version: 20130828.236
 ;; X-Original-Version: 0.14.0
 ;; Homepage: https://github.com/magit/git-modes
 ;; Keywords: convenience vc git
@@ -66,6 +66,16 @@
   "Mode for editing git commit messages"
   :prefix "git-commit-"
   :group 'tools)
+
+(defcustom git-commit-confirm-commit nil
+  "Whether to ask for confirmation before committing.
+
+If t, ask for confirmation before creating a commit with style
+errors, unless the commit is forced.  If nil, never ask for
+confirmation before committing."
+  :group 'git-commit
+  :type '(choice (const :tag "On style errors" t)
+                 (const :tag "Never" nil)))
 
 (defgroup git-commit-faces nil
   "Faces for highlighting git commit messages"
@@ -130,16 +140,6 @@ git commit messages"
   "Face used to highlight what has happened to files in the
 default comments in git commit messages"
   :group 'git-commit-faces)
-
-(defcustom git-commit-confirm-commit nil
-  "Whether to ask for confirmation before committing.
-
-If t, ask for confirmation before creating a commit with style
-errors, unless the commit is forced.  If nil, never ask for
-confirmation before committing."
-  :group 'git-commit
-  :type '(choice (const :tag "On style errors" t)
-                 (const :tag "Never" nil)))
 
 (defvar git-commit-commit-hook nil
   "Hook run by `git-commit-commit' unless clients exist.
