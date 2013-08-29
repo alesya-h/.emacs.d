@@ -141,6 +141,7 @@
 
 (global-evil-leader-mode)
 (evil-leader/set-key "b" 'magit-blame-mode)
+(evil-leader/set-key "n" 'linum-mode)
 (evil-leader/set-key "." 'robe-jump)
 (evil-leader/set-key "M-." 'find-tag)
 
