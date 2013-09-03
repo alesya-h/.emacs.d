@@ -13,7 +13,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(Linum-format "%7i ")
  '(ac-delay 0.2)
  '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(ansi-term-color-vector [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"])
@@ -44,7 +43,6 @@
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
  '(latex-run-command "pdflatex")
- '(linum-format " %7d ")
  '(magit-wip-mode t)
  '(main-line-color1 "#191919")
  '(main-line-color2 "#111111")
@@ -145,6 +143,21 @@
 (evil-leader/set-key "." 'robe-jump)
 (evil-leader/set-key "w" 'delete-trailing-whitespace)
 (evil-leader/set-key "M-." 'find-tag)
+
+;; Toggle window dedication
+(defun toggle-window-dedicated ()
+  "Toggle whether the current active window is dedicated or not"
+  (interactive)
+  (message
+   (if (let (window (get-buffer-window (current-buffer)))
+         (set-window-dedicated-p window
+                                 (not (window-dedicated-p window))))
+       "Window '%s' is dedicated"
+     "Window '%s' is normal")
+   (current-buffer)))
+
+(evil-leader/set-key "d" 'toggle-window-dedicated)
+(evil-leader/set-key "r" 'rspec-verify-single)
 
 (evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
 (evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)
@@ -496,20 +509,6 @@ Repeated invocations toggle between the two most recently open buffers."
                (back-to-indentation)
                (current-column)))))))
 (global-set-key (kbd "C-*") 'toggle-selective-display)
-
-;; Toggle window dedication
-(defun toggle-window-dedicated ()
-  "Toggle whether the current active window is dedicated or not"
-  (interactive)
-  (message
-   (if (let (window (get-buffer-window (current-buffer)))
-         (set-window-dedicated-p window
-                                 (not (window-dedicated-p window))))
-       "Window '%s' is dedicated"
-     "Window '%s' is normal")
-   (current-buffer)))
-
-(global-set-key (kbd "C-x d") 'toggle-window-dedicated)
 
 (add-to-list 'load-path "~/.emacs.d/plugins/rhtml")
 (require 'rhtml-mode)
