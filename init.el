@@ -26,6 +26,7 @@
  '(evil-search-module (quote evil-search))
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#383838")
+ '(fci-rule-column 100)
  '(foreground-color "#839496")
  '(frame-brackground-mode (quote dark))
  '(fringe-mode 6 nil (fringe))
