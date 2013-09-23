@@ -4,7 +4,7 @@
 
 ;; Author: Alexey Kutepov <reximkut@gmail.com>
 ;; URL: http://github.com/rexim/gruber-darker-theme
-;; Version: 20130903.927
+;; Version: 20130922.1352
 ;; X-Original-Version: 0.5
 
 ;; Permission is hereby granted, free of charge, to any person
@@ -255,6 +255,9 @@
 
    ;; Slime
    `(slime-repl-inputed-output-face ((t (:foreground ,gruber-darker-red))))
+
+   ;; Tuareg
+   `(tuareg-font-lock-governing-face ((t (:foreground ,gruber-darker-yellow))))
    ))
 
 ;;;###autoload
