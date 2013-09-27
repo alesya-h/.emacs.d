@@ -19,7 +19,7 @@
  '(c-basic-offset 4)
  '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (base16-chalk)))
+ '(custom-enabled-themes (quote (leuven)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
@@ -453,6 +453,8 @@ Repeated invocations toggle between the two most recently open buffers."
 ;; YARI
 (add-to-list 'load-path "~/.emacs.d/plugins/yari.el")
 (require 'yari)
+
+(add-hook 'ruby-mode-hook 'fic-ext-mode)
 
 (add-hook 'ruby-mode-hook 'robe-mode)
 (push 'ac-source-robe ac-sources)

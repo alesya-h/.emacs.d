@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads (magit-status) "magit" "magit.el" (21056 2664 203056
-;;;;;;  842000))
+;;;### (autoloads (magit-status) "magit" "magit.el" (21060 64564
+;;;;;;  19573 599000))
 ;;; Generated autoloads from magit.el
 
 (autoload 'magit-status "magit" "\
@@ -22,7 +22,7 @@ when asking for user input.
 ;;;***
 
 ;;;### (autoloads (magit-blame-mode) "magit-blame" "magit-blame.el"
-;;;;;;  (21056 2663 936387 38000))
+;;;;;;  (21060 64563 812906 532000))
 ;;; Generated autoloads from magit-blame.el
 
 (autoload 'magit-blame-mode "magit-blame" "\
@@ -33,8 +33,8 @@ Display blame information inline.
 ;;;***
 
 ;;;### (autoloads (global-magit-wip-save-mode magit-wip-save-mode
-;;;;;;  magit-wip-mode) "magit-wip" "magit-wip.el" (21056 2664 253057
-;;;;;;  430000))
+;;;;;;  magit-wip-mode) "magit-wip" "magit-wip.el" (21060 64564 59573
+;;;;;;  675000))
 ;;; Generated autoloads from magit-wip.el
 
 (defvar magit-wip-mode nil "\
@@ -84,7 +84,7 @@ See `magit-wip-save-mode' for more information on Magit-Wip-Save mode.
 ;;;***
 
 ;;;### (autoloads nil nil ("magit-bisect.el" "magit-cherry.el" "magit-key-mode.el"
-;;;;;;  "magit-pkg.el") (21056 2664 386735 179000))
+;;;;;;  "magit-pkg.el") (21060 64564 163273 44000))
 
 ;;;***
 

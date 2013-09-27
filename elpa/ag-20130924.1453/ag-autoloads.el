@@ -4,8 +4,8 @@
 
 
 ;;;### (autoloads (ag-kill-other-buffers ag-kill-buffers ag-regexp-project-at-point
-;;;;;;  ag-project-regexp ag-project ag-regexp ag) "ag" "ag.el" (21049
-;;;;;;  28652 316532 221000))
+;;;;;;  ag-project-regexp ag-project ag-regexp ag) "ag" "ag.el" (21060
+;;;;;;  64568 459582 175000))
 ;;; Generated autoloads from ag.el
 
 (autoload 'ag "ag" "\
@@ -51,7 +51,7 @@ Kill all ag-mode buffers other than the current buffer.
 
 ;;;***
 
-;;;### (autoloads nil nil ("ag-pkg.el") (21049 28652 382965 781000))
+;;;### (autoloads nil nil ("ag-pkg.el") (21060 64568 530654 741000))
 
 ;;;***
 
