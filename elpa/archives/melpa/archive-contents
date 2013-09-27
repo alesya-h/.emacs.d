@@ -1028,7 +1028,7 @@
       [(20130521 902)
        nil "Emacs integration for rvm [github]" single])
  (rust-mode .
-	    [(20130907 38)
+	    [(20130926 1504)
 	     nil "A major emacs mode for editing Rust source code [github]" single])
  (ruby-tools .
 	     [(20121008 1851)
@@ -1508,7 +1508,7 @@
 		[(20130525 1903)
 		 nil "Minor-mode to add space between Chinese and English characters. [github]" single])
  (pandoc-mode .
-	      [(20130925 2005)
+	      [(20130927 124)
 	       nil "Minor mode for interacting with Pandoc [github]" tar])
  (pallet .
 	 [(20130926 1940)
@@ -2212,7 +2212,7 @@
 			       [(20130730 1032)
 				nil "Advice for magit-log-edit-commit [github]" single])
  (magit .
-	[(20130926 659)
+	[(20130927 21)
 	 ((cl-lib
 	   (0 3))
 	  (git-commit-mode
@@ -2657,7 +2657,7 @@
 		    [(20130422 1226)
 		     nil "Makes ido-mode display vertically. [github]" single])
  (ido-ubiquitous .
-		 [(20130926 1104)
+		 [(20130926 1857)
 		  ((emacs
 		    (24 1)))
 		  "Use ido (nearly) everywhere. [github]" single])
@@ -4231,10 +4231,10 @@
 	   [(20091203 1912)
 	    nil "Diminished modes are minor modes with no modeline display [github]" single])
  (dim-autoload .
-	       [(20130919 2114)
+	       [(20130927 12)
 		nil "dim complete autoload cookie lines [github]" single])
  (diff-hl .
-	  [(20130925 515)
+	  [(20130927 259)
 	   ((cl-lib
 	     (0 2)))
 	   "Highlight uncommitted changes [github]" tar])

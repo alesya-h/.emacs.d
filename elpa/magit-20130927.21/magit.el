@@ -6466,7 +6466,6 @@ variable change-log-default-name."
     "Visit current item.
 With a prefix argument, visit in other window."
     (interactive "P")
-    (require 'dired-x)
     (magit-section-action (item info "dired-jump")
       ((untracked file)
        (dired-jump other-window (file-truename info)))
@@ -7142,7 +7141,7 @@ init file:
                            (package-version-join
                             (package-desc-vers
                              (cdr (assq 'magit package-alist)))))
-                         (ignore-errors ; = 24.4
+                         (ignore-errors ; => 24.3.50
                            (package-version-join
                             (package-desc-version
                              (cadr (assq 'magit package-alist)))))))))))
