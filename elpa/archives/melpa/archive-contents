@@ -204,7 +204,7 @@
 	       (1 6 8)))
 	     "Weblog maintenance via XML-RPC APIs [bzr]" single])
  (web-mode .
-	   [(20131009 12)
+	   [(20131012 156)
 	    nil "major mode for editing html templates [github]" tar])
  (web .
       [(20130827 1312)
@@ -648,7 +648,7 @@
 		     [(20130621 1210)
 		      nil "Fork of subatomic-theme for terminals. [github]" single])
  (subatomic-theme .
-		  [(20131008 1328)
+		  [(20131011 1948)
 		   nil "Nice looking emacs 24 theme [github]" single])
  (stylus-mode .
 	      [(20120730 1950)
@@ -806,7 +806,7 @@
 	   [(20130312 1839)
 	    nil "Support sequential operation which omitted prefix keys. [github]" single])
  (smartparens .
-	      [(20131010 751)
+	      [(20131011 2300)
 	       ((cl-lib
 		 (0 1))
 		(dash
@@ -1553,7 +1553,7 @@
      [(20131009 224)
       nil "Simple Perforce-Emacs Integration [github]" single])
  (ox-reveal .
-	    [(20131003 1105)
+	    [(20131011 1418)
 	     ((org
 	       (8 0)))
 	     "reveal.js Presentation Back-End for Org Export Engine [github]" single])
@@ -1832,7 +1832,7 @@
 	     [(20130817 1808)
 	      nil "Display the number of minor modes instead of their names [github]" single])
  (number-font-lock-mode .
-			[(20131008 1426)
+			[(20131011 1815)
 			 ((emacs
 			   (24)))
 			 "Syntax highlighting for numeric literals [github]" single])
@@ -1864,7 +1864,7 @@
 		     (9)))
 		   "decompilation extension for nrepl.el [github]" single])
  (nrepl .
-	[(20131010 1649)
+	[(20131012 2)
 	 ((clojure-mode
 	   (2 0 0))
 	  (cl-lib
@@ -1873,7 +1873,7 @@
 	   (2 1 0))
 	  (pkg-info
 	   (0 1)))
-	 "Client for Clojure nREPL [github]" single])
+	 "Client for Clojure nREPL [github]" tar])
  (notmuch .
 	  [(20131010 742)
 	   nil "No description available. [git]" tar])
@@ -2216,7 +2216,7 @@
 			       [(20130730 1032)
 				nil "Advice for magit-log-edit-commit [github]" single])
  (magit .
-	[(20131008 1206)
+	[(20131012 59)
 	 ((cl-lib
 	   (0 3))
 	  (git-commit-mode
@@ -2312,7 +2312,7 @@
 	     (1 1 0)))
 	   "dynamic evaluation replacement with emacs [github]" single])
  (list-utils .
-	     [(20131009 1733)
+	     [(20131011 1114)
 	      nil "List-manipulation utility functions [github]" single])
  (list-packages-ext .
 		    [(20130927 1808)
@@ -2379,9 +2379,11 @@
  (latex-pretty-symbols .
 		       [(20111011 1446)
 			nil "Display many latex symbols as their unicode counterparts [hg]" single])
- (latest-clojars .
-		 [(20130410 1552)
-		  nil "Clojure dependency resolver [github]" single])
+ (latex-extra .
+	      [(20131011 2028)
+	       ((auctex
+		 (11 86 1)))
+	       "Adds several useful functionalities to LaTeX-mode. [github]" single])
  (langtool .
 	   [(20130920 2006)
 	    nil "Grammar check utility using LanguageTool [github]" single])
@@ -2593,7 +2595,7 @@
 			  [(20130728 952)
 			   nil "Use isearch to search for the symbol at point [github]" single])
  (isearch+ .
-	   [(20131006 1800)
+	   [(20131011 2145)
 	    nil "Extensions to `isearch.el' (incremental search). [wiki]" single])
  (irfc .
        [(20120824 1735)
@@ -2766,7 +2768,7 @@
 	       [(20121117 1436)
 		nil "send & twiddle & resend HTTP requests [github]" single])
  (http-post-simple .
-		   [(20081104 2213)
+		   [(20131011 358)
 		    nil "HTTP POST requests using the url library [wiki]" single])
  (htmlize .
 	  [(20130207 2102)
@@ -2859,7 +2861,7 @@
 		 (1 0)))
 	       "Color theme selection with helm interface [github]" single])
  (helm-spotify .
-	       [(20131010 2106)
+	       [(20131011 1953)
 		((helm
 		  (0 0 0))
 		 (multi
@@ -3721,7 +3723,7 @@
 		     (0)))
 		   "Starts a * or # search from the visual selection [github]" single])
  (evil-tabs .
-	    [(20130930 1542)
+	    [(20131011 1233)
 	     ((evil
 	       (0 0 0))
 	      (elscreen
@@ -3834,7 +3836,7 @@
 	 [(20130827 1016)
 	  nil "Erlang major mode [github]" tar])
  (ergoemacs-mode .
-		 [(20131010 1950)
+		 [(20131011 843)
 		  nil "Emacs mode based on common modern software interface and ergonomics. [github]" tar])
  (erefactor .
 	    [(20130521 1838)
@@ -3939,7 +3941,7 @@
 			     [(20130415 1244)
 			      nil "Simple hack into ispell to fix (muscle) memory problems [github]" single])
  (emacsc .
-	 [(20130930 149)
+	 [(20131011 1938)
 	  nil "helper for emacsc(1) [github]" tar])
  (emacs-setup .
 	      [(20120727 926)
@@ -4133,7 +4135,7 @@
        [(20131002 39)
 	nil "a BibTeX database manager [github]" tar])
  (easy-kill .
-	    [(20131011 736)
+	    [(20131012 926)
 	     ((emacs
 	       (24)))
 	     "kill things easily [github]" single])
@@ -4176,7 +4178,7 @@
 		   (0 2 3)))
 		 "Set faces based on available fonts [github]" single])
  (dylan-mode .
-	     [(20130905 2139)
+	     [(20131010 2348)
 	      nil "Major mode for editing Dylan programs. [github]" tar])
  (duplicate-thing .
 		  [(20120516 148)
@@ -4432,7 +4434,7 @@
 	     [(20130716 858)
 	      nil "Perl code editing commands for Emacs [github]" single])
  (control-mode .
-	       [(20131010 2119)
+	       [(20131010 2352)
 		nil "A \"control\" mode, similar to vim's \"normal\" mode [github]" single])
  (connection .
 	     [(20131005 1021)
@@ -4932,7 +4934,7 @@
 		  [(20131003 1054)
 		   nil "AmpleZen Theme for Emacs 24 [github]" single])
  (ample-theme .
-	      [(20130930 928)
+	      [(20131011 1424)
 	       nil "Calm Dark Theme for Emacs [github]" single])
  (all-ext .
 	  [(20130824 1206)
@@ -5044,7 +5046,7 @@
 	   [(20130607 917)
 	    nil "Major mode for editing abc music files [github]" single])
  (4clojure .
-	   [(20131009 2058)
+	   [(20131011 858)
 	    ((json
 	      (1 2))
 	     (request
