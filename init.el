@@ -139,9 +139,11 @@
 (global-evil-leader-mode)
 (evil-leader/set-key "b" 'magit-blame-mode)
 (evil-leader/set-key "n" 'linum-mode)
-(evil-leader/set-key "." 'robe-jump)
+(evil-leader/set-key ".r" 'robe-jump)
+(evil-leader/set-key ".t" 'find-tag)
 (evil-leader/set-key "w" 'delete-trailing-whitespace)
-(evil-leader/set-key "M-." 'find-tag)
+(evil-leader/set-key "tb" 'ruby-toggle-block)
+(evil-leader/set-key "th" 'ruby-toggle-hash-syntax)
 
 ;; Toggle window dedication
 (defun toggle-window-dedicated ()
