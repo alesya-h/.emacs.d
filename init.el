@@ -53,6 +53,8 @@
            flymake-shell
            flymake-yaml
            fold-dwim
+           fuzzy
+           glsl-mode
            haml-mode
            helm
            helm-ag
@@ -91,6 +93,7 @@
            sass-mode
            scss-mode
            skewer-mode
+           slim-mode
            slime
            smart-mode-line
            tuareg
@@ -104,6 +107,8 @@
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
 (require 'helm-match-plugin)
 (require 'highlight-focus)
 
@@ -129,8 +134,11 @@
 (global-set-key (kbd "C-<right>") 'windmove-right)
 (global-set-key (kbd "C-<up>") 'windmove-up)
 (global-set-key (kbd "C-<down>") 'windmove-down)
+(global-set-key (kbd "C-<tab>") 'ac-trigger-key-command)
 (require 'clojure-mode)
 (define-key clojure-mode-map (kbd "C-<return>") 'cider-pprint-eval-last-sexp)
+(define-key clojure-mode-map (kbd "C-S-<return>") 'cider-eval-buffer)
+(define-key clojure-mode-map (kbd "S-<return>") 'cider-eval-last-sexp)
 
 (global-evil-leader-mode)
 (evil-leader/set-key "b" 'magit-blame-mode)
@@ -153,6 +161,8 @@
 (require 'icomplete+)
 (icomplete-mode 99)
 
+(add-to-list 'load-path "~/.emacs.d/plugins/evil-surround")
+(require 'surround)
 (evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
 (evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)
 (evil-ex-define-cmd "Rmodel" 'rinari-find-model)
@@ -207,7 +217,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/supermegadoc")
 (require 'supermegadoc)
 (setq *supermegadoc-browse-url-function* 'browse-url)
-(setq *gpicker-project-dir* "/home/me/p/my/clj-workspace")
+(setq *gpicker-project-dir* "/home/me/p/my/workspace")
 (defun gpicker-visit-project-ask-type ()
   (interactive)
   (call-interactively 'gpicker-visit-project)
@@ -242,7 +252,6 @@ If point was already at that position, move point to beginning of line."
       (comment-or-uncomment-region (line-beginning-position)
                                    (line-end-position))
     (comment-dwim arg)))
-
 
 (defun switch-to-previous-buffer ()
   "Switch to previously open buffer.
@@ -344,6 +353,7 @@ Repeated invocations toggle between the two most recently open buffers."
  '(c-basic-offset 4)
  '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
  '(cider-popup-stacktraces nil)
+ '(cider-repl-print-length 30)
  '(cider-repl-use-pretty-printing t)
  '(compilation-message-face (quote default))
  '(custom-enabled-themes (quote (base16-chalk)))
@@ -392,6 +402,7 @@ Repeated invocations toggle between the two most recently open buffers."
  '(save-place-file "~/.emacs.d/saved-places")
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
+ '(scss-compile-at-save nil)
  '(select-active-regions nil)
  '(show-paren-mode t)
  '(slime-net-coding-system (quote utf-8-unix))
