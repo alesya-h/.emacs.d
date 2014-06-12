@@ -111,6 +111,7 @@
 (add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
 (require 'helm-match-plugin)
 (require 'highlight-focus)
+(require 'ruby-mode)
 
 (global-set-key (kbd "s-+") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "s--") 'evil-numbers/dec-at-pt)
@@ -139,6 +140,9 @@
 (define-key clojure-mode-map (kbd "C-<return>") 'cider-pprint-eval-last-sexp)
 (define-key clojure-mode-map (kbd "C-S-<return>") 'cider-eval-buffer)
 (define-key clojure-mode-map (kbd "S-<return>") 'cider-eval-last-sexp)
+(define-key ruby-mode-map (kbd "C-<return>") 'ruby-send-last-sexp)
+(define-key ruby-mode-map (kbd "C-S-<return>") 'ruby-send-region)
+(define-key ruby-mode-map (kbd "S-<return>") 'ruby-send-block)
 
 (global-evil-leader-mode)
 (evil-leader/set-key "b" 'magit-blame-mode)
