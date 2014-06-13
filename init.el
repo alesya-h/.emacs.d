@@ -345,6 +345,12 @@ Repeated invocations toggle between the two most recently open buffers."
 (add-hook 'lisp-mode-hook 'hs-minor-mode)
 (put 'narrow-to-region 'disabled nil)
 
+; Load el4r, which loads Xiki
+(add-to-list 'load-path "/home/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/trogdoro-el4r-1.0.10/data/emacs/site-lisp/")
+(require 'el4r)
+(el4r-boot)
+(el4r-troubleshooting-keys)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
