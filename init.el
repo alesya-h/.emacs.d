@@ -40,6 +40,8 @@
            evil-nerd-commenter
            evil-numbers
            evil-paredit
+           evil-surround
+           evil-space
            fill-column-indicator
            flymake
            flymake-coffee
@@ -165,8 +167,6 @@
 (require 'icomplete+)
 (icomplete-mode 99)
 
-(add-to-list 'load-path "~/.emacs.d/plugins/evil-surround")
-(require 'surround)
 (evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
 (evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)
 (evil-ex-define-cmd "Rmodel" 'rinari-find-model)
@@ -279,6 +279,9 @@ Repeated invocations toggle between the two most recently open buffers."
             (make-local-variable 'ac-ignores)
             (add-to-list 'ac-ignores "end")))
 
+(add-hook 'clojure-mode-hook
+          (lambda () (eldoc-mode -1)))
+
 ;; asy-mode, lasy-mode,
 (add-to-list 'load-path "/usr/local/texlive/2010/texmf/asymptote/")
 (autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
@@ -362,25 +365,27 @@ Repeated invocations toggle between the two most recently open buffers."
  '(ansi-term-color-vector [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"] t)
  '(c-basic-offset 4)
  '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
- '(cider-popup-stacktraces nil)
  '(cider-repl-print-length 30)
  '(cider-repl-use-pretty-printing t)
+ '(cider-show-error-buffer nil)
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (base16-chalk)))
- '(custom-safe-themes t)
+ '(custom-enabled-themes (quote (adwaita)))
+ '(custom-safe-themes (quote ("025354235e98db5e7fd9c1a74622ff53ad31b7bde537d290ff68d85665213d85" . t)))
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
  '(evil-mode t)
  '(evil-search-module (quote evil-search))
+ '(face-font-family-alternatives (quote (("arial black" "arial" "DejaVu Sans") ("arial" "DejaVu Sans") ("courier" "Monospace") ("monaco" "Monospace") ("xiki" "verdana") ("verdana" "DejaVu Sans"))))
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#383838")
  '(fci-rule-column 100)
+ '(font-lock-keywords-case-fold-search t t)
  '(foreground-color "#839496")
  '(frame-brackground-mode (quote dark))
  '(fringe-mode 6 nil (fringe))
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
- '(global-font-lock-mode t)
+ '(global-font-lock-mode t nil (font-lock))
  '(global-magit-wip-save-mode t)
  '(global-rainbow-delimiters-mode t)
  '(global-rinari-mode t)
@@ -399,11 +404,16 @@ Repeated invocations toggle between the two most recently open buffers."
  '(inhibit-startup-screen t)
  '(iswitchb-mode t)
  '(latex-run-command "pdflatex")
+ '(magit-use-overlays nil)
  '(magit-wip-mode t)
+ '(main-line-color1 "#29282E")
+ '(main-line-color2 "#292A24")
  '(menu-bar-mode nil)
  '(mouse-drag-copy-region t)
  '(mouse-yank-at-point t)
  '(nrepl-hide-special-buffers t)
+ '(powerline-color1 "#29282E")
+ '(powerline-color2 "#292A24")
  '(quack-global-menu-p nil)
  '(quack-pretty-lambda-p t)
  '(recentf-mode t)
@@ -415,6 +425,7 @@ Repeated invocations toggle between the two most recently open buffers."
  '(scss-compile-at-save nil)
  '(select-active-regions nil)
  '(show-paren-mode t)
+ '(show-trailing-whitespace t)
  '(slime-net-coding-system (quote utf-8-unix))
  '(solarized-termcolors 256)
  '(speedbar-indentation-width 2)
