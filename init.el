@@ -4,16 +4,6 @@
  '(("marmalade2" . "http://marmalade-repo.org/packages/")
    ("melpa2"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
-
-;; (powerline-default-theme)
-(setq sml/theme 'dark)
-(require 'smart-mode-line)
-(sml/setup)
-
-(put 'narrow-to-page 'disabled nil)
-(put 'dired-find-alternate-file 'disabled nil)
-(setq warning-suppress-types nil)
-
 (dolist
     (pkg '(
            ac-nrepl
@@ -108,6 +98,160 @@
            ))
   (unless (package-installed-p pkg)
     (package-install pkg)))
+
+(defun random-elt (lst)
+  (nth (random (length lst))
+       lst))
+(setq
+ scratch-messages
+ `("The best way to predict the future is to invent it. -Alan Kay"
+   "A point of view is worth 80 IQ points. -Alan Kay"
+   "Lisp isn't a language, it's a building material. -Alan Kay"
+   "Simple things should be simple, complex things should be possible. -Alan Kay"
+   "Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -Bill Gates"
+   "Controlling complexity is the essence of computer programming. -Brian Kernighan"
+   "The unavoidable price of reliability is simplicity. -C.A.R. Hoare"
+   "You're bound to be unhappy if you optimize everything. -Donald Knuth"
+   "Simplicity is prerequisite for reliability. -Edsger W. Dijkstra"
+   "Deleted code is debugged code. -Jeff Sickel"
+   "The key to performance is elegance, not battalions of special cases. -Jon Bentley and Doug McIlroy"
+   "First, solve the problem. Then, write the code. -John Johnson"
+   "Simplicity is the ultimate sophistication. -Leonardo da Vinci"
+   "Programming is not about typing... it's about thinking. -Rich Hickey"
+   "Design is about pulling things apart. -Rich Hickey"
+   "Programmers know the benefits of everything and the tradeoffs of nothing. -Rich Hickey"
+   "Code never lies, comments sometimes do. -Ron Jeffries"
+   "The true delight is in the finding out rather than in the knowing.  -Isaac Asimov"
+   "Take this REPL, fellow hacker, and may it serve you well."
+   "Let the hacking commence!"
+   "Hacks and glory await!"
+   "Hack and be merry!"
+   "Your hacking starts... NOW!"
+   "May the Source be with you!"
+   "May the Source shine upon thy REPL!"
+   "Code long and prosper!"
+   "Happy hacking!"
+   "nREPL server is up, REPL is operational!"
+   "Your imagination is the only limit to what you can do with this REPL!"
+   "This REPL is yours to command!"
+   "Fame is but a hack away!"
+   "Scientifically-proven optimal words of hackerish encouragement."))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-delay 0.2)
+ '(ag-highlight-search t)
+ '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(ansi-term-color-vector [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"] t)
+ '(c-basic-offset 4)
+ '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
+ '(cider-repl-print-length 30)
+ '(cider-repl-use-pretty-printing t)
+ '(cider-show-error-buffer nil)
+ '(compilation-message-face (quote default))
+ '(custom-enabled-themes (quote (smart-mode-line-respectful)))
+ '(custom-safe-themes t)
+ '(default-input-method "russian-computer")
+ '(evil-leader/leader "l")
+ '(evil-mode t)
+ '(evil-search-module (quote evil-search))
+ '(face-font-family-alternatives (quote (("arial black" "arial" "DejaVu Sans") ("arial" "DejaVu Sans") ("courier" "Monospace") ("monaco" "Monospace") ("xiki" "verdana") ("verdana" "DejaVu Sans"))))
+ '(fci-rule-character-color "#452E2E")
+ '(fci-rule-color "#383838")
+ '(fci-rule-column 100)
+ '(font-lock-keywords-case-fold-search t t)
+ '(foreground-color "#839496")
+ '(frame-brackground-mode (quote dark))
+ '(fringe-mode 6 nil (fringe))
+ '(global-auto-complete-mode t)
+ '(global-auto-revert-mode t)
+ '(global-evil-surround-mode t)
+ '(global-font-lock-mode t nil (font-lock))
+ '(global-magit-wip-save-mode t)
+ '(global-rainbow-delimiters-mode t)
+ '(global-rinari-mode t)
+ '(global-surround-mode t)
+ '(global-whitespace-mode t)
+ '(helm-google-search-function (quote helm-google-api-search))
+ '(helm-match-plugin-mode t nil (helm-match-plugin))
+ '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
+ '(highlight-tail-colors (quote (("#073642" . 0) ("#546E00" . 20) ("#00736F" . 30) ("#00629D" . 50) ("#7B6000" . 60) ("#8B2C02" . 70) ("#93115C" . 85) ("#073642" . 100))))
+ '(history-length 1000)
+ '(ido-enable-flex-matching t)
+ '(ido-mode (quote buffer) nil (ido))
+ '(indent-tabs-mode nil)
+ '(inferior-js-program-command "/usr/bin/js")
+ '(inferior-lisp-program "clisp -ansi")
+ '(inhibit-startup-screen t)
+ '(initial-scratch-message "Code long and prosper!")
+ '(iswitchb-mode t)
+ '(latex-run-command "pdflatex")
+ '(linum-format " %7d ")
+ '(magit-use-overlays nil)
+ '(magit-wip-mode t)
+ '(main-line-color1 "#29282E")
+ '(main-line-color2 "#292A24")
+ '(menu-bar-mode nil)
+ '(mouse-drag-copy-region t)
+ '(mouse-yank-at-point t)
+ '(nrepl-hide-special-buffers t)
+ '(powerline-color1 "#29282E")
+ '(powerline-color2 "#292A24")
+ '(quack-global-menu-p nil)
+ '(quack-pretty-lambda-p t)
+ '(recentf-mode t)
+ '(rspec-use-rake-when-possible nil)
+ '(ruby-deep-indent-paren nil)
+ '(save-place-file "~/.emacs.d/saved-places")
+ '(savehist-mode t nil (savehist))
+ '(scroll-bar-mode nil)
+ '(scss-compile-at-save nil)
+ '(select-active-regions nil)
+ '(show-paren-mode t)
+ '(show-trailing-whitespace t)
+ '(slime-net-coding-system (quote utf-8-unix))
+ '(solarized-termcolors 256)
+ '(speedbar-indentation-width 2)
+ '(speedbar-show-unknown-files t)
+ '(speedbar-supported-extension-expressions (quote ("\\.rb" ".org" ".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?" ".tex\\(i\\(nfo\\)?\\)?" ".el" ".emacs" ".l" ".lsp" ".p" ".java" ".js" ".f\\(90\\|77\\|or\\)?" ".ada" ".p[lm]" ".tcl" ".m" ".scm" ".pm" ".py" ".g" ".s?html" ".ma?k" "[Mm]akefile\\(\\.in\\)?" ".")))
+ '(split-width-threshold 100500)
+ '(syslog-debug-face (quote ((t :background unspecified :foreground "#2aa198" :weight bold))))
+ '(syslog-error-face (quote ((t :background unspecified :foreground "#dc322f" :weight bold))))
+ '(syslog-hour-face (quote ((t :background unspecified :foreground "#859900"))))
+ '(syslog-info-face (quote ((t :background unspecified :foreground "#268bd2" :weight bold))))
+ '(syslog-ip-face (quote ((t :background unspecified :foreground "#b58900"))))
+ '(syslog-su-face (quote ((t :background unspecified :foreground "#d33682"))))
+ '(syslog-warn-face (quote ((t :background unspecified :foreground "#cb4b16" :weight bold))))
+ '(tab-width 2)
+ '(tool-bar-mode nil)
+ '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
+ '(vc-annotate-background "#d4d4d4")
+ '(vc-annotate-color-map (quote ((20 . "#437c7c") (40 . "#336c6c") (60 . "#205070") (80 . "#2f4070") (100 . "#1f3060") (120 . "#0f2050") (140 . "#a080a0") (160 . "#806080") (180 . "#704d70") (200 . "#603a60") (220 . "#502750") (240 . "#401440") (260 . "#6c1f1c") (280 . "#935f5c") (300 . "#834744") (320 . "#732f2c") (340 . "#6b400c") (360 . "#23733c"))))
+ '(vc-annotate-very-old-color "#23733c")
+ '(weechat-color-list (quote (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
+ '(whitespace-line-column 100)
+ '(whitespace-style (quote (face tabs trailing lines space-before-tab empty space-after-tab tab-mark)))
+ '(x-select-enable-clipboard nil)
+ '(x-select-enable-primary t)
+ '(yas-global-mode t nil (yasnippet)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(require 'smart-mode-line)
+(sml/setup)
+
+(put 'narrow-to-page 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
+(setq warning-suppress-types nil)
+
+(evil-mode t)
 
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
@@ -299,6 +443,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (add-to-list 'auto-mode-alist '("Rakefile"     . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$"     . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$"       . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.js$"       . js2-mode))
 
 (eval-after-load 'rspec-mode '(rspec-install-snippets))
 
@@ -354,106 +499,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (el4r-boot)
 (el4r-troubleshooting-keys)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ac-delay 0.2)
- '(ag-highlight-search t)
- '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(ansi-term-color-vector [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"] t)
- '(c-basic-offset 4)
- '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
- '(cider-repl-print-length 30)
- '(cider-repl-use-pretty-printing t)
- '(cider-show-error-buffer nil)
- '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (adwaita)))
- '(custom-safe-themes (quote ("025354235e98db5e7fd9c1a74622ff53ad31b7bde537d290ff68d85665213d85" . t)))
- '(default-input-method "russian-computer")
- '(evil-leader/leader "l")
- '(evil-mode t)
- '(evil-search-module (quote evil-search))
- '(face-font-family-alternatives (quote (("arial black" "arial" "DejaVu Sans") ("arial" "DejaVu Sans") ("courier" "Monospace") ("monaco" "Monospace") ("xiki" "verdana") ("verdana" "DejaVu Sans"))))
- '(fci-rule-character-color "#452E2E")
- '(fci-rule-color "#383838")
- '(fci-rule-column 100)
- '(font-lock-keywords-case-fold-search t t)
- '(foreground-color "#839496")
- '(frame-brackground-mode (quote dark))
- '(fringe-mode 6 nil (fringe))
- '(global-auto-complete-mode t)
- '(global-auto-revert-mode t)
- '(global-font-lock-mode t nil (font-lock))
- '(global-magit-wip-save-mode t)
- '(global-rainbow-delimiters-mode t)
- '(global-rinari-mode t)
- '(global-surround-mode t)
- '(global-whitespace-mode t)
- '(helm-google-search-function (quote helm-google-api-search))
- '(helm-match-plugin-mode t nil (helm-match-plugin))
- '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
- '(highlight-tail-colors (quote (("#073642" . 0) ("#546E00" . 20) ("#00736F" . 30) ("#00629D" . 50) ("#7B6000" . 60) ("#8B2C02" . 70) ("#93115C" . 85) ("#073642" . 100))))
- '(history-length 1000)
- '(ido-enable-flex-matching t)
- '(ido-mode (quote buffer) nil (ido))
- '(indent-tabs-mode nil)
- '(inferior-js-program-command "/usr/bin/js")
- '(inferior-lisp-program "clisp -ansi")
- '(inhibit-startup-screen t)
- '(iswitchb-mode t)
- '(latex-run-command "pdflatex")
- '(magit-use-overlays nil)
- '(magit-wip-mode t)
- '(main-line-color1 "#29282E")
- '(main-line-color2 "#292A24")
- '(menu-bar-mode nil)
- '(mouse-drag-copy-region t)
- '(mouse-yank-at-point t)
- '(nrepl-hide-special-buffers t)
- '(powerline-color1 "#29282E")
- '(powerline-color2 "#292A24")
- '(quack-global-menu-p nil)
- '(quack-pretty-lambda-p t)
- '(recentf-mode t)
- '(rspec-use-rake-when-possible nil)
- '(ruby-deep-indent-paren nil)
- '(save-place-file "~/.emacs.d/saved-places")
- '(savehist-mode t nil (savehist))
- '(scroll-bar-mode nil)
- '(scss-compile-at-save nil)
- '(select-active-regions nil)
- '(show-paren-mode t)
- '(show-trailing-whitespace t)
- '(slime-net-coding-system (quote utf-8-unix))
- '(solarized-termcolors 256)
- '(speedbar-indentation-width 2)
- '(speedbar-show-unknown-files t)
- '(speedbar-supported-extension-expressions (quote ("\\.rb" ".org" ".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?" ".tex\\(i\\(nfo\\)?\\)?" ".el" ".emacs" ".l" ".lsp" ".p" ".java" ".js" ".f\\(90\\|77\\|or\\)?" ".ada" ".p[lm]" ".tcl" ".m" ".scm" ".pm" ".py" ".g" ".s?html" ".ma?k" "[Mm]akefile\\(\\.in\\)?" ".")))
- '(split-width-threshold 100500)
- '(syslog-debug-face (quote ((t :background unspecified :foreground "#2aa198" :weight bold))))
- '(syslog-error-face (quote ((t :background unspecified :foreground "#dc322f" :weight bold))))
- '(syslog-hour-face (quote ((t :background unspecified :foreground "#859900"))))
- '(syslog-info-face (quote ((t :background unspecified :foreground "#268bd2" :weight bold))))
- '(syslog-ip-face (quote ((t :background unspecified :foreground "#b58900"))))
- '(syslog-su-face (quote ((t :background unspecified :foreground "#d33682"))))
- '(syslog-warn-face (quote ((t :background unspecified :foreground "#cb4b16" :weight bold))))
- '(tab-width 2)
- '(tool-bar-mode nil)
- '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
- '(vc-annotate-background "#d4d4d4")
- '(vc-annotate-color-map (quote ((20 . "#437c7c") (40 . "#336c6c") (60 . "#205070") (80 . "#2f4070") (100 . "#1f3060") (120 . "#0f2050") (140 . "#a080a0") (160 . "#806080") (180 . "#704d70") (200 . "#603a60") (220 . "#502750") (240 . "#401440") (260 . "#6c1f1c") (280 . "#935f5c") (300 . "#834744") (320 . "#732f2c") (340 . "#6b400c") (360 . "#23733c"))))
- '(vc-annotate-very-old-color "#23733c")
- '(weechat-color-list (quote (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
- '(whitespace-line-column 100)
- '(whitespace-style (quote (face tabs trailing lines space-before-tab empty space-after-tab tab-mark)))
- '(x-select-enable-clipboard nil)
- '(x-select-enable-primary t)
- '(yas-global-mode t nil (yasnippet)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
