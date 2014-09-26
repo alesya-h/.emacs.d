@@ -6,7 +6,7 @@
 (package-initialize)
 (dolist
     (pkg '(
-           ac-nrepl
+           ac-cider
            ag
            auctex
            auto-complete
@@ -17,7 +17,6 @@
            clojure-mode
            clojure-project-mode
            clojure-snippets
-           clojure-test-mode
            clojure-cheatsheet
            clojurescript-mode
            coffee-mode
@@ -122,18 +121,14 @@
    "Programmers know the benefits of everything and the tradeoffs of nothing. -Rich Hickey"
    "Code never lies, comments sometimes do. -Ron Jeffries"
    "The true delight is in the finding out rather than in the knowing.  -Isaac Asimov"
-   "Take this REPL, fellow hacker, and may it serve you well."
    "Let the hacking commence!"
    "Hacks and glory await!"
    "Hack and be merry!"
    "Your hacking starts... NOW!"
    "May the Source be with you!"
-   "May the Source shine upon thy REPL!"
    "Code long and prosper!"
    "Happy hacking!"
-   "nREPL server is up, REPL is operational!"
-   "Your imagination is the only limit to what you can do with this REPL!"
-   "This REPL is yours to command!"
+   "Your imagination is the only limit."
    "Fame is but a hack away!"
    "Scientifically-proven optimal words of hackerish encouragement."))
 
@@ -152,7 +147,7 @@
  '(cider-repl-use-pretty-printing t)
  '(cider-show-error-buffer nil)
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (smart-mode-line-respectful)))
+ '(custom-enabled-themes (quote (smart-mode-line-dark base16-chalk)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
@@ -276,11 +271,12 @@
 (global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(require 'helm)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "C-<left>") 'windmove-left)
-(global-set-key (kbd "C-<right>") 'windmove-right)
-(global-set-key (kbd "C-<up>") 'windmove-up)
-(global-set-key (kbd "C-<down>") 'windmove-down)
+(global-set-key (kbd "C-s-<left>") 'windmove-left)
+(global-set-key (kbd "C-s-<right>") 'windmove-right)
+(global-set-key (kbd "C-s-<up>") 'windmove-up)
+(global-set-key (kbd "C-s-<down>") 'windmove-down)
 (global-set-key (kbd "C-<tab>") 'ac-trigger-key-command)
 (require 'clojure-mode)
 (define-key clojure-mode-map (kbd "C-<return>") 'cider-pprint-eval-last-sexp)
@@ -411,12 +407,12 @@ Repeated invocations toggle between the two most recently open buffers."
 (require 'auto-complete-config)
 (ac-config-default)
 
-(require 'ac-nrepl)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(require 'ac-cider)
+(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+(add-hook 'cider-mode-hook 'ac-cider-setup)
+(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
 (eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-repl-mode))
+  '(add-to-list 'ac-modes 'cider-mode))
 
 (add-hook 'ruby-mode-hook
           (lambda ()
@@ -494,11 +490,17 @@ Repeated invocations toggle between the two most recently open buffers."
 (put 'narrow-to-region 'disabled nil)
 
 ; Load el4r, which loads Xiki
-(add-to-list 'load-path "/home/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/trogdoro-el4r-1.0.10/data/emacs/site-lisp/")
-(require 'el4r)
-(el4r-boot)
-(el4r-troubleshooting-keys)
+;; (add-to-list 'load-path "/home/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/trogdoro-el4r-1.0.10/data/emacs/site-lisp/")
+;; (require 'el4r)
+;; (el4r-boot)
+;; (el4r-troubleshooting-keys)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
+
+(add-to-list 'load-path "/home/me/p/fork/factor/misc/fuel")
+(require 'factor-mode)
+(require 'fuel-mode)
+
+(setq fuel-factor-root-dir "/home/me/p/fork/factor")
