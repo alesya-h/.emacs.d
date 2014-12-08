@@ -1,10 +1,10 @@
 ;;; clojure-snippets-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (clojure-snippets-initialize) "clojure-snippets"
-;;;;;;  "clojure-snippets.el" (21534 41540 553481 511000))
+;;;### (autoloads nil "clojure-snippets" "clojure-snippets.el" (21582
+;;;;;;  16196 551217 524000))
 ;;; Generated autoloads from clojure-snippets.el
 
 (autoload 'clojure-snippets-initialize "clojure-snippets" "\
@@ -16,16 +16,14 @@
 
 ;;;***
 
-;;;### (autoloads nil nil ("clojure-snippets-pkg.el") (21534 41540
-;;;;;;  560339 813000))
+;;;### (autoloads nil nil ("clojure-snippets-pkg.el") (21582 16196
+;;;;;;  582743 568000))
 
 ;;;***
 
-(provide 'clojure-snippets-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; clojure-snippets-autoloads.el ends here

@@ -1,12 +1,10 @@
 ;;; evil-surround-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (global-evil-surround-mode turn-off-evil-surround-mode
-;;;;;;  turn-on-evil-surround-mode evil-surround-mode evil-surround-change
-;;;;;;  evil-surround-delete) "evil-surround" "evil-surround.el"
-;;;;;;  (21421 34540 1581 336000))
+;;;### (autoloads nil "evil-surround" "evil-surround.el" (21582 16245
+;;;;;;  227911 206000))
 ;;; Generated autoloads from evil-surround.el
 
 (autoload 'evil-surround-delete "evil-surround" "\
@@ -63,16 +61,9 @@ See `evil-surround-mode' for more information on Evil-Surround mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("evil-surround-pkg.el") (21421 34540 10125
-;;;;;;  988000))
-
-;;;***
-
-(provide 'evil-surround-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; evil-surround-autoloads.el ends here

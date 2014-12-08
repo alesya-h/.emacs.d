@@ -1,8 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d/plugins" t)
 (require 'package)
 (setcdr (last package-archives)
- '(("marmalade2" . "http://marmalade-repo.org/packages/")
-   ("melpa2"     . "http://melpa.milkbox.net/packages/")))
+ '(("marmalade" . "http://marmalade-repo.org/packages/")
+   ("melpa"     . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 (dolist
     (pkg '(
@@ -11,11 +11,10 @@
            auctex
            auto-complete
            base16-theme
+           bubbleberry-theme
            cider
-           cider-tracing
            clj-refactor
            clojure-mode
-           clojure-project-mode
            clojure-snippets
            clojure-cheatsheet
            clojurescript-mode
@@ -26,6 +25,7 @@
            evil-exchange
            evil-indent-textobject
            evil-leader
+           evil-matchit
            evil-nerd-commenter
            evil-numbers
            evil-paredit
@@ -46,7 +46,9 @@
            fold-dwim
            fuzzy
            glsl-mode
+           graphviz-dot-mode
            haml-mode
+           haskell-mode
            helm
            helm-ag
            helm-git-grep
@@ -68,6 +70,8 @@
            markdown-mode
            molokai-theme
            monokai-theme
+           neotree
+           osc
            paredit
            popup
            quack
@@ -87,6 +91,7 @@
            slim-mode
            slime
            smart-mode-line
+           tabbar
            tuareg
            undo-tree
            web-mode
@@ -103,34 +108,34 @@
        lst))
 (setq
  scratch-messages
- `("The best way to predict the future is to invent it. -Alan Kay"
-   "A point of view is worth 80 IQ points. -Alan Kay"
-   "Lisp isn't a language, it's a building material. -Alan Kay"
-   "Simple things should be simple, complex things should be possible. -Alan Kay"
-   "Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -Bill Gates"
-   "Controlling complexity is the essence of computer programming. -Brian Kernighan"
-   "The unavoidable price of reliability is simplicity. -C.A.R. Hoare"
-   "You're bound to be unhappy if you optimize everything. -Donald Knuth"
-   "Simplicity is prerequisite for reliability. -Edsger W. Dijkstra"
-   "Deleted code is debugged code. -Jeff Sickel"
-   "The key to performance is elegance, not battalions of special cases. -Jon Bentley and Doug McIlroy"
-   "First, solve the problem. Then, write the code. -John Johnson"
-   "Simplicity is the ultimate sophistication. -Leonardo da Vinci"
-   "Programming is not about typing... it's about thinking. -Rich Hickey"
-   "Design is about pulling things apart. -Rich Hickey"
-   "Programmers know the benefits of everything and the tradeoffs of nothing. -Rich Hickey"
-   "Code never lies, comments sometimes do. -Ron Jeffries"
-   "The true delight is in the finding out rather than in the knowing.  -Isaac Asimov"
-   "Let the hacking commence!"
-   "Hacks and glory await!"
-   "Hack and be merry!"
-   "Your hacking starts... NOW!"
-   "May the Source be with you!"
-   "Code long and prosper!"
-   "Happy hacking!"
-   "Your imagination is the only limit."
-   "Fame is but a hack away!"
-   "Scientifically-proven optimal words of hackerish encouragement."))
+ `(";; The best way to predict the future is to invent it. -Alan Kay"
+   ";; A point of view is worth 80 IQ points. -Alan Kay"
+   ";; Lisp isn't a language, it's a building material. -Alan Kay"
+   ";; Simple things should be simple, complex things should be possible. -Alan Kay"
+   ";; Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -Bill Gates"
+   ";; Controlling complexity is the essence of computer programming. -Brian Kernighan"
+   ";; The unavoidable price of reliability is simplicity. -C.A.R. Hoare"
+   ";; You're bound to be unhappy if you optimize everything. -Donald Knuth"
+   ";; Simplicity is prerequisite for reliability. -Edsger W. Dijkstra"
+   ";; Deleted code is debugged code. -Jeff Sickel"
+   ";; The key to performance is elegance, not battalions of special cases. -Jon Bentley and Doug McIlroy"
+   ";; First, solve the problem. Then, write the code. -John Johnson"
+   ";; Simplicity is the ultimate sophistication. -Leonardo da Vinci"
+   ";; Programming is not about typing... it's about thinking. -Rich Hickey"
+   ";; Design is about pulling things apart. -Rich Hickey"
+   ";; Programmers know the benefits of everything and the tradeoffs of nothing. -Rich Hickey"
+   ";; Code never lies, comments sometimes do. -Ron Jeffries"
+   ";; The true delight is in the finding out rather than in the knowing.  -Isaac Asimov"
+   ";; Let the hacking commence!"
+   ";; Hacks and glory await!"
+   ";; Hack and be merry!"
+   ";; Your hacking starts... NOW!"
+   ";; May the Source be with you!"
+   ";; Code long and prosper!"
+   ";; Happy hacking!"
+   ";; Your imagination is the only limit."
+   ";; Fame is but a hack away!"
+   ";; Scientifically-proven optimal words of hackerish encouragement."))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -139,21 +144,37 @@
  ;; If there is more than one, they won't work right.
  '(ac-delay 0.2)
  '(ag-highlight-search t)
- '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(ansi-term-color-vector [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"] t)
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(ansi-term-color-vector
+   [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"] t)
  '(c-basic-offset 4)
- '(c-default-style (quote ((c-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
+ '(c-default-style
+   (quote
+    ((c-mode . "k&r")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu"))))
  '(cider-repl-print-length 30)
- '(cider-repl-use-pretty-printing t)
+ '(cider-repl-use-pretty-printing nil)
  '(cider-show-error-buffer nil)
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (smart-mode-line-dark base16-chalk)))
+ '(custom-enabled-themes (quote (bubbleberry smart-mode-line-respectful)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
  '(evil-mode t)
  '(evil-search-module (quote evil-search))
- '(face-font-family-alternatives (quote (("arial black" "arial" "DejaVu Sans") ("arial" "DejaVu Sans") ("courier" "Monospace") ("monaco" "Monospace") ("xiki" "verdana") ("verdana" "DejaVu Sans"))))
+ '(face-font-family-alternatives
+   (quote
+    (("arial black" "arial" "DejaVu Sans")
+     ("arial" "DejaVu Sans")
+     ("courier" "Monospace")
+     ("monaco" "Monospace")
+     ("xiki" "verdana")
+     ("verdana" "DejaVu Sans"))))
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#383838")
  '(fci-rule-column 100)
@@ -163,6 +184,7 @@
  '(fringe-mode 6 nil (fringe))
  '(global-auto-complete-mode t)
  '(global-auto-revert-mode t)
+ '(global-evil-matchit-mode t)
  '(global-evil-surround-mode t)
  '(global-font-lock-mode t nil (font-lock))
  '(global-magit-wip-save-mode t)
@@ -170,10 +192,22 @@
  '(global-rinari-mode t)
  '(global-surround-mode t)
  '(global-whitespace-mode t)
+ '(haskell-mode-hook
+   (quote
+    (imenu-add-menubar-index turn-on-haskell-doc turn-on-haskell-indentation)))
  '(helm-google-search-function (quote helm-google-api-search))
  '(helm-match-plugin-mode t nil (helm-match-plugin))
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
- '(highlight-tail-colors (quote (("#073642" . 0) ("#546E00" . 20) ("#00736F" . 30) ("#00629D" . 50) ("#7B6000" . 60) ("#8B2C02" . 70) ("#93115C" . 85) ("#073642" . 100))))
+ '(highlight-tail-colors
+   (quote
+    (("#073642" . 0)
+     ("#546E00" . 20)
+     ("#00736F" . 30)
+     ("#00629D" . 50)
+     ("#7B6000" . 60)
+     ("#8B2C02" . 70)
+     ("#93115C" . 85)
+     ("#073642" . 100))))
  '(history-length 1000)
  '(ido-enable-flex-matching t)
  '(ido-mode (quote buffer) nil (ido))
@@ -181,10 +215,11 @@
  '(inferior-js-program-command "/usr/bin/js")
  '(inferior-lisp-program "clisp -ansi")
  '(inhibit-startup-screen t)
- '(initial-scratch-message "Code long and prosper!")
- '(iswitchb-mode t)
+ '(initial-scratch-message
+   ";; Scientifically-proven optimal words of hackerish encouragement.
+")
  '(latex-run-command "pdflatex")
- '(linum-format " %7d ")
+ '(linum-format (quote dynamic))
  '(magit-use-overlays nil)
  '(magit-wip-mode t)
  '(main-line-color1 "#29282E")
@@ -211,24 +246,59 @@
  '(solarized-termcolors 256)
  '(speedbar-indentation-width 2)
  '(speedbar-show-unknown-files t)
- '(speedbar-supported-extension-expressions (quote ("\\.rb" ".org" ".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?" ".tex\\(i\\(nfo\\)?\\)?" ".el" ".emacs" ".l" ".lsp" ".p" ".java" ".js" ".f\\(90\\|77\\|or\\)?" ".ada" ".p[lm]" ".tcl" ".m" ".scm" ".pm" ".py" ".g" ".s?html" ".ma?k" "[Mm]akefile\\(\\.in\\)?" ".")))
+ '(speedbar-supported-extension-expressions
+   (quote
+    ("\\.rb" ".org" ".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?" ".tex\\(i\\(nfo\\)?\\)?" ".el" ".emacs" ".l" ".lsp" ".p" ".java" ".js" ".f\\(90\\|77\\|or\\)?" ".ada" ".p[lm]" ".tcl" ".m" ".scm" ".pm" ".py" ".g" ".s?html" ".ma?k" "[Mm]akefile\\(\\.in\\)?" ".")))
  '(split-width-threshold 100500)
- '(syslog-debug-face (quote ((t :background unspecified :foreground "#2aa198" :weight bold))))
- '(syslog-error-face (quote ((t :background unspecified :foreground "#dc322f" :weight bold))))
+ '(syslog-debug-face
+   (quote
+    ((t :background unspecified :foreground "#2aa198" :weight bold))))
+ '(syslog-error-face
+   (quote
+    ((t :background unspecified :foreground "#dc322f" :weight bold))))
  '(syslog-hour-face (quote ((t :background unspecified :foreground "#859900"))))
- '(syslog-info-face (quote ((t :background unspecified :foreground "#268bd2" :weight bold))))
+ '(syslog-info-face
+   (quote
+    ((t :background unspecified :foreground "#268bd2" :weight bold))))
  '(syslog-ip-face (quote ((t :background unspecified :foreground "#b58900"))))
  '(syslog-su-face (quote ((t :background unspecified :foreground "#d33682"))))
- '(syslog-warn-face (quote ((t :background unspecified :foreground "#cb4b16" :weight bold))))
+ '(syslog-warn-face
+   (quote
+    ((t :background unspecified :foreground "#cb4b16" :weight bold))))
  '(tab-width 2)
+ '(tabbar-mode t nil (tabbar))
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
+ '(user-extempore-directory "/home/me/p/fork/extempore/")
  '(vc-annotate-background "#d4d4d4")
- '(vc-annotate-color-map (quote ((20 . "#437c7c") (40 . "#336c6c") (60 . "#205070") (80 . "#2f4070") (100 . "#1f3060") (120 . "#0f2050") (140 . "#a080a0") (160 . "#806080") (180 . "#704d70") (200 . "#603a60") (220 . "#502750") (240 . "#401440") (260 . "#6c1f1c") (280 . "#935f5c") (300 . "#834744") (320 . "#732f2c") (340 . "#6b400c") (360 . "#23733c"))))
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#437c7c")
+     (40 . "#336c6c")
+     (60 . "#205070")
+     (80 . "#2f4070")
+     (100 . "#1f3060")
+     (120 . "#0f2050")
+     (140 . "#a080a0")
+     (160 . "#806080")
+     (180 . "#704d70")
+     (200 . "#603a60")
+     (220 . "#502750")
+     (240 . "#401440")
+     (260 . "#6c1f1c")
+     (280 . "#935f5c")
+     (300 . "#834744")
+     (320 . "#732f2c")
+     (340 . "#6b400c")
+     (360 . "#23733c"))))
  '(vc-annotate-very-old-color "#23733c")
- '(weechat-color-list (quote (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
- '(whitespace-line-column 100)
- '(whitespace-style (quote (face tabs trailing lines space-before-tab empty space-after-tab tab-mark)))
+ '(weechat-color-list
+   (quote
+    (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
+ '(whitespace-line-column 200)
+ '(whitespace-style
+   (quote
+    (face tabs trailing lines space-before-tab empty space-after-tab tab-mark)))
  '(x-select-enable-clipboard nil)
  '(x-select-enable-primary t)
  '(yas-global-mode t nil (yasnippet)))
@@ -256,12 +326,16 @@
 
 (global-set-key (kbd "s-+") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "s--") 'evil-numbers/dec-at-pt)
-(global-set-key (kbd "<f5>") 'recentf-open-files)
+(global-set-key (kbd "<f5>") 'helm-recentf)
 (global-set-key (kbd "<f6>") 'gpicker-set-root-and-find-file)
+(global-set-key (kbd "S-<f6>") 'gpicker-ask-project)
 (global-set-key (kbd "C-<f6>") 'gpicker-visit-project-ask-type)
+(global-set-key (kbd "C-S-<f6>") 'gpicker-set-project-type)
 (global-set-key (kbd "<f7>") 'gpicker-imenu)
+(global-set-key (kbd "S-<f7>") 'helm-imenu)
 (global-set-key (kbd "<f8>") 'gpicker-goto-tag)
-(global-set-key (kbd "<f9>") 'supermegadoc-ri)
+(global-set-key (kbd "S-<f8>") 'helm-etags-select)
+(global-set-key (kbd "<f9>") 'neotree-toggle)
 (global-set-key (kbd "M-;") 'comment-dwim-line)
 (global-set-key (kbd "M-<tab>") 'switch-to-previous-buffer)
 (global-set-key (kbd "<home>") 'smart-beginning-of-line)
@@ -271,12 +345,14 @@
 (global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "<mouse-6>") #'(lambda () (interactive) (scroll-right 1)))
+(global-set-key (kbd "<mouse-7>") #'(lambda () (interactive) (scroll-left 1)))
 (require 'helm)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "C-s-<left>") 'windmove-left)
-(global-set-key (kbd "C-s-<right>") 'windmove-right)
-(global-set-key (kbd "C-s-<up>") 'windmove-up)
-(global-set-key (kbd "C-s-<down>") 'windmove-down)
+(global-set-key (kbd "S-<left>") 'windmove-left)
+(global-set-key (kbd "S-<right>") 'windmove-right)
+(global-set-key (kbd "S-<up>") 'windmove-up)
+(global-set-key (kbd "S-<down>") 'windmove-down)
 (global-set-key (kbd "C-<tab>") 'ac-trigger-key-command)
 (require 'clojure-mode)
 (define-key clojure-mode-map (kbd "C-<return>") 'cider-pprint-eval-last-sexp)
@@ -285,6 +361,17 @@
 (define-key ruby-mode-map (kbd "C-<return>") 'ruby-send-last-sexp)
 (define-key ruby-mode-map (kbd "C-S-<return>") 'ruby-send-region)
 (define-key ruby-mode-map (kbd "S-<return>") 'ruby-send-block)
+
+(defun cider-format-pprint-eval (form &optional right-margin)
+  form)
+
+(defun tabbar-goto-first-tab ()
+  (interactive)
+  (tabbar-click-on-tab (first (tabbar-tabs (tabbar-buffer-tabs)))))
+
+(defun tabbar-goto-last-tab ()
+  (interactive)
+  (tabbar-click-on-tab (first (last (tabbar-tabs (tabbar-buffer-tabs))))))
 
 (global-evil-leader-mode)
 (evil-leader/set-key "b" 'magit-blame-mode)
@@ -296,16 +383,21 @@
 (evil-leader/set-key "th" 'ruby-toggle-hash-syntax)
 (evil-leader/set-key "d" 'toggle-window-dedicated)
 (evil-leader/set-key "r" 'rspec-verify-single)
+(evil-leader/set-key "R" 'rspec-verify)
 (evil-leader/set-key "f" 'ag-project)
-
+(evil-leader/set-key "F" 'ag-project-regexp)
+(define-key evil-normal-state-map "gt" 'tabbar-forward-tab)
+(define-key evil-normal-state-map "gT" 'tabbar-backward-tab)
+(define-key evil-normal-state-map "g^" 'tabbar-goto-first-tab)
+(define-key evil-normal-state-map "g$" 'tabbar-goto-last-tab)
 ;; UI stuff goes here
 
 (require 'fold-dwim)
 (require 'uniquify)  ; add partial path to buffer name when identical filenames
 (fset 'yes-or-no-p 'y-or-n-p)
-(require 'icomplete)
-(require 'icomplete+)
-(icomplete-mode 99)
+;; (require 'icomplete)
+;; (require 'icomplete+)
+;; (icomplete-mode 99)
 
 (evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
 (evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)
@@ -361,7 +453,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/supermegadoc")
 (require 'supermegadoc)
 (setq *supermegadoc-browse-url-function* 'browse-url)
-(setq *gpicker-project-dir* "/home/me/p/my/workspace")
+
 (defun gpicker-visit-project-ask-type ()
   (interactive)
   (call-interactively 'gpicker-visit-project)
@@ -372,6 +464,24 @@
   (unless *gpicker-project-dir*
     (gpicker-visit-project-ask-type))
   (gpicker-find-file))
+
+(defvar *gpicker-project-dirs*)
+(setq *gpicker-project-dirs*
+  (list
+   "/home/me/p/work/casino-server/"
+   "/home/me/p/work/casino-chef/"
+   "/home/me/p/my/workspace/"
+   "/home/me/p/my/slice/"
+   "/home/me/p/7bitcasino"
+   ))
+(setq *gpicker-project-dir* (car *gpicker-project-dirs*))
+(setq *gpicker-project-type* "guess")
+
+(defun gpicker-ask-project ()
+  (interactive)
+  (setq *gpicker-project-dir*
+        (helm-comp-read
+         "Project: " *gpicker-project-dirs*)))
 
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
@@ -503,4 +613,9 @@ Repeated invocations toggle between the two most recently open buffers."
 (require 'factor-mode)
 (require 'fuel-mode)
 
+(add-to-list 'load-path "/home/me/p/fork/extempore/extras")
+(require 'extempore)
+(add-to-list 'auto-mode-alist '("\\.xtm$" . extempore-mode))
+
 (setq fuel-factor-root-dir "/home/me/p/fork/factor")
+(server-start)

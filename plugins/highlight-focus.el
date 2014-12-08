@@ -22,6 +22,7 @@
 ;;; Code:
 
 (require 'face-remap)
+(require 'color)
 (defvar highlight-focus:last-buffer nil)
 (defvar highlight-focus:cookie nil)
 (defun highlight-focus:background ()

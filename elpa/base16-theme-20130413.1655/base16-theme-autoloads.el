@@ -10,7 +10,7 @@
 ;;;;;;  "base16-eighties-theme.el" "base16-greenscreen-theme.el"
 ;;;;;;  "base16-mocha-theme.el" "base16-monokai-theme.el" "base16-ocean-theme.el"
 ;;;;;;  "base16-railscasts-theme.el" "base16-solarized-theme.el"
-;;;;;;  "base16-theme-pkg.el" "base16-tomorrow-theme.el") (21159
-;;;;;;  16378 342569 525000))
+;;;;;;  "base16-theme-pkg.el" "base16-tomorrow-theme.el") (21582
+;;;;;;  16022 614003 106000))
 
 ;;;***

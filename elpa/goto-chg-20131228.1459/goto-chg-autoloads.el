@@ -1,10 +1,10 @@
 ;;; goto-chg-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (goto-last-change-reverse goto-last-change) "goto-chg"
-;;;;;;  "goto-chg.el" (21209 8931 439043 387000))
+;;;### (autoloads nil "goto-chg" "goto-chg.el" (21582 16222 896431
+;;;;;;  234000))
 ;;; Generated autoloads from goto-chg.el
 
 (autoload 'goto-last-change "goto-chg" "\
@@ -42,16 +42,9 @@ See `goto-last-change' for use of prefix argument.
 
 ;;;***
 
-;;;### (autoloads nil nil ("goto-chg-pkg.el") (21209 8931 586237
-;;;;;;  959000))
-
-;;;***
-
-(provide 'goto-chg-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; goto-chg-autoloads.el ends here

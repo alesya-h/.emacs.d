@@ -1,10 +1,10 @@
 ;;; flymake-shell-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (flymake-shell-load) "flymake-shell" "flymake-shell.el"
-;;;;;;  (21355 25882 786439 929000))
+;;;### (autoloads nil "flymake-shell" "flymake-shell.el" (21582 16265
+;;;;;;  239156 257000))
 ;;; Generated autoloads from flymake-shell.el
 
 (autoload 'flymake-shell-load "flymake-shell" "\
@@ -14,16 +14,9 @@ Configure flymake mode to check the current buffer's shell-script syntax.
 
 ;;;***
 
-;;;### (autoloads nil nil ("flymake-shell-pkg.el") (21355 25882 797029
-;;;;;;  36000))
-
-;;;***
-
-(provide 'flymake-shell-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; flymake-shell-autoloads.el ends here

@@ -3,3 +3,6 @@
     (helm-ag-r "20131123"))
   :url "https://github.com/yuutayamada/helm-rb" :keywords
   '("searching" "ruby"))
+;; Local Variables:
+;; no-byte-compile: t
+;; End:

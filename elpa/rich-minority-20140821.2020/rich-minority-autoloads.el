@@ -1,10 +1,10 @@
 ;;; rich-minority-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (rich-minority-mode rm--mode-list-as-string-list)
-;;;;;;  "rich-minority" "rich-minority.el" (21534 41285 128026 492000))
+;;;### (autoloads nil "rich-minority" "rich-minority.el" (21582 16372
+;;;;;;  34658 491000))
 ;;; Generated autoloads from rich-minority.el
 
 (autoload 'rm--mode-list-as-string-list "rich-minority" "\
@@ -32,16 +32,9 @@ the mode if ARG is omitted or nil, and toggle it if ARG is `toggle'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("rich-minority-pkg.el") (21534 41285 136822
-;;;;;;  69000))
-
-;;;***
-
-(provide 'rich-minority-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; rich-minority-autoloads.el ends here

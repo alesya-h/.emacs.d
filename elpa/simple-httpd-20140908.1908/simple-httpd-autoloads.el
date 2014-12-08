@@ -1,10 +1,10 @@
 ;;; simple-httpd-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (httpd-serve-directory httpd-stop httpd-start)
-;;;;;;  "simple-httpd" "simple-httpd.el" (21534 41397 365270 600000))
+;;;### (autoloads nil "simple-httpd" "simple-httpd.el" (21582 16296
+;;;;;;  437624 947000))
 ;;; Generated autoloads from simple-httpd.el
 
 (autoload 'httpd-start "simple-httpd" "\
@@ -26,16 +26,9 @@ Start the web server with given `directory' as `httpd-root'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("simple-httpd-pkg.el") (21534 41397 380374
-;;;;;;  17000))
-
-;;;***
-
-(provide 'simple-httpd-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; simple-httpd-autoloads.el ends here

@@ -1,10 +1,10 @@
 ;;; fill-column-indicator-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (turn-on-fci-mode fci-mode) "fill-column-indicator"
-;;;;;;  "fill-column-indicator.el" (21384 17125 647675 528000))
+;;;### (autoloads nil "fill-column-indicator" "fill-column-indicator.el"
+;;;;;;  (21582 16248 818140 40000))
 ;;; Generated autoloads from fill-column-indicator.el
 
 (autoload 'fci-mode "fill-column-indicator" "\
@@ -31,15 +31,13 @@ Turn on fci-mode unconditionally.
 ;;;***
 
 ;;;### (autoloads nil nil ("fci-osx-23-fix.el" "fill-column-indicator-pkg.el")
-;;;;;;  (21384 17125 667153 434000))
+;;;;;;  (21582 16248 841791 540000))
 
 ;;;***
 
-(provide 'fill-column-indicator-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; fill-column-indicator-autoloads.el ends here

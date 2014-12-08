@@ -1,11 +1,10 @@
 ;;; evil-leader-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (evil-leader/set-key-for-mode evil-leader/set-key
-;;;;;;  evil-leader-mode global-evil-leader-mode) "evil-leader" "evil-leader.el"
-;;;;;;  (21397 42797 94226 566000))
+;;;### (autoloads nil "evil-leader" "evil-leader.el" (21582 16238
+;;;;;;  204123 50000))
 ;;; Generated autoloads from evil-leader.el
 
 (autoload 'global-evil-leader-mode "evil-leader" "\
@@ -35,16 +34,9 @@ See `evil-leader/set-key'.
 
 ;;;***
 
-;;;### (autoloads nil nil ("evil-leader-pkg.el") (21397 42797 115193
-;;;;;;  10000))
-
-;;;***
-
-(provide 'evil-leader-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; evil-leader-autoloads.el ends here

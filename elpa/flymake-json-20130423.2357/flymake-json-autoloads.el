@@ -1,10 +1,10 @@
 ;;; flymake-json-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (flymake-json-maybe-load flymake-json-load) "flymake-json"
-;;;;;;  "flymake-json.el" (21355 25880 79765 859000))
+;;;### (autoloads nil "flymake-json" "flymake-json.el" (21582 16257
+;;;;;;  652026 158000))
 ;;; Generated autoloads from flymake-json.el
 
 (autoload 'flymake-json-load "flymake-json" "\
@@ -19,16 +19,9 @@ Call `flymake-json-load' if this file appears to be json.
 
 ;;;***
 
-;;;### (autoloads nil nil ("flymake-json-pkg.el") (21355 25880 91617
-;;;;;;  630000))
-
-;;;***
-
-(provide 'flymake-json-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; flymake-json-autoloads.el ends here

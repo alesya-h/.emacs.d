@@ -1,10 +1,10 @@
 ;;; undo-tree-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (global-undo-tree-mode undo-tree-mode) "undo-tree"
-;;;;;;  "undo-tree.el" (21384 17054 957413 366000))
+;;;### (autoloads nil "undo-tree" "undo-tree.el" (21582 16225 956639
+;;;;;;  994000))
 ;;; Generated autoloads from undo-tree.el
 
 (autoload 'undo-tree-mode "undo-tree" "\
@@ -50,16 +50,9 @@ See `undo-tree-mode' for more information on Undo-Tree mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("undo-tree-pkg.el") (21384 17054 967745
-;;;;;;  870000))
-
-;;;***
-
-(provide 'undo-tree-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; undo-tree-autoloads.el ends here

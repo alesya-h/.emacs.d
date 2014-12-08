@@ -1,11 +1,9 @@
 ;;; htmlize-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (htmlize-many-files-dired htmlize-many-files htmlize-file
-;;;;;;  htmlize-region htmlize-buffer) "htmlize" "htmlize.el" (21341
-;;;;;;  22127 486627 815000))
+;;;### (autoloads nil "htmlize" "htmlize.el" (21582 16295 10879 354000))
 ;;; Generated autoloads from htmlize.el
 
 (autoload 'htmlize-buffer "htmlize" "\
@@ -70,16 +68,9 @@ HTMLize dired-marked files.
 
 ;;;***
 
-;;;### (autoloads nil nil ("htmlize-pkg.el") (21341 22127 507231
-;;;;;;  294000))
-
-;;;***
-
-(provide 'htmlize-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; htmlize-autoloads.el ends here

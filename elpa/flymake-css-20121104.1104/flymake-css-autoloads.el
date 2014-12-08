@@ -1,10 +1,10 @@
 ;;; flymake-css-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (flymake-css-load flymake-css-lint-command) "flymake-css"
-;;;;;;  "flymake-css.el" (21355 25881 659770 181000))
+;;;### (autoloads nil "flymake-css" "flymake-css.el" (21582 16253
+;;;;;;  485100 537000))
 ;;; Generated autoloads from flymake-css.el
 
 (defvar flymake-css-lint-command "csslint" "\
@@ -19,16 +19,9 @@ Configure flymake mode to check the current buffer's css syntax.
 
 ;;;***
 
-;;;### (autoloads nil nil ("flymake-css-pkg.el") (21355 25881 671718
-;;;;;;  978000))
-
-;;;***
-
-(provide 'flymake-css-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; flymake-css-autoloads.el ends here

@@ -1,10 +1,10 @@
 ;;; evil-args-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (evil-jump-out-args evil-forward-arg evil-backward-arg)
-;;;;;;  "evil-args" "evil-args.el" (21355 25874 993085 278000))
+;;;### (autoloads nil "evil-args" "evil-args.el" (21582 16233 740495
+;;;;;;  656000))
 ;;; Generated autoloads from evil-args.el
 
 (autoload 'evil-backward-arg "evil-args" "\
@@ -26,16 +26,9 @@ Move the cursor out of the nearest enclosing matching pairs.
 
 ;;;***
 
-;;;### (autoloads nil nil ("evil-args-pkg.el") (21355 25875 6086
-;;;;;;  137000))
-
-;;;***
-
-(provide 'evil-args-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; evil-args-autoloads.el ends here

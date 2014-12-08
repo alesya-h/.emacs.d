@@ -1,11 +1,10 @@
 ;;; lorem-ipsum-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (lorem-ipsum-insert-list lorem-ipsum-insert-sentences
-;;;;;;  lorem-ipsum-insert-paragraphs lorem-ipsum-use-default-bindings)
-;;;;;;  "lorem-ipsum" "lorem-ipsum.el" (21534 41428 606345 351000))
+;;;### (autoloads nil "lorem-ipsum" "lorem-ipsum.el" (21582 16313
+;;;;;;  478543 777000))
 ;;; Generated autoloads from lorem-ipsum.el
 
 (autoload 'lorem-ipsum-use-default-bindings "lorem-ipsum" "\
@@ -39,16 +38,9 @@ If NUM is non-nil, insert NUM list items.
 
 ;;;***
 
-;;;### (autoloads nil nil ("lorem-ipsum-pkg.el") (21534 41428 616363
-;;;;;;  657000))
-
-;;;***
-
-(provide 'lorem-ipsum-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; lorem-ipsum-autoloads.el ends here

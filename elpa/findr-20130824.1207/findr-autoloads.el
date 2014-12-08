@@ -1,18 +1,15 @@
 ;;; findr-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil nil ("findr-pkg.el" "findr.el") (21159 16358
-;;;;;;  957287 583000))
+;;;### (autoloads nil nil ("findr.el") (21582 16336 951779 778000))
 
 ;;;***
 
-(provide 'findr-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; findr-autoloads.el ends here

@@ -1,1 +1,1 @@
-(define-package "helm-google" "20140405.1723" "Emacs Helm Interface for quick Google searches" (quote ((helm "0") (google "0"))))
+(define-package "helm-google" "20140405.1723" "Emacs Helm Interface for quick Google searches" '((helm "0") (google "0")) :url "https://github.com/steckerhalter/helm-google" :keywords '("helm" "google" "search" "browse"))

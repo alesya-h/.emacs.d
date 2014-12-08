@@ -1,11 +1,10 @@
 ;;; rainbow-blocks-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (global-rainbow-blocks-mode rainbow-blocks-mode-disable
-;;;;;;  rainbow-blocks-mode-enable rainbow-blocks-mode) "rainbow-blocks"
-;;;;;;  "rainbow-blocks.el" (21355 25888 953123 461000))
+;;;### (autoloads nil "rainbow-blocks" "rainbow-blocks.el" (21582
+;;;;;;  16333 76200 399000))
 ;;; Generated autoloads from rainbow-blocks.el
 
 (autoload 'rainbow-blocks-mode "rainbow-blocks" "\
@@ -46,16 +45,9 @@ See `rainbow-blocks-mode' for more information on Rainbow-Blocks mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("rainbow-blocks-pkg.el") (21355 25888
-;;;;;;  965890 381000))
-
-;;;***
-
-(provide 'rainbow-blocks-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; rainbow-blocks-autoloads.el ends here
