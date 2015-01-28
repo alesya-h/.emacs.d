@@ -448,6 +448,9 @@
      "Window '%s' is normal")
    (current-buffer)))
 
+(add-to-list 'load-path "~/.emacs.d/plugins/lojban")
+(require 'lojban-mode)
+
 ;; gpicker and supermegadoc
 (require 'gpicker)
 (add-to-list 'load-path "~/.emacs.d/plugins/supermegadoc")
