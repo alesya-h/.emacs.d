@@ -3,23 +3,21 @@
 
 (define-abbrev-table 'Custom-mode-abbrev-table '())
 
+(define-abbrev-table 'Info-edit-mode-abbrev-table '())
+
 (define-abbrev-table 'ack-mode-abbrev-table '())
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'awk-mode-abbrev-table '())
 
 (define-abbrev-table 'bookmark-bmenu-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'bookmark-edit-annotation-mode-abbrev-table '())
 
-(define-abbrev-table 'c-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c++-mode-abbrev-table '())
+
+(define-abbrev-table 'c-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -51,9 +49,17 @@
 
 (define-abbrev-table 'dsssl-mode-abbrev-table '())
 
+(define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
+
 (define-abbrev-table 'emacs-lisp-byte-code-mode-abbrev-table '())
 
 (define-abbrev-table 'emacs-lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'epa-info-mode-abbrev-table '())
+
+(define-abbrev-table 'epa-key-list-mode-abbrev-table '())
+
+(define-abbrev-table 'epa-key-mode-abbrev-table '())
 
 (define-abbrev-table 'ert-results-mode-abbrev-table '())
 
@@ -62,6 +68,10 @@
 (define-abbrev-table 'eshell-mode-abbrev-table '())
 
 (define-abbrev-table 'evil-command-window-mode-abbrev-table '())
+
+(define-abbrev-table 'extempore-mode-abbrev-table '())
+
+(define-abbrev-table 'extempore-repl-mode-abbrev-table '())
 
 (define-abbrev-table 'factor-messages-mode-abbrev-table '())
 
@@ -109,15 +119,17 @@
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
 
+(define-abbrev-table 'inferior-extempore-mode-abbrev-table '())
+
 (define-abbrev-table 'inferior-js-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-lisp-mode-abbrev-table '())
 
+(define-abbrev-table 'inferior-maude-mode-abbrev-table '())
+
 (define-abbrev-table 'inferior-scheme-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'java-mode-abbrev-table '())
 
 (define-abbrev-table 'js-mode-abbrev-table '())
 
@@ -155,13 +167,62 @@
 
 (define-abbrev-table 'markdown-mode-abbrev-table '())
 
+(define-abbrev-table 'maude-mode-abbrev-table
+  '(
+    ("assoc" "[assoc]" maude-mode-join-attributes 0)
+    ("associative" "[assoc]" maude-mode-join-attributes 0)
+    ("comm" "[comm]" maude-mode-join-attributes 0)
+    ("commutative" "[comm]" maude-mode-join-attributes 0)
+    ("ctor" "[ctor]" maude-mode-join-attributes 0)
+    ("ditto" "[ditto]" maude-mode-join-attributes 0)
+    ("endfm" "endfm" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("endfth" "endfth" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("endm" "endm" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("endom" "endom" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("endoth" "endoth" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("endth" "endth" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("endv" "endv" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("fmod" "fmod" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("format" "[format ()]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "format (")) 0)
+    ("frozen" "[frozen]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "frozen")) 0)
+    ("fth" "fth" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("gather" "[gather ()]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "gather (")) 0)
+    ("id" "[id:]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "id:")) 0)
+    ("idem" "[idem]" maude-mode-join-attributes 0)
+    ("iter" "[iter]" maude-mode-join-attributes 0)
+    ("label" "[label]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "label")) 0)
+    ("left" "[left id:]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "id:")) 0)
+    ("list" "[assoc right id:]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "id:")) 0)
+    ("memo" "[memo]" maude-mode-join-attributes 0)
+    ("metadata" "[metadata]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "metadata")) 0)
+    ("mod" "mod" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("mset" "[comm assoc id:]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "id:")) 0)
+    ("nonexec" "[nonexec]" maude-mode-join-attributes 0)
+    ("omod" "omod" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("oth" "oth" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("otherwise" "[owise]" maude-mode-join-attributes 0)
+    ("owise" "[owise]" maude-mode-join-attributes 0)
+    ("poly" "[poly]" maude-mode-join-attributes 0)
+    ("prec" "[prec]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "prec")) 0)
+    ("right" "[right id:]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "id:")) 0)
+    ("set" "[comm assoc idem]" maude-mode-join-attributes 0)
+    ("special" "[special ()]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "special (")) 0)
+    ("strat" "[strat ()]" (lambda nil (maude-mode-join-attributes) (maude-mode-place-after "strat (")) 0)
+    ("th" "th" (lambda nil (save-excursion (indent-line-to 0))) 0)
+    ("view" "view" (lambda nil (save-excursion (indent-line-to 0))) 0)
+   ))
+
+(define-abbrev-table 'message-mode-abbrev-table '())
+
+(define-abbrev-table 'messages-buffer-mode-abbrev-table '())
+
 (define-abbrev-table 'nav-mode-abbrev-table '())
 
 (define-abbrev-table 'nrepl-connections-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'nrepl-messages-mode-abbrev-table '())
+
+(define-abbrev-table 'objc-mode-abbrev-table '())
 
 (define-abbrev-table 'objj-mode-abbrev-table '())
 
@@ -175,9 +236,7 @@
 
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'pike-mode-abbrev-table '())
 
 (define-abbrev-table 'process-menu-mode-abbrev-table '())
 
@@ -228,6 +287,8 @@
 (define-abbrev-table 'tar-mode-abbrev-table '())
 
 (define-abbrev-table 'text-mode-abbrev-table '())
+
+(define-abbrev-table 'url-cookie-mode-abbrev-table '())
 
 (define-abbrev-table 'vc-git-log-edit-mode-abbrev-table '())
 

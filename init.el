@@ -19,6 +19,7 @@
            clojure-cheatsheet
            clojurescript-mode
            coffee-mode
+           editorconfig
            emmet-mode
            evil
            evil-args
@@ -68,6 +69,7 @@
            lua-mode
            magit
            markdown-mode
+           maude-mode
            molokai-theme
            monokai-theme
            neotree
