@@ -5,11 +5,11 @@
    ("melpa"     . "http://melpa.org/packages/")))
 (package-initialize)
 (dolist
-    (pkg '(
-           ac-cider
+    (pkg '(ac-cider
            ag
            auctex
            auto-complete
+           auto-dim-other-buffers
            base16-theme
            bubbleberry-theme
            cider
@@ -20,11 +20,13 @@
            clojurescript-mode
            coffee-mode
            editorconfig
+           elm-mode
            emmet-mode
            evil
            evil-args
            evil-exchange
            evil-indent-textobject
+           evil-jumper
            evil-leader
            evil-matchit
            evil-nerd-commenter
@@ -66,9 +68,11 @@
            js2-mode
            key-chord
            lorem-ipsum
+           lispy
            lua-mode
            magit
            markdown-mode
+           material-theme
            maude-mode
            molokai-theme
            monokai-theme
@@ -146,12 +150,15 @@
  ;; If there is more than one, they won't work right.
  '(ac-delay 0.2)
  '(ag-highlight-search t)
+ '(ag-reuse-buffers t)
+ '(ag-reuse-window t)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(ansi-term-color-vector
    [unspecified "#1F1611" "#660000" "#144212" "#EFC232" "#5798AE" "#BE73FD" "#93C1BC" "#E6E1DC"] t)
+ '(auto-dim-other-buffers-mode t)
  '(c-basic-offset 4)
  '(c-default-style
    (quote
@@ -163,12 +170,14 @@
  '(cider-repl-use-pretty-printing nil)
  '(cider-show-error-buffer nil)
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (bubbleberry smart-mode-line-respectful)))
+ '(custom-enabled-themes (quote (base16-monokai-dark)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
+ '(evil-jumper-mode t)
  '(evil-leader/leader "l")
  '(evil-mode t)
  '(evil-search-module (quote evil-search))
+ '(evil-symbol-word-search t)
  '(face-font-family-alternatives
    (quote
     (("arial black" "arial" "DejaVu Sans")
@@ -198,7 +207,6 @@
    (quote
     (imenu-add-menubar-index turn-on-haskell-doc turn-on-haskell-indentation)))
  '(helm-google-search-function (quote helm-google-api-search))
- '(helm-match-plugin-mode t nil (helm-match-plugin))
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors
    (quote
@@ -214,14 +222,16 @@
  '(ido-enable-flex-matching t)
  '(ido-mode (quote buffer) nil (ido))
  '(indent-tabs-mode nil)
+ '(inf-ruby-default-implementation "pry")
  '(inferior-js-program-command "/usr/bin/js")
- '(inferior-lisp-program "clisp -ansi")
+ '(inferior-lisp-program "clisp -ansi" t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message
    ";; Scientifically-proven optimal words of hackerish encouragement.
 ")
  '(latex-run-command "pdflatex")
  '(linum-format (quote dynamic))
+ '(magit-last-seen-setup-instructions "1.4.0" t)
  '(magit-use-overlays nil)
  '(magit-wip-mode t)
  '(main-line-color1 "#29282E")
@@ -240,6 +250,7 @@
  '(save-place-file "~/.emacs.d/saved-places")
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
+ '(scroll-step 1)
  '(scss-compile-at-save nil)
  '(select-active-regions nil)
  '(show-paren-mode t)
@@ -311,7 +322,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-(require 'smart-mode-line)
 (sml/setup)
 
 (put 'narrow-to-page 'disabled nil)
@@ -322,9 +332,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
-(require 'helm-match-plugin)
-(require 'highlight-focus)
-(require 'ruby-mode)
 
 (global-set-key (kbd "s-+") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "s--") 'evil-numbers/dec-at-pt)
@@ -342,6 +349,10 @@
 (global-set-key (kbd "M-<tab>") 'switch-to-previous-buffer)
 (global-set-key (kbd "<home>") 'smart-beginning-of-line)
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
+;; (global-set-key (kbd "C-<right>") #'(lambda () (interactive) (forward-char 5)))
+;; (global-set-key (kbd "C-<left>") #'(lambda () (interactive) (backward-char 5)))
+(global-set-key (kbd "C-<up>") #'(lambda () (interactive) (previous-line 3)))
+(global-set-key (kbd "C-<down>") #'(lambda () (interactive) (next-line 3)))
 (global-set-key (kbd "C-<SPC>") 'fold-dwim-toggle)
 (global-set-key (kbd "C-S-<SPC>") 'fold-dwim-toggle-selective-display)
 (global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
@@ -349,20 +360,27 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "<mouse-6>") #'(lambda () (interactive) (scroll-right 1)))
 (global-set-key (kbd "<mouse-7>") #'(lambda () (interactive) (scroll-left 1)))
-(require 'helm)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "S-<left>") 'windmove-left)
 (global-set-key (kbd "S-<right>") 'windmove-right)
 (global-set-key (kbd "S-<up>") 'windmove-up)
 (global-set-key (kbd "S-<down>") 'windmove-down)
 (global-set-key (kbd "C-<tab>") 'ac-trigger-key-command)
+
 (require 'clojure-mode)
+(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
 (define-key clojure-mode-map (kbd "C-<return>") 'cider-pprint-eval-last-sexp)
 (define-key clojure-mode-map (kbd "C-S-<return>") 'cider-eval-buffer)
 (define-key clojure-mode-map (kbd "S-<return>") 'cider-eval-last-sexp)
+
 (define-key ruby-mode-map (kbd "C-<return>") 'ruby-send-last-sexp)
 (define-key ruby-mode-map (kbd "C-S-<return>") 'ruby-send-region)
 (define-key ruby-mode-map (kbd "S-<return>") 'ruby-send-block)
+
+(define-clojure-indent
+  (defsnippet 'defun)
+  (alet 'defun)
+  (mlet 'defun))
 
 (defun cider-format-pprint-eval (form &optional right-margin)
   form)
@@ -375,8 +393,19 @@
   (interactive)
   (tabbar-click-on-tab (first (last (tabbar-tabs (tabbar-buffer-tabs))))))
 
+(defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
+  "Returns the name of the tab group names the current buffer belongs to.
+ There are two groups: Emacs buffers (those whose name starts with '*', plus
+ dired buffers), and the rest.  This works at least with Emacs v24.2 using
+ tabbar.el v1.7."
+  (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+              ((eq major-mode 'dired-mode) "emacs")
+              (t "user"))))
+(setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+
 (global-evil-leader-mode)
-(evil-leader/set-key "b" 'magit-blame-mode)
+(evil-leader/set-key "b" 'magit-blame)
+(evil-leader/set-key "B" 'magit-blame-quit)
 (evil-leader/set-key "n" 'linum-mode)
 (evil-leader/set-key ".r" 'robe-jump)
 (evil-leader/set-key ".t" 'find-tag)
@@ -388,6 +417,8 @@
 (evil-leader/set-key "R" 'rspec-verify)
 (evil-leader/set-key "f" 'ag-project)
 (evil-leader/set-key "F" 'ag-project-regexp)
+(evil-leader/set-key "y" 'clipboard-kill-ring-save)
+(evil-leader/set-key "p" 'clipboard-yank)
 (define-key evil-normal-state-map "gt" 'tabbar-forward-tab)
 (define-key evil-normal-state-map "gT" 'tabbar-backward-tab)
 (define-key evil-normal-state-map "g^" 'tabbar-goto-first-tab)
@@ -473,11 +504,7 @@
 (defvar *gpicker-project-dirs*)
 (setq *gpicker-project-dirs*
   (list
-   "/home/me/p/work/casino-server/"
-   "/home/me/p/work/casino-chef/"
-   "/home/me/p/my/workspace/"
-   "/home/me/p/my/slice/"
-   "/home/me/p/7bitcasino"
+   "/home/me/p/active/fe/filemporium/"
    ))
 (setq *gpicker-project-dir* (car *gpicker-project-dirs*))
 (setq *gpicker-project-type* "guess")
@@ -602,13 +629,8 @@ Repeated invocations toggle between the two most recently open buffers."
 
 (add-hook 'ruby-mode-hook 'ruby-hs-minor-mode)
 (add-hook 'lisp-mode-hook 'hs-minor-mode)
+(add-hook 'clojure-mode-hook 'hs-minor-mode)
 (put 'narrow-to-region 'disabled nil)
-
-; Load el4r, which loads Xiki
-;; (add-to-list 'load-path "/home/me/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/trogdoro-el4r-1.0.10/data/emacs/site-lisp/")
-;; (require 'el4r)
-;; (el4r-boot)
-;; (el4r-troubleshooting-keys)
 
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)

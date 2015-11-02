@@ -1,9 +1,3 @@
-[submodule "plugins/rhtml"]
-	path = plugins/rhtml
-	url = https://github.com/eschulte/rhtml.git
-[submodule "plugins/yari.el"]
-	path = plugins/yari.el
-	url = https://github.com/hron/yari.el.git
 [submodule "plugins/auto-complete"]
 	path = plugins/auto-complete
 	url = https://github.com/auto-complete/auto-complete.git
@@ -13,9 +7,6 @@
 [submodule "plugins/icicles"]
 	path = plugins/icicles
 	url = https://github.com/emacsmirror/icicles.git
-[submodule "plugins/scala-mode"]
-	path = plugins/scala-mode
-	url = https://github.com/ananthakumaran/scala-mode.git
 [submodule "plugins/haml-mode"]
 	path = plugins/haml-mode
 	url = https://github.com/nex3/haml-mode.git
@@ -37,12 +28,6 @@
 [submodule "plugins/magit"]
 	path = plugins/magit
 	url = https://github.com/magit/magit.git
-[submodule "plugins/undo-tree"]
-	path = plugins/undo-tree
-	url = http://www.dr-qubit.org/git/undo-tree.git
-[submodule "plugins/org-mode"]
-	path = plugins/org-mode
-	url = git://orgmode.org/org-mode.git
 [submodule "plugins/nyan-mode"]
 	path = plugins/nyan-mode
 	url = https://github.com/TeMPOraL/nyan-mode.git
@@ -52,9 +37,6 @@
 [submodule "plugins/themes/emacs-color-theme-solarized"]
 	path = plugins/themes/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
-[submodule "plugins/helm"]
-	path = plugins/helm
-	url = https://github.com/emacs-helm/helm.git
 [submodule "plugins/eproject"]
 	path = plugins/eproject
 	url = https://github.com/jrockway/eproject.git
