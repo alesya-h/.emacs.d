@@ -26,7 +26,6 @@
            evil-args
            evil-exchange
            evil-indent-textobject
-           evil-jumper
            evil-leader
            evil-matchit
            evil-nerd-commenter
@@ -85,8 +84,6 @@
            rainbow-delimiters
            rainbow-mode
            rinari
-           robe
-           robe
            rspec-mode
            ruby-compilation
            ruby-electric
@@ -166,14 +163,14 @@
      (java-mode . "java")
      (awk-mode . "awk")
      (other . "gnu"))))
+ '(cider-repl-display-help-banner nil)
  '(cider-repl-print-length 30)
  '(cider-repl-use-pretty-printing nil)
  '(cider-show-error-buffer nil)
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (base16-monokai-dark)))
  '(custom-safe-themes t)
+ '(custom-enabled-themes (quote (base16-monokai)) (quote (smart-mode-line-dark)))
  '(default-input-method "russian-computer")
- '(evil-jumper-mode t)
  '(evil-leader/leader "l")
  '(evil-mode t)
  '(evil-search-module (quote evil-search))
@@ -226,8 +223,7 @@
  '(inferior-js-program-command "/usr/bin/js")
  '(inferior-lisp-program "clisp -ansi" t)
  '(inhibit-startup-screen t)
- '(initial-scratch-message
-   ";; Scientifically-proven optimal words of hackerish encouragement.
+ '(initial-scratch-message ";; Happy hacking!
 ")
  '(latex-run-command "pdflatex")
  '(linum-format (quote dynamic))
@@ -240,6 +236,9 @@
  '(mouse-drag-copy-region t)
  '(mouse-yank-at-point t)
  '(nrepl-hide-special-buffers t)
+ '(package-selected-packages
+   (quote
+    (nyan-mode zenburn-theme yari yaml-mode web-mode typed-clojure-mode tuareg tabbar smart-mode-line slime slim-mode skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-electric rspec-mode robe rings rinari rainbow-mode rainbow-delimiters rainbow-blocks quack osc noctilux-theme nix-mode neotree monokai-theme molokai-theme maude-mode material-theme markdown-mode magit lua-mode lorem-ipsum lispy key-chord julia-mode impatient-mode helm-themes helm-rubygems-local helm-rb helm-rails helm-package helm-nixos-options helm-mode-manager helm-ls-git helm-google helm-git-grep helm-ag haskell-mode graphviz-dot-mode glsl-mode fuzzy fold-dwim flymake-yaml flymake-shell flymake-sass flymake-ruby flymake-less flymake-json flymake-jshint flymake-cursor flymake-css flymake-coffee floobits fill-column-indicator evil-tabs evil-surround evil-space evil-paredit evil-numbers evil-nerd-commenter evil-matchit evil-leader evil-jumper evil-indent-textobject evil-exchange evil-args emmet-mode elm-mode ein editorconfig-core editorconfig company-nixos-options coffee-mode clojurescript-mode clojure-snippets clojure-cheatsheet clj-refactor bubbleberry-theme base16-theme auto-dim-other-buffers auctex ag achievements ac-cider)))
  '(powerline-color1 "#29282E")
  '(powerline-color2 "#292A24")
  '(quack-global-menu-p nil)
@@ -253,6 +252,8 @@
  '(scroll-step 1)
  '(scss-compile-at-save nil)
  '(select-active-regions nil)
+ '(select-enable-clipboard nil)
+ '(select-enable-primary t)
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
  '(slime-net-coding-system (quote utf-8-unix))
@@ -282,7 +283,6 @@
  '(tabbar-mode t nil (tabbar))
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
- '(user-extempore-directory "/home/me/p/fork/extempore/")
  '(vc-annotate-background "#d4d4d4")
  '(vc-annotate-color-map
    (quote
@@ -305,6 +305,9 @@
      (340 . "#6b400c")
      (360 . "#23733c"))))
  '(vc-annotate-very-old-color "#23733c")
+ '(web-mode-code-indent-offset 2)
+ '(web-mode-css-indent-offset 2)
+ '(web-mode-markup-indent-offset 2)
  '(weechat-color-list
    (quote
     (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83")))
@@ -312,8 +315,6 @@
  '(whitespace-style
    (quote
     (face tabs trailing lines space-before-tab empty space-after-tab tab-mark)))
- '(x-select-enable-clipboard nil)
- '(x-select-enable-primary t)
  '(yas-global-mode t nil (yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -321,6 +322,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'clojure-mode)
 
 (sml/setup)
 
@@ -332,7 +335,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
 
+(global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-+") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "s--") 'evil-numbers/dec-at-pt)
 (global-set-key (kbd "<f5>") 'helm-recentf)
@@ -367,8 +372,28 @@
 (global-set-key (kbd "S-<down>") 'windmove-down)
 (global-set-key (kbd "C-<tab>") 'ac-trigger-key-command)
 
-(require 'clojure-mode)
-(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+(global-evil-leader-mode)
+(evil-leader/set-key "o" 'helm-ls-git-ls)
+(evil-leader/set-key "b" 'magit-blame)
+(evil-leader/set-key "B" 'magit-blame-quit)
+(evil-leader/set-key "n" 'linum-mode)
+(evil-leader/set-key ".r" 'robe-jump)
+(evil-leader/set-key ".t" 'find-tag)
+(evil-leader/set-key "w" 'delete-trailing-whitespace)
+(evil-leader/set-key "tb" 'ruby-toggle-block)
+(evil-leader/set-key "th" 'ruby-toggle-hash-syntax)
+(evil-leader/set-key "d" 'toggle-window-dedicated)
+(evil-leader/set-key "r" 'rspec-verify-single)
+(evil-leader/set-key "R" 'cljr-stop-referring)
+(evil-leader/set-key "f" 'ag-project)
+(evil-leader/set-key "F" 'ag-project-regexp)
+(evil-leader/set-key "y" 'clipboard-kill-ring-save)
+(evil-leader/set-key "p" 'clipboard-yank)
+(define-key evil-normal-state-map "gt" 'tabbar-forward-tab)
+(define-key evil-normal-state-map "gT" 'tabbar-backward-tab)
+(define-key evil-normal-state-map "g^" 'tabbar-goto-first-tab)
+(define-key evil-normal-state-map "g$" 'tabbar-goto-last-tab)
+
 (define-key clojure-mode-map (kbd "C-<return>") 'cider-pprint-eval-last-sexp)
 (define-key clojure-mode-map (kbd "C-S-<return>") 'cider-eval-buffer)
 (define-key clojure-mode-map (kbd "S-<return>") 'cider-eval-last-sexp)
@@ -377,13 +402,19 @@
 (define-key ruby-mode-map (kbd "C-S-<return>") 'ruby-send-region)
 (define-key ruby-mode-map (kbd "S-<return>") 'ruby-send-block)
 
+(require 'helm)
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+; (define-key helm-find-files-map (kbd "C-<backspace>") 'helm-find-files-up-one-level)
+
 (define-clojure-indent
   (defsnippet 'defun)
   (alet 'defun)
   (mlet 'defun))
 
-(defun cider-format-pprint-eval (form &optional right-margin)
-  form)
+;; (defun cider-format-pprint-eval (form &optional right-margin)
+;;   form)
 
 (defun tabbar-goto-first-tab ()
   (interactive)
@@ -403,71 +434,11 @@
               (t "user"))))
 (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
 
-(global-evil-leader-mode)
-(evil-leader/set-key "b" 'magit-blame)
-(evil-leader/set-key "B" 'magit-blame-quit)
-(evil-leader/set-key "n" 'linum-mode)
-(evil-leader/set-key ".r" 'robe-jump)
-(evil-leader/set-key ".t" 'find-tag)
-(evil-leader/set-key "w" 'delete-trailing-whitespace)
-(evil-leader/set-key "tb" 'ruby-toggle-block)
-(evil-leader/set-key "th" 'ruby-toggle-hash-syntax)
-(evil-leader/set-key "d" 'toggle-window-dedicated)
-(evil-leader/set-key "r" 'rspec-verify-single)
-(evil-leader/set-key "R" 'rspec-verify)
-(evil-leader/set-key "f" 'ag-project)
-(evil-leader/set-key "F" 'ag-project-regexp)
-(evil-leader/set-key "y" 'clipboard-kill-ring-save)
-(evil-leader/set-key "p" 'clipboard-yank)
-(define-key evil-normal-state-map "gt" 'tabbar-forward-tab)
-(define-key evil-normal-state-map "gT" 'tabbar-backward-tab)
-(define-key evil-normal-state-map "g^" 'tabbar-goto-first-tab)
-(define-key evil-normal-state-map "g$" 'tabbar-goto-last-tab)
 ;; UI stuff goes here
 
 (require 'fold-dwim)
 (require 'uniquify)  ; add partial path to buffer name when identical filenames
 (fset 'yes-or-no-p 'y-or-n-p)
-;; (require 'icomplete)
-;; (require 'icomplete+)
-;; (icomplete-mode 99)
-
-(evil-ex-define-cmd "Rfile" 'rinari-find-file-in-project)
-(evil-ex-define-cmd "Rcontroller" 'rinari-find-controller)
-(evil-ex-define-cmd "Rmodel" 'rinari-find-model)
-(evil-ex-define-cmd "Rview" 'rinari-find-view)
-(evil-ex-define-cmd "Rspec" 'rinari-find-rspec)
-(evil-ex-define-cmd "Rhelper" 'rinari-find-helper)
-(evil-ex-define-cmd "Rmailer" 'rinari-find-mailer)
-(evil-ex-define-cmd "Rmigration" 'rinari-find-migration)
-(evil-ex-define-cmd "Rstylesheet" 'rinari-find-stylesheet)
-(evil-ex-define-cmd "Rsass" 'rinari-find-sass)
-(evil-ex-define-cmd "Rjavascript" 'rinari-find-javascript)
-(evil-ex-define-cmd "Rfeature" 'rinari-find-festures)
-(evil-ex-define-cmd "Rserver" 'rinari-web-server-restart)
-
-
-(defun my-send-to-nrepl ()
-  (interactive)
-  (let ((p (point)))
-    (cider-eval-last-sexp 't)
-    (goto-char p)
-    (insert " ;;=> ")))
-
-(defun my-send-to-nrepl2 ()
-  (interactive)
-  (let ((p (point)))
-    (cider-eval-last-sexp 't)
-    (goto-char p)
-    (insert "\n;;=> ")))
-
-(defun my-send-to-nrepl3 ()
-  (interactive)
-  (let* ((s (cider-last-sexp))
-         (data (cider-eval-sync s))
-         (v (plist-get data :value))
-         (e (plist-get data :stderr)))
-    (popup-tip (format "%s" (or e v)) :truncate 't)))
 
 ;; Toggle window dedication
 (defun toggle-window-dedicated ()
@@ -505,6 +476,9 @@
 (setq *gpicker-project-dirs*
   (list
    "/home/me/p/active/fe/filemporium/"
+   "/home/me/p/active/fe/live-proxy/"
+   "/home/me/p/active/fe/tcp-multicast/"
+   "/home/me/p/active/fe/fe-nix/"
    ))
 (setq *gpicker-project-dir* (car *gpicker-project-dirs*))
 (setq *gpicker-project-type* "guess")
@@ -639,10 +613,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (add-to-list 'load-path "/home/me/p/fork/factor/misc/fuel")
 (require 'factor-mode)
 (require 'fuel-mode)
-
-(add-to-list 'load-path "/home/me/p/fork/extempore/extras")
-(require 'extempore)
-(add-to-list 'auto-mode-alist '("\\.xtm$" . extempore-mode))
 
 (setq fuel-factor-root-dir "/home/me/p/fork/factor")
 (server-start)
