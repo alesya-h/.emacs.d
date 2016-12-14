@@ -163,13 +163,15 @@
      (java-mode . "java")
      (awk-mode . "awk")
      (other . "gnu"))))
+ '(cider-cljs-lein-repl
+   "(do (require 'weasel.repl.websocket) (cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip \"127.0.0.1\" :port 9001)))")
  '(cider-repl-display-help-banner nil)
  '(cider-repl-print-length 30)
  '(cider-repl-use-pretty-printing nil)
  '(cider-show-error-buffer nil)
  '(compilation-message-face (quote default))
+ '(custom-enabled-themes (quote (base16-mocha smart-mode-line-dark)))
  '(custom-safe-themes t)
- '(custom-enabled-themes (quote (base16-monokai)) (quote (smart-mode-line-dark)))
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
  '(evil-mode t)
@@ -539,7 +541,7 @@ Repeated invocations toggle between the two most recently open buffers."
           (lambda () (eldoc-mode -1)))
 
 ;; asy-mode, lasy-mode,
-(add-to-list 'load-path "/usr/local/texlive/2010/texmf/asymptote/")
+(add-to-list 'load-path "/usr/share/texmf-dist/asymptote/")
 (autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
 (autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
 (autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
