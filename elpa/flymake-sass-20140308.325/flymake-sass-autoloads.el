@@ -1,10 +1,10 @@
 ;;; flymake-sass-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "flymake-sass" "flymake-sass.el" (21582 16263
-;;;;;;  705730 87000))
+;;;### (autoloads nil "flymake-sass" "flymake-sass.el" (22882 57521
+;;;;;;  20813 230000))
 ;;; Generated autoloads from flymake-sass.el
 
 (autoload 'flymake-sass-load "flymake-sass" "\

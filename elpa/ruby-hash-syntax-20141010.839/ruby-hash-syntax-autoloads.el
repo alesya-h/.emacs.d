@@ -1,10 +1,10 @@
 ;;; ruby-hash-syntax-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "ruby-hash-syntax" "ruby-hash-syntax.el" (21582
-;;;;;;  16346 856853 970000))
+;;;### (autoloads nil "ruby-hash-syntax" "ruby-hash-syntax.el" (22882
+;;;;;;  57592 194533 681000))
 ;;; Generated autoloads from ruby-hash-syntax.el
 
 (autoload 'ruby-toggle-hash-syntax "ruby-hash-syntax" "\

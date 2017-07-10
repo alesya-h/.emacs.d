@@ -1,9 +1,9 @@
 ;;; fold-dwim-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("fold-dwim.el") (21582 16268 218334 388000))
+;;;### (autoloads nil nil ("fold-dwim.el") (22882 57523 275117 474000))
 
 ;;;***
 

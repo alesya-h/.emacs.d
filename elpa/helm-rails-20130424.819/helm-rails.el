@@ -4,8 +4,8 @@
 
 ;; Author:            Adam Sokolnicki <adam.sokolnicki@gmail.com>
 ;; URL:               https://github.com/asok/helm-rails
-;; Version: 20130424.819
-;; X-Original-Version:           0.2
+;; Package-Version: 20130424.819
+;; Version:           0.2
 ;; Keywords:          helm, rails, git
 ;; Package-Requires:  ((helm "1.5.1") (inflections "1.1"))
 

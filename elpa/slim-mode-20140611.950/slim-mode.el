@@ -8,8 +8,8 @@
 ;; Author: Daniel Mendler
 ;; Author: Bozhidar Batsov
 ;; URL: http://github.com/slim-template/emacs-slim
-;; Version: 20140611.950
-;; X-Original-Version: 1.1
+;; Package-Version: 20140611.950
+;; Version: 1.1
 ;; Keywords: markup, language
 
 ;;; Commentary:

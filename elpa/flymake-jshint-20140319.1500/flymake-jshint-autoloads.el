@@ -1,10 +1,10 @@
 ;;; flymake-jshint-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "flymake-jshint" "flymake-jshint.el" (21582
-;;;;;;  16256 338611 546000))
+;;;### (autoloads nil "flymake-jshint" "flymake-jshint.el" (22882
+;;;;;;  57517 57036 571000))
 ;;; Generated autoloads from flymake-jshint.el
 
 (autoload 'flymake-jshint-load "flymake-jshint" "\

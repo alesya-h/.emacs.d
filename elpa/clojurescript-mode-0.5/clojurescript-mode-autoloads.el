@@ -1,10 +1,10 @@
 ;;; clojurescript-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "clojurescript-mode" "clojurescript-mode.el"
-;;;;;;  (21582 16217 169368 628000))
+;;;;;;  (22882 57492 992462 915000))
 ;;; Generated autoloads from clojurescript-mode.el
 
 (autoload 'clojurescript-mode "clojurescript-mode" "\

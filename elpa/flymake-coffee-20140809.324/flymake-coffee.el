@@ -2,8 +2,8 @@
 ;;
 ;;; Author: Steve Purcell <steve@sanityinc.com>
 ;;; Homepage: https://github.com/purcell/flymake-coffee
-;; Version: 20140809.324
-;;; X-Original-Version: DEV
+;;; Version: DEV
+;; Package-Version: 20140809.324
 ;;; Package-Requires: ((flymake-easy "0.1"))
 ;;
 ;;; Commentary:

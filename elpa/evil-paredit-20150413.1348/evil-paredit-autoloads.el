@@ -1,10 +1,10 @@
 ;;; evil-paredit-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "evil-paredit" "evil-paredit.el" (21819 34003
-;;;;;;  560917 702000))
+;;;### (autoloads nil "evil-paredit" "evil-paredit.el" (22882 57511
+;;;;;;  414777 894000))
 ;;; Generated autoloads from evil-paredit.el
 
 (autoload 'evil-paredit-mode "evil-paredit" "\

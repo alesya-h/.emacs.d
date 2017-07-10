@@ -1,10 +1,10 @@
 ;;; evil-space-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "evil-space" "evil-space.el" (22144 9267 917601
-;;;;;;  903000))
+;;;### (autoloads nil "evil-space" "evil-space.el" (22882 57512 937308
+;;;;;;  15000))
 ;;; Generated autoloads from evil-space.el
 
 (autoload 'evil-space-setup "evil-space" "\
@@ -35,7 +35,8 @@ Examples:
 
 (defvar evil-space-mode nil "\
 Non-nil if Evil-Space mode is enabled.
-See the command `evil-space-mode' for a description of this minor mode.
+See the `evil-space-mode' command
+for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `evil-space-mode'.")

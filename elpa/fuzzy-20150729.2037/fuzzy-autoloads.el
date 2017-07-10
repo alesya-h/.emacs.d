@@ -1,9 +1,9 @@
 ;;; fuzzy-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("fuzzy.el") (21990 44028 694341 817000))
+;;;### (autoloads nil nil ("fuzzy.el") (22882 57524 57875 886000))
 
 ;;;***
 

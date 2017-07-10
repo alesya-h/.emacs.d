@@ -1,10 +1,10 @@
 ;;; evil-numbers-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "evil-numbers" "evil-numbers.el" (21582 16242
-;;;;;;  61040 661000))
+;;;### (autoloads nil "evil-numbers" "evil-numbers.el" (22882 57510
+;;;;;;  638017 615000))
 ;;; Generated autoloads from evil-numbers.el
 
 (autoload 'evil-numbers/inc-at-pt "evil-numbers" "\

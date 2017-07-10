@@ -1,9 +1,9 @@
 ;;; yari-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "yari" "yari.el" (22144 9187 127244 429000))
+;;;### (autoloads nil "yari" "yari.el" (22882 57717 134538 598000))
 ;;; Generated autoloads from yari.el
 
 (autoload 'yari-anything "yari" "\

@@ -1,9 +1,9 @@
 ;;; peg-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("peg.el") (21922 13939 99425 63000))
+;;;### (autoloads nil nil ("peg.el") (22882 57470 227486 236000))
 
 ;;;***
 

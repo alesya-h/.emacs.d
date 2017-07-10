@@ -58,6 +58,7 @@
            helm-ls-git
            helm-mode-manager
            helm-package
+           helm-projectile
            helm-rails
            helm-rb
            helm-rubygems-local
@@ -170,7 +171,7 @@
  '(cider-repl-use-pretty-printing nil)
  '(cider-show-error-buffer nil)
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (base16-mocha smart-mode-line-dark)))
+ '(custom-enabled-themes (quote (base16-mocha)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
@@ -206,6 +207,9 @@
    (quote
     (imenu-add-menubar-index turn-on-haskell-doc turn-on-haskell-indentation)))
  '(helm-google-search-function (quote helm-google-api-search))
+ '(helm-locate-project-list
+   (quote
+    ("/home/me/p/work/synchrony" "/home/me/p/work/synchrony/checkouts/ginga" "/home/me/p/work/cleanup_branches")))
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors
    (quote
@@ -223,10 +227,11 @@
  '(indent-tabs-mode nil)
  '(inf-ruby-default-implementation "pry")
  '(inferior-js-program-command "/usr/bin/js")
- '(inferior-lisp-program "clisp -ansi" t)
+ '(inferior-lisp-program "clisp -ansi")
  '(inhibit-startup-screen t)
  '(initial-scratch-message ";; Happy hacking!
 ")
+ '(js-indent-level 2)
  '(latex-run-command "pdflatex")
  '(linum-format (quote dynamic))
  '(magit-last-seen-setup-instructions "1.4.0" t)
@@ -240,7 +245,7 @@
  '(nrepl-hide-special-buffers t)
  '(package-selected-packages
    (quote
-    (nyan-mode zenburn-theme yari yaml-mode web-mode typed-clojure-mode tuareg tabbar smart-mode-line slime slim-mode skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-electric rspec-mode robe rings rinari rainbow-mode rainbow-delimiters rainbow-blocks quack osc noctilux-theme nix-mode neotree monokai-theme molokai-theme maude-mode material-theme markdown-mode magit lua-mode lorem-ipsum lispy key-chord julia-mode impatient-mode helm-themes helm-rubygems-local helm-rb helm-rails helm-package helm-nixos-options helm-mode-manager helm-ls-git helm-google helm-git-grep helm-ag haskell-mode graphviz-dot-mode glsl-mode fuzzy fold-dwim flymake-yaml flymake-shell flymake-sass flymake-ruby flymake-less flymake-json flymake-jshint flymake-cursor flymake-css flymake-coffee floobits fill-column-indicator evil-tabs evil-surround evil-space evil-paredit evil-numbers evil-nerd-commenter evil-matchit evil-leader evil-jumper evil-indent-textobject evil-exchange evil-args emmet-mode elm-mode ein editorconfig-core editorconfig company-nixos-options coffee-mode clojurescript-mode clojure-snippets clojure-cheatsheet clj-refactor bubbleberry-theme base16-theme auto-dim-other-buffers auctex ag achievements ac-cider)))
+    (dockerfile-mode groovy-mode helm-projectile helm-git helm-git-files helm-grepint helm-unicode cljr-helm helm-cider-history helm-cmd-t helm-flx helm-fuzzier helm-fuzzy-find nyan-mode zenburn-theme yari yaml-mode web-mode typed-clojure-mode tuareg tabbar smart-mode-line slime slim-mode skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-electric rspec-mode robe rings rinari rainbow-mode rainbow-delimiters rainbow-blocks quack osc noctilux-theme nix-mode neotree monokai-theme molokai-theme maude-mode material-theme markdown-mode magit lua-mode lorem-ipsum lispy key-chord julia-mode impatient-mode helm-themes helm-rubygems-local helm-rb helm-rails helm-package helm-nixos-options helm-mode-manager helm-ls-git helm-google helm-git-grep helm-ag haskell-mode graphviz-dot-mode glsl-mode fuzzy fold-dwim flymake-yaml flymake-shell flymake-sass flymake-ruby flymake-less flymake-json flymake-jshint flymake-cursor flymake-css flymake-coffee floobits fill-column-indicator evil-tabs evil-surround evil-space evil-paredit evil-numbers evil-nerd-commenter evil-matchit evil-leader evil-jumper evil-indent-textobject evil-exchange evil-args emmet-mode elm-mode ein editorconfig-core editorconfig company-nixos-options coffee-mode clojurescript-mode clojure-snippets clojure-cheatsheet bubbleberry-theme base16-theme auto-dim-other-buffers auctex ag achievements ac-cider)))
  '(powerline-color1 "#29282E")
  '(powerline-color2 "#292A24")
  '(quack-global-menu-p nil)
@@ -248,13 +253,21 @@
  '(recentf-mode t)
  '(rspec-use-rake-when-possible nil)
  '(ruby-deep-indent-paren nil)
+ '(safe-local-variable-values
+   (quote
+    ((js-indent-level . 4)
+     (ruby-compilation-executable . "ruby")
+     (ruby-compilation-executable . "ruby1.8")
+     (ruby-compilation-executable . "ruby1.9")
+     (ruby-compilation-executable . "rbx")
+     (ruby-compilation-executable . "jruby"))))
  '(save-place-file "~/.emacs.d/saved-places")
  '(savehist-mode t nil (savehist))
  '(scroll-bar-mode nil)
  '(scroll-step 1)
  '(scss-compile-at-save nil)
  '(select-active-regions nil)
- '(select-enable-clipboard nil)
+ '(select-enable-clipboard t)
  '(select-enable-primary t)
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
@@ -317,7 +330,7 @@
  '(whitespace-style
    (quote
     (face tabs trailing lines space-before-tab empty space-after-tab tab-mark)))
- '(yas-global-mode t nil (yasnippet)))
+ '(yas-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -343,14 +356,9 @@
 (global-set-key (kbd "s-+") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "s--") 'evil-numbers/dec-at-pt)
 (global-set-key (kbd "<f5>") 'helm-recentf)
-(global-set-key (kbd "<f6>") 'gpicker-set-root-and-find-file)
-(global-set-key (kbd "S-<f6>") 'gpicker-ask-project)
-(global-set-key (kbd "C-<f6>") 'gpicker-visit-project-ask-type)
-(global-set-key (kbd "C-S-<f6>") 'gpicker-set-project-type)
-(global-set-key (kbd "<f7>") 'gpicker-imenu)
-(global-set-key (kbd "S-<f7>") 'helm-imenu)
-(global-set-key (kbd "<f8>") 'gpicker-goto-tag)
-(global-set-key (kbd "S-<f8>") 'helm-etags-select)
+(global-set-key (kbd "<f6>") 'helm-projectile)
+(global-set-key (kbd "<f7>") 'helm-imenu)
+(global-set-key (kbd "<f8>") 'helm-etags-select)
 (global-set-key (kbd "<f9>") 'neotree-toggle)
 (global-set-key (kbd "M-;") 'comment-dwim-line)
 (global-set-key (kbd "M-<tab>") 'switch-to-previous-buffer)
@@ -456,40 +464,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/plugins/lojban")
 (require 'lojban-mode)
-
-;; gpicker and supermegadoc
-(require 'gpicker)
-(add-to-list 'load-path "~/.emacs.d/plugins/supermegadoc")
-(require 'supermegadoc)
-(setq *supermegadoc-browse-url-function* 'browse-url)
-
-(defun gpicker-visit-project-ask-type ()
-  (interactive)
-  (call-interactively 'gpicker-visit-project)
-  (call-interactively 'gpicker-set-project-type))
-
-(defun gpicker-set-root-and-find-file ()
-  (interactive)
-  (unless *gpicker-project-dir*
-    (gpicker-visit-project-ask-type))
-  (gpicker-find-file))
-
-(defvar *gpicker-project-dirs*)
-(setq *gpicker-project-dirs*
-  (list
-   "/home/me/p/active/fe/filemporium/"
-   "/home/me/p/active/fe/live-proxy/"
-   "/home/me/p/active/fe/tcp-multicast/"
-   "/home/me/p/active/fe/fe-nix/"
-   ))
-(setq *gpicker-project-dir* (car *gpicker-project-dirs*))
-(setq *gpicker-project-type* "guess")
-
-(defun gpicker-ask-project ()
-  (interactive)
-  (setq *gpicker-project-dir*
-        (helm-comp-read
-         "Project: " *gpicker-project-dirs*)))
 
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
@@ -612,9 +586,10 @@ Repeated invocations toggle between the two most recently open buffers."
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-(add-to-list 'load-path "/home/me/p/fork/factor/misc/fuel")
-(require 'factor-mode)
-(require 'fuel-mode)
+;; (add-to-list 'load-path "/home/me/p/fork/factor/misc/fuel")
+;; (require 'factor-mode)
+;; (require 'fuel-mode)
 
 (setq fuel-factor-root-dir "/home/me/p/fork/factor")
+
 (server-start)

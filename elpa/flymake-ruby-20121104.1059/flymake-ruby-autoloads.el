@@ -1,10 +1,10 @@
 ;;; flymake-ruby-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "flymake-ruby" "flymake-ruby.el" (21582 16262
-;;;;;;  272309 598000))
+;;;### (autoloads nil "flymake-ruby" "flymake-ruby.el" (22882 57520
+;;;;;;  321029 206000))
 ;;; Generated autoloads from flymake-ruby.el
 
 (autoload 'flymake-ruby-load "flymake-ruby" "\

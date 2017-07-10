@@ -1,10 +1,10 @@
 ;;; slim-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "slim-mode" "slim-mode.el" (21582 16352 490448
-;;;;;;  46000))
+;;;### (autoloads nil "slim-mode" "slim-mode.el" (22882 57596 535209
+;;;;;;  655000))
 ;;; Generated autoloads from slim-mode.el
 
 (autoload 'slim-mode "slim-mode" "\

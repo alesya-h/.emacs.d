@@ -1,10 +1,10 @@
 ;;; evil-args-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "evil-args" "evil-args.el" (21582 16233 740495
-;;;;;;  656000))
+;;;### (autoloads nil "evil-args" "evil-args.el" (22882 57505 312661
+;;;;;;  71000))
 ;;; Generated autoloads from evil-args.el
 
 (autoload 'evil-backward-arg "evil-args" "\

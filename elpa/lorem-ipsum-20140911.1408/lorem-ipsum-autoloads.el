@@ -1,10 +1,10 @@
 ;;; lorem-ipsum-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "lorem-ipsum" "lorem-ipsum.el" (21582 16313
-;;;;;;  478543 777000))
+;;;### (autoloads nil "lorem-ipsum" "lorem-ipsum.el" (22882 57555
+;;;;;;  624132 872000))
 ;;; Generated autoloads from lorem-ipsum.el
 
 (autoload 'lorem-ipsum-use-default-bindings "lorem-ipsum" "\

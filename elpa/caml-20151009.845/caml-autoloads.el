@@ -1,10 +1,10 @@
 ;;; caml-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "camldebug" "camldebug.el" (22053 22792 967127
-;;;;;;  321000))
+;;;### (autoloads nil "camldebug" "camldebug.el" (22882 57610 811592
+;;;;;;  31000))
 ;;; Generated autoloads from camldebug.el
 
 (defvar camldebug-command-name "ocamldebug" "\
@@ -23,7 +23,7 @@ the camldebug commands `cd DIR' and `directory'.
 ;;;### (autoloads nil nil ("caml-compat.el" "caml-emacs.el" "caml-font-old.el"
 ;;;;;;  "caml-font.el" "caml-help.el" "caml-hilit.el" "caml-pkg.el"
 ;;;;;;  "caml-types.el" "caml-xemacs.el" "caml.el" "inf-caml.el")
-;;;;;;  (22053 22792 998956 413000))
+;;;;;;  (22882 57610 819606 33000))
 
 ;;;***
 

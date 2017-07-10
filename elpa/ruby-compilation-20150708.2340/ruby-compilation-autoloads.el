@@ -1,10 +1,10 @@
 ;;; ruby-compilation-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "ruby-compilation" "ruby-compilation.el" (21922
-;;;;;;  13935 300688 976000))
+;;;### (autoloads nil "ruby-compilation" "ruby-compilation.el" (22882
+;;;;;;  57588 146131 70000))
 ;;; Generated autoloads from ruby-compilation.el
 
 (eval-after-load 'ruby-mode '(progn (define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer) (define-key ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)))

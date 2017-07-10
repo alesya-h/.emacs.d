@@ -4,8 +4,8 @@
 
 ;; Author: hadashiA <dev@hadashikick.jp>
 ;; URL: https://github.com/f-kubotar/helm-rubygems-local
-;; Version: 20130711.1811
-;; X-Original-Version: 0.0.1
+;; Package-Version: 20130711.1811
+;; Version: 0.0.1
 ;; Package-Requires: ((helm "1.5.3"))
 
 ;; This program is free software; you can redistribute it and/or modify

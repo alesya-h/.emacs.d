@@ -1,9 +1,9 @@
 ;;; osc-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "osc" "osc.el" (21582 16329 859377 855000))
+;;;### (autoloads nil "osc" "osc.el" (22882 57581 47616 228000))
 ;;; Generated autoloads from osc.el
 
 (autoload 'osc-make-client "osc" "\

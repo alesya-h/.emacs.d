@@ -1,10 +1,10 @@
 ;;; maude-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "maude-mode" "maude-mode.el" (22256 41156 888070
-;;;;;;  759000))
+;;;### (autoloads nil "maude-mode" "maude-mode.el" (22882 57576 752702
+;;;;;;  364000))
 ;;; Generated autoloads from maude-mode.el
 
 (unless (assoc "\\.maude\\'" auto-mode-alist) (add-to-list 'auto-mode-alist '("\\.maude\\'" . maude-mode)))

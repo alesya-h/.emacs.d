@@ -1,10 +1,10 @@
 ;;; helm-mode-manager-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "helm-mode-manager" "helm-mode-manager.el"
-;;;;;;  (22144 9249 394186 640000))
+;;;;;;  (22882 57539 826009 110000))
 ;;; Generated autoloads from helm-mode-manager.el
 
 (autoload 'helm-enable-minor-mode "helm-mode-manager" "\

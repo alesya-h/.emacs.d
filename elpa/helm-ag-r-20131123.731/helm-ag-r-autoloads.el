@@ -1,10 +1,10 @@
 ;;; helm-ag-r-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "helm-ag-r" "helm-ag-r.el" (21582 16288 120493
-;;;;;;  549000))
+;;;### (autoloads nil "helm-ag-r" "helm-ag-r.el" (22882 57542 280251
+;;;;;;  596000))
 ;;; Generated autoloads from helm-ag-r.el
 
 (autoload 'helm-ag-r-shell-history "helm-ag-r" "\

@@ -1,11 +1,11 @@
 ;;; lorem-ipsum.el --- Insert dummy pseudo Latin text.
-;; Version: 20140911.1408
 
 ;; Copyright (c) 2003 Jean-Philippe Theberge
 
 ;; Author: Jean-Philippe Theberge (jphil21@sourceforge.net)
 ;; Maintainer: Joe Schafer (joe@jschaf.com)
-;; Package-Version: 0.2
+;; Package-Version: 20140911.1408
+;; Package-X-Original-Version: 0.2
 ;; Keywords: tools, language, convenience
 
 ;; Special Thanks: The emacswiki users, the #emacs@freenode.net citizens

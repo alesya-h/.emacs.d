@@ -6,10 +6,10 @@
 ;;               Matthew Fidler <matthew.fidler@gmail.com>
 ;;               Michael Markert <markert.michael@gmail.com>
 ;; URL: http://github.com/cofi/evil-numbers
+;; Package-Version: 20140606.551
 ;; Git-Repository: git://github.com/cofi/evil-numbers.git
 ;; Created: 2011-09-02
-;; Version: 20140606.551
-;; X-Original-Version: 0.4
+;; Version: 0.4
 ;; Keywords: numbers increment decrement octal hex binary
 
 ;; This file is not part of GNU Emacs.

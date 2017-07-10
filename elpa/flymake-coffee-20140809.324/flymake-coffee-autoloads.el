@@ -1,10 +1,10 @@
 ;;; flymake-coffee-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "flymake-coffee" "flymake-coffee.el" (21582
-;;;;;;  16251 638318 80000))
+;;;### (autoloads nil "flymake-coffee" "flymake-coffee.el" (22882
+;;;;;;  57515 114636 45000))
 ;;; Generated autoloads from flymake-coffee.el
 
 (autoload 'flymake-coffee-load "flymake-coffee" "\

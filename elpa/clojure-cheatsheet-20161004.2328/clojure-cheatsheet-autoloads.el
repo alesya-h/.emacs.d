@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "clojure-cheatsheet" "clojure-cheatsheet.el"
-;;;;;;  (22531 30356 633562 592000))
+;;;;;;  (22882 57490 276301 18000))
 ;;; Generated autoloads from clojure-cheatsheet.el
 
 (autoload 'clojure-cheatsheet "clojure-cheatsheet" "\

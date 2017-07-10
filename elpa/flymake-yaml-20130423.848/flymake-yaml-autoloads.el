@@ -1,10 +1,10 @@
 ;;; flymake-yaml-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "flymake-yaml" "flymake-yaml.el" (21582 16266
-;;;;;;  569236 439000))
+;;;### (autoloads nil "flymake-yaml" "flymake-yaml.el" (22882 57522
+;;;;;;  622318 950000))
 ;;; Generated autoloads from flymake-yaml.el
 
 (autoload 'flymake-yaml-load "flymake-yaml" "\

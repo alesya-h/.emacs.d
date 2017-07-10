@@ -1,10 +1,10 @@
 ;;; flymake-css-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "flymake-css" "flymake-css.el" (21582 16253
-;;;;;;  485100 537000))
+;;;### (autoloads nil "flymake-css" "flymake-css.el" (22882 57515
+;;;;;;  758437 352000))
 ;;; Generated autoloads from flymake-css.el
 
 (defvar flymake-css-lint-command "csslint" "\
