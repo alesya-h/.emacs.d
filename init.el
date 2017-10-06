@@ -9,7 +9,7 @@
            ag
            auctex
            auto-complete
-           auto-dim-other-buffers
+           ;; auto-dim-other-buffers
            base16-theme
            bubbleberry-theme
            cider
@@ -49,6 +49,7 @@
            fuzzy
            glsl-mode
            graphviz-dot-mode
+           groovy-mode
            haml-mode
            haskell-mode
            helm
@@ -110,6 +111,36 @@
 (defun random-elt (lst)
   (nth (random (length lst))
        lst))
+
+(require 'base16-theme)
+
+(defvar base16-black-monokai-colors
+  '(:base00 "#000000"
+    :base01 "#383830"
+    :base02 "#49483e"
+    :base03 "#75715e"
+    :base04 "#a59f85"
+    :base05 "#f8f8f2"
+    :base06 "#f5f4f1"
+    :base07 "#f9f8f5"
+    :base08 "#f92672"
+    :base09 "#fd971f"
+    :base0A "#f4bf75"
+    :base0B "#a6e22e"
+    :base0C "#a1efe4"
+    :base0D "#66d9ef"
+    :base0E "#ae81ff"
+    :base0F "#cc6633")
+  "All colors for Base16 Black Monokai are defined here.")
+
+;; Define the theme
+(deftheme base16-black-monokai)
+;; Add all the faces to the theme
+(base16-theme-define 'base16-black-monokai base16-black-monokai-colors)
+;; Mark the theme as provided
+(provide-theme 'base16-black-monokai)
+
+
 (setq
  scratch-messages
  `(";; The best way to predict the future is to invent it. -Alan Kay"
@@ -171,7 +202,7 @@
  '(cider-repl-use-pretty-printing nil)
  '(cider-show-error-buffer nil)
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (base16-mocha)))
+ '(custom-enabled-themes (quote (base16-black-monokai)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
@@ -245,7 +276,7 @@
  '(nrepl-hide-special-buffers t)
  '(package-selected-packages
    (quote
-    (dockerfile-mode groovy-mode helm-projectile helm-git helm-git-files helm-grepint helm-unicode cljr-helm helm-cider-history helm-cmd-t helm-flx helm-fuzzier helm-fuzzy-find nyan-mode zenburn-theme yari yaml-mode web-mode typed-clojure-mode tuareg tabbar smart-mode-line slime slim-mode skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-electric rspec-mode robe rings rinari rainbow-mode rainbow-delimiters rainbow-blocks quack osc noctilux-theme nix-mode neotree monokai-theme molokai-theme maude-mode material-theme markdown-mode magit lua-mode lorem-ipsum lispy key-chord julia-mode impatient-mode helm-themes helm-rubygems-local helm-rb helm-rails helm-package helm-nixos-options helm-mode-manager helm-ls-git helm-google helm-git-grep helm-ag haskell-mode graphviz-dot-mode glsl-mode fuzzy fold-dwim flymake-yaml flymake-shell flymake-sass flymake-ruby flymake-less flymake-json flymake-jshint flymake-cursor flymake-css flymake-coffee floobits fill-column-indicator evil-tabs evil-surround evil-space evil-paredit evil-numbers evil-nerd-commenter evil-matchit evil-leader evil-jumper evil-indent-textobject evil-exchange evil-args emmet-mode elm-mode ein editorconfig-core editorconfig company-nixos-options coffee-mode clojurescript-mode clojure-snippets clojure-cheatsheet bubbleberry-theme base16-theme auto-dim-other-buffers auctex ag achievements ac-cider)))
+    (dockerfile-mode groovy-mode helm-projectile helm-git helm-git-files helm-grepint helm-unicode cljr-helm helm-cider-history helm-cmd-t helm-flx helm-fuzzier helm-fuzzy-find nyan-mode zenburn-theme yari yaml-mode web-mode typed-clojure-mode tuareg tabbar smart-mode-line slime slim-mode skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-electric rspec-mode robe rings rinari rainbow-mode rainbow-delimiters rainbow-blocks quack osc noctilux-theme nix-mode neotree monokai-theme molokai-theme maude-mode material-theme markdown-mode magit lua-mode lorem-ipsum lispy key-chord julia-mode impatient-mode helm-themes helm-rubygems-local helm-rb helm-rails helm-package helm-nixos-options helm-mode-manager helm-ls-git helm-google helm-git-grep helm-ag haskell-mode graphviz-dot-mode glsl-mode fuzzy fold-dwim flymake-yaml flymake-shell flymake-sass flymake-ruby flymake-less flymake-json flymake-jshint flymake-cursor flymake-css flymake-coffee floobits fill-column-indicator evil-tabs evil-surround evil-space evil-paredit evil-numbers evil-nerd-commenter evil-matchit evil-leader evil-jumper evil-indent-textobject evil-exchange evil-args emmet-mode elm-mode ein editorconfig-core editorconfig company-nixos-options coffee-mode clojurescript-mode clojure-snippets clojure-cheatsheet bubbleberry-theme base16-theme auctex ag achievements ac-cider)))
  '(powerline-color1 "#29282E")
  '(powerline-color2 "#292A24")
  '(quack-global-menu-p nil)
@@ -381,6 +412,7 @@
 (global-set-key (kbd "S-<up>") 'windmove-up)
 (global-set-key (kbd "S-<down>") 'windmove-down)
 (global-set-key (kbd "C-<tab>") 'ac-trigger-key-command)
+(global-set-key (kbd "s-<SPC>") 'hs-toggle-hiding)
 
 (global-evil-leader-mode)
 (evil-leader/set-key "o" 'helm-ls-git-ls)
