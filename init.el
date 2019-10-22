@@ -1,112 +1,114 @@
-(add-to-list 'load-path "~/.emacs.d/plugins" t)
 (require 'package)
-(setcdr (last package-archives)
- '(("marmalade" . "http://marmalade-repo.org/packages/")
-   ("melpa"     . "http://melpa.org/packages/")))
+(let* ((proto "https"))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ; (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  )
 (package-initialize)
-(dolist
-    (pkg '(ac-cider
-           ag
-           auctex
-           auto-complete
-           ;; auto-dim-other-buffers
-           base16-theme
-           bubbleberry-theme
-           cider
-           clj-refactor
-           clojure-mode
-           clojure-snippets
-           clojure-cheatsheet
-           clojurescript-mode
-           coffee-mode
-           editorconfig
-           elm-mode
-           emmet-mode
-           evil
-           evil-args
-           evil-exchange
-           evil-indent-textobject
-           evil-leader
-           evil-matchit
-           evil-nerd-commenter
-           evil-numbers
-           evil-paredit
-           evil-surround
-           evil-space
-           fill-column-indicator
-           flymake
-           flymake-coffee
-           flymake-css
-           flymake-cursor
-           flymake-jshint
-           flymake-json
-           flymake-less
-           flymake-ruby
-           flymake-sass
-           flymake-shell
-           flymake-yaml
-           fold-dwim
-           fuzzy
-           glsl-mode
-           graphviz-dot-mode
-           groovy-mode
-           haml-mode
-           haskell-mode
-           helm
-           helm-ag
-           helm-git-grep
-           helm-google
-           helm-ls-git
-           helm-mode-manager
-           helm-package
-           helm-projectile
-           helm-rails
-           helm-rb
-           helm-rubygems-local
-           helm-themes
-           impatient-mode ;; http://localhost:8080/imp/
-           inf-ruby
-           js2-mode
-           key-chord
-           lorem-ipsum
-           lispy
-           lua-mode
-           magit
-           markdown-mode
-           material-theme
-           maude-mode
-           molokai-theme
-           monokai-theme
-           neotree
-           osc
-           paredit
-           popup
-           quack
-           rainbow-blocks
-           rainbow-delimiters
-           rainbow-mode
-           rinari
-           rspec-mode
-           ruby-compilation
-           ruby-electric
-           ruby-hash-syntax
-           sass-mode
-           scss-mode
-           skewer-mode
-           slim-mode
-           slime
-           smart-mode-line
-           tabbar
-           tuareg
-           undo-tree
-           web-mode
-           yaml-mode
-           yari
-           yasnippet
-           zenburn-theme
-           ))
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
+
+;; (dolist
+;;     (pkg '(ac-cider
+;;            ag
+;;            auctex
+;;            auto-complete
+;;            ;; auto-dim-other-buffers
+;;            base16-theme
+;;            bubbleberry-theme
+;;            cider
+;;            clojure-mode
+;;            clojure-snippets
+;;            clojure-cheatsheet
+;;            clojurescript-mode
+;;            coffee-mode
+;;            editorconfig
+;;            elm-mode
+;;            emmet-mode
+;;            evil
+;;            evil-args
+;;            evil-exchange
+;;            evil-indent-textobject
+;;            evil-leader
+;;            evil-matchit
+;;            evil-nerd-commenter
+;;            evil-numbers
+;;            evil-surround
+;;            evil-space
+;;            extempore-mode
+;;            fill-column-indicator
+;;            flycheck
+;;            flycheck-clojure
+;;            flycheck-gometalinter
+;;            flycheck-rust
+;;            flycheck-perl6
+;;            fuzzy
+;;            glsl-mode
+;;            go-autocomplete
+;;            go-mode
+;;            go-playground
+;;            go-projectile
+;;            graphviz-dot-mode
+;;            groovy-mode
+;;            haml-mode
+;;            haskell-mode
+;;            helm
+;;            helm-ag
+;;            helm-git-grep
+;;            helm-google
+;;            helm-ls-git
+;;            helm-mode-manager
+;;            helm-package
+;;            helm-projectile
+;;            helm-rails
+;;            helm-rb
+;;            helm-rubygems-local
+;;            helm-themes
+;;            impatient-mode ;; http://localhost:8080/imp/
+;;            inf-ruby
+;;            js2-mode
+;;            key-chord
+;;            latex-preview-pane
+;;            lorem-ipsum
+;;            lua-mode
+;;            magit
+;;            markdown-mode
+;;            material-theme
+;;            maude-mode
+;;            meghanada
+;;            molokai-theme
+;;            monokai-theme
+;;            neotree
+;;            nix-mode
+;;            nixos-options
+;;            osc
+;;            perl6-mode
+;;            popup
+;;            quack
+;;            racer
+;;            rainbow-blocks
+;;            rainbow-delimiters
+;;            rainbow-mode
+;;            rinari
+;;            rspec-mode
+;;            ruby-compilation
+;;            ruby-electric
+;;            ruby-hash-syntax
+;;            rust-mode
+;;            sass-mode
+;;            scss-mode
+;;            skewer-mode
+;;            slim-mode
+;;            slime
+;;            smart-mode-line
+;;            tabbar
+;;            tuareg
+;;            undo-tree
+;;            web-mode
+;;            yaml-mode
+;;            yari
+;;            zenburn-theme
+;;            ))
+;;   (unless (package-installed-p pkg)
+;;     (package-install pkg)))
 
 (defun random-elt (lst)
   (nth (random (length lst))
@@ -200,23 +202,17 @@
  '(cider-repl-display-help-banner nil)
  '(cider-repl-print-length 30)
  '(cider-repl-use-pretty-printing nil)
- '(cider-show-error-buffer nil)
+ '(cider-show-error-buffer t)
  '(compilation-message-face (quote default))
  '(custom-enabled-themes (quote (base16-black-monokai)))
  '(custom-safe-themes t)
  '(default-input-method "russian-computer")
  '(evil-leader/leader "l")
+ '(evil-lisp-state-major-modes (quote (emacs-lisp-mode clojure-mode)))
  '(evil-mode t)
  '(evil-search-module (quote evil-search))
  '(evil-symbol-word-search t)
- '(face-font-family-alternatives
-   (quote
-    (("arial black" "arial" "DejaVu Sans")
-     ("arial" "DejaVu Sans")
-     ("courier" "Monospace")
-     ("monaco" "Monospace")
-     ("xiki" "verdana")
-     ("verdana" "DejaVu Sans"))))
+ '(evil-want-fine-undo t)
  '(fci-rule-character-color "#452E2E")
  '(fci-rule-color "#383838")
  '(fci-rule-column 100)
@@ -240,7 +236,7 @@
  '(helm-google-search-function (quote helm-google-api-search))
  '(helm-locate-project-list
    (quote
-    ("/home/me/p/work/synchrony" "/home/me/p/work/synchrony/checkouts/ginga" "/home/me/p/work/cleanup_branches")))
+    ("/home/me/p/work/synchrony-project/synchrony" "/home/me/p/work/synchrony-project/synchrony-clustering" "/home/me/p/work/synchrony-project/synchrony-server" "/home/me/p/me/nixos" "/home/me/p/work/confluence")))
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-tail-colors
    (quote
@@ -258,11 +254,11 @@
  '(indent-tabs-mode nil)
  '(inf-ruby-default-implementation "pry")
  '(inferior-js-program-command "/usr/bin/js")
- '(inferior-lisp-program "clisp -ansi")
+ '(inferior-lisp-program "sbcl --noinform --no-linedit" t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message ";; Happy hacking!
 ")
- '(js-indent-level 2)
+ '(js-indent-level 4)
  '(latex-run-command "pdflatex")
  '(linum-format (quote dynamic))
  '(magit-last-seen-setup-instructions "1.4.0" t)
@@ -270,13 +266,16 @@
  '(magit-wip-mode t)
  '(main-line-color1 "#29282E")
  '(main-line-color2 "#292A24")
+ '(meghanada-server-install-dir "~/p/fork/meghanada-server/")
  '(menu-bar-mode nil)
  '(mouse-drag-copy-region t)
  '(mouse-yank-at-point t)
+ '(neo-window-fixed-size nil)
  '(nrepl-hide-special-buffers t)
+ '(nrepl-use-ssh-fallback-for-remote-hosts t)
  '(package-selected-packages
    (quote
-    (dockerfile-mode groovy-mode helm-projectile helm-git helm-git-files helm-grepint helm-unicode cljr-helm helm-cider-history helm-cmd-t helm-flx helm-fuzzier helm-fuzzy-find nyan-mode zenburn-theme yari yaml-mode web-mode typed-clojure-mode tuareg tabbar smart-mode-line slime slim-mode skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-electric rspec-mode robe rings rinari rainbow-mode rainbow-delimiters rainbow-blocks quack osc noctilux-theme nix-mode neotree monokai-theme molokai-theme maude-mode material-theme markdown-mode magit lua-mode lorem-ipsum lispy key-chord julia-mode impatient-mode helm-themes helm-rubygems-local helm-rb helm-rails helm-package helm-nixos-options helm-mode-manager helm-ls-git helm-google helm-git-grep helm-ag haskell-mode graphviz-dot-mode glsl-mode fuzzy fold-dwim flymake-yaml flymake-shell flymake-sass flymake-ruby flymake-less flymake-json flymake-jshint flymake-cursor flymake-css flymake-coffee floobits fill-column-indicator evil-tabs evil-surround evil-space evil-paredit evil-numbers evil-nerd-commenter evil-matchit evil-leader evil-jumper evil-indent-textobject evil-exchange evil-args emmet-mode elm-mode ein editorconfig-core editorconfig company-nixos-options coffee-mode clojurescript-mode clojure-snippets clojure-cheatsheet bubbleberry-theme base16-theme auctex ag achievements ac-cider)))
+    (spiral evil-lisp-state extempore-mode julia-repl julia-shell ac-slime nixos-options latex-preview-pane go-autocomplete go-mode go-playground go-projectile racer flycheck-rust rust-mode meghanada sr-speedbar dockerfile-mode groovy-mode helm-projectile helm-git helm-git-files helm-grepint helm-unicode cljr-helm helm-cider-history helm-cmd-t helm-flx helm-fuzzier helm-fuzzy-find nyan-mode zenburn-theme yari yaml-mode web-mode typed-clojure-mode tuareg tabbar smart-mode-line slime slim-mode skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-electric rspec-mode robe rings rinari rainbow-mode rainbow-delimiters rainbow-blocks quack osc noctilux-theme nix-mode neotree monokai-theme molokai-theme maude-mode material-theme markdown-mode magit lua-mode lorem-ipsum key-chord julia-mode impatient-mode helm-themes helm-rubygems-local helm-rb helm-rails helm-package helm-nixos-options helm-mode-manager helm-ls-git helm-google helm-git-grep helm-ag haskell-mode graphviz-dot-mode glsl-mode fuzzy floobits fill-column-indicator evil-tabs evil-surround evil-space evil-paredit evil-numbers evil-nerd-commenter evil-matchit evil-leader evil-jumper evil-indent-textobject evil-exchange evil-args emmet-mode elm-mode ein editorconfig-core editorconfig company-nixos-options coffee-mode clojurescript-mode clojure-snippets bubbleberry-theme base16-theme auctex ag achievements)))
  '(powerline-color1 "#29282E")
  '(powerline-color2 "#292A24")
  '(quack-global-menu-p nil)
@@ -309,7 +308,7 @@
  '(speedbar-supported-extension-expressions
    (quote
     ("\\.rb" ".org" ".[ch]\\(\\+\\+\\|pp\\|c\\|h\\|xx\\)?" ".tex\\(i\\(nfo\\)?\\)?" ".el" ".emacs" ".l" ".lsp" ".p" ".java" ".js" ".f\\(90\\|77\\|or\\)?" ".ada" ".p[lm]" ".tcl" ".m" ".scm" ".pm" ".py" ".g" ".s?html" ".ma?k" "[Mm]akefile\\(\\.in\\)?" ".")))
- '(split-width-threshold 100500)
+ '(sr-speedbar-right-side nil)
  '(syslog-debug-face
    (quote
     ((t :background unspecified :foreground "#2aa198" :weight bold))))
@@ -369,28 +368,36 @@
  ;; If there is more than one, they won't work right.
  )
 
+(require 'dired) ;; sometimes helm-projectile fails without it (9/10/2017). check if it's still the case
+
 (require 'clojure-mode)
 
 (sml/setup)
+(latex-preview-pane-enable)
 
 (put 'narrow-to-page 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
 (setq warning-suppress-types nil)
 
 (evil-mode t)
+(fset 'evil-visual-update-x-selection 'ignore) ; fixes visual mode selection overwriting kill-ring
 
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.nix$" . nix-mode))
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-+") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "s--") 'evil-numbers/dec-at-pt)
 (global-set-key (kbd "<f5>") 'helm-recentf)
+(global-set-key (kbd "C-<f6>") 'helm-ls-git-ls)
 (global-set-key (kbd "<f6>") 'helm-projectile)
+(global-set-key (kbd "S-<f6>") 'helm-projectile-switch-project)
 (global-set-key (kbd "<f7>") 'helm-imenu)
 (global-set-key (kbd "<f8>") 'helm-etags-select)
 (global-set-key (kbd "<f9>") 'neotree-toggle)
+(global-set-key (kbd "S-<f9>") 'sr-speedbar-toggle)
 (global-set-key (kbd "M-;") 'comment-dwim-line)
 (global-set-key (kbd "M-<tab>") 'switch-to-previous-buffer)
 (global-set-key (kbd "<home>") 'smart-beginning-of-line)
@@ -399,14 +406,13 @@
 ;; (global-set-key (kbd "C-<left>") #'(lambda () (interactive) (backward-char 5)))
 (global-set-key (kbd "C-<up>") #'(lambda () (interactive) (previous-line 3)))
 (global-set-key (kbd "C-<down>") #'(lambda () (interactive) (next-line 3)))
-(global-set-key (kbd "C-<SPC>") 'fold-dwim-toggle)
-(global-set-key (kbd "C-S-<SPC>") 'fold-dwim-toggle-selective-display)
 (global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "<mouse-6>") #'(lambda () (interactive) (scroll-right 1)))
 (global-set-key (kbd "<mouse-7>") #'(lambda () (interactive) (scroll-left 1)))
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
+;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'ido-switch-buffer)
 (global-set-key (kbd "S-<left>") 'windmove-left)
 (global-set-key (kbd "S-<right>") 'windmove-right)
 (global-set-key (kbd "S-<up>") 'windmove-up)
@@ -439,10 +445,15 @@
 (define-key clojure-mode-map (kbd "C-<return>") 'cider-pprint-eval-last-sexp)
 (define-key clojure-mode-map (kbd "C-S-<return>") 'cider-eval-buffer)
 (define-key clojure-mode-map (kbd "S-<return>") 'cider-eval-last-sexp)
+;(define-key cider-repl-mode-map (kbd "C-c M-b") 'cider-repl-clear-buffer)
+
 
 (define-key ruby-mode-map (kbd "C-<return>") 'ruby-send-last-sexp)
 (define-key ruby-mode-map (kbd "C-S-<return>") 'ruby-send-region)
 (define-key ruby-mode-map (kbd "S-<return>") 'ruby-send-block)
+
+(define-key global-map (kbd "<C-next>") 'tabbar-forward-tab)
+(define-key global-map (kbd "<C-prior>") 'tabbar-backward-tab)
 
 (require 'helm)
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
@@ -457,6 +468,15 @@
 
 ;; (defun cider-format-pprint-eval (form &optional right-margin)
 ;;   form)
+
+(defun edit-config ()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+(require 'projectile)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+; This allows to use C-c p t to switch between impl and test files
+(projectile-mode +1)
 
 (defun tabbar-goto-first-tab ()
   (interactive)
@@ -478,7 +498,6 @@
 
 ;; UI stuff goes here
 
-(require 'fold-dwim)
 (require 'uniquify)  ; add partial path to buffer name when identical filenames
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -493,9 +512,6 @@
        "Window '%s' is dedicated"
      "Window '%s' is normal")
    (current-buffer)))
-
-(add-to-list 'load-path "~/.emacs.d/plugins/lojban")
-(require 'lojban-mode)
 
 (defun smart-beginning-of-line ()
   "Move point to first non-whitespace character or beginning-of-line.
@@ -543,15 +559,7 @@ Repeated invocations toggle between the two most recently open buffers."
             (make-local-variable 'ac-ignores)
             (add-to-list 'ac-ignores "end")))
 
-(add-hook 'clojure-mode-hook
-          (lambda () (eldoc-mode -1)))
-
-;; asy-mode, lasy-mode,
-(add-to-list 'load-path "/usr/share/texmf-dist/asymptote/")
-(autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
-(autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
-(autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
-(add-to-list 'auto-mode-alist '("\\.asy$" . asy-mode))
+(add-hook 'clojure-mode-hook #'eldoc-mode)
 
 ;; tex-mode
 (add-hook 'tex-mode-hook 'auto-fill-mode)
@@ -618,10 +626,13 @@ Repeated invocations toggle between the two most recently open buffers."
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-;; (add-to-list 'load-path "/home/me/p/fork/factor/misc/fuel")
-;; (require 'factor-mode)
-;; (require 'fuel-mode)
+
+(require 'evil-lisp-state)
+(evil-lisp-state-leader ", l")
+
 
 (setq fuel-factor-root-dir "/home/me/p/fork/factor")
+
+(add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
 
 (server-start)

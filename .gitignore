@@ -5,6 +5,7 @@ tramp
 /history
 /image-dired/
 /eshell
-/plugins/ensime
 saved-places
 menu_log.notes
+/projectile-bookmarks.eld
+/recentf
